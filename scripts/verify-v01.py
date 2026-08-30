@@ -73,14 +73,18 @@ def main() -> None:
         fail("collector missing Visitor")
     if "The Vault" not in col:
         fail("collector missing vault")
-    if ".env.local" not in col and "API key" not in col:
-        fail("collector missing indexer note")
+    if "Nothing in this wallet" in col or "This wallet holds" in col:
+        ok("GET collector holdings copy")
+    elif ".env.local" in col or "API key" in col:
+        ok("GET collector indexer note")
+    else:
+        fail("collector missing holdings copy or indexer note")
     if "—" in col or "–" in col:
         fail("emdash on collector")
     dimmed = col.count("opacity-35")
     if dimmed < n - 6:
         fail(f"dimmed rows {dimmed} catalog {n}")
-    ok(f"GET collector Visitor dimmed={dimmed}")
+    ok(f"GET collector dimmed={dimmed}")
 
     bad_status, bad = fetch(BAD)
     if bad_status != 404:
