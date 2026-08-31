@@ -1,4 +1,4 @@
-import { getAddress, isAddress, erc1155Abi } from "viem";
+import { getAddress, isAddress, erc1155Abi, erc721Abi } from "viem";
 import { normalize } from "viem/ens";
 import { createPublicClient, http } from "viem";
 import { mainnet, polygon } from "viem/chains";
@@ -27,7 +27,7 @@ const ERC1155_CONTRACTS = new Set<string>([
 export type EtherscanHoldingsKind =
   | "opensea-1155"
   | "erc1155-catalog"
-  | "erc721-inventory";
+  | "erc721-catalog";
 
 export function etherscanHoldingsKind(
   contract: string,
@@ -39,7 +39,7 @@ export function etherscanHoldingsKind(
   if (ERC1155_CONTRACTS.has(contract)) {
     return "erc1155-catalog";
   }
-  return "erc721-inventory";
+  return "erc721-catalog";
 }
 
 export function hasErc1155Balance(balance: bigint): boolean {
@@ -134,13 +134,6 @@ async function alchemyHoldings(opts: {
   return held;
 }
 
-type EtherscanRow = {
-  TokenAddress?: string;
-  tokenAddress?: string;
-  TokenId?: string;
-  tokenId?: string;
-};
-
 type Etherscan1155Tx = {
   from?: string;
   to?: string;
@@ -178,18 +171,22 @@ async function etherscanRequest(
   return body.result;
 }
 
+function catalogTokensOn(contract: string, chain: ChainName) {
+  return getCatalog().filter(
+    (work) =>
+      work.resolved &&
+      work.contract === contract &&
+      work.chain === chain &&
+      work.tokenId,
+  );
+}
+
 async function erc1155CatalogBalances(opts: {
   address: Address;
   chain: ChainName;
   contract: string;
 }): Promise<HeldWork[]> {
-  const tokens = getCatalog().filter(
-    (work) =>
-      work.resolved &&
-      work.contract === opts.contract &&
-      work.chain === opts.chain &&
-      work.tokenId,
-  );
+  const tokens = catalogTokensOn(opts.contract, opts.chain);
   if (tokens.length === 0) return [];
 
   const client = publicClientFor(opts.chain);
@@ -211,6 +208,49 @@ async function erc1155CatalogBalances(opts: {
     for (let j = 0; j < results.length; j++) {
       const result = results[j];
       if (result.status !== "success" || !hasErc1155Balance(result.result)) continue;
+      const work = batch[j];
+      held.push(
+        toHeldWork({
+          contract: opts.contract,
+          tokenId: work.tokenId!,
+          chain: opts.chain,
+        }),
+      );
+    }
+  }
+
+  return held;
+}
+
+async function erc721CatalogOwners(opts: {
+  address: Address;
+  chain: ChainName;
+  contract: string;
+}): Promise<HeldWork[]> {
+  const tokens = catalogTokensOn(opts.contract, opts.chain);
+  if (tokens.length === 0) return [];
+
+  const client = publicClientFor(opts.chain);
+  const contract = opts.contract as `0x${string}`;
+  const owner = opts.address.toLowerCase();
+  const held: HeldWork[] = [];
+
+  for (let i = 0; i < tokens.length; i += 50) {
+    const batch = tokens.slice(i, i + 50);
+    const results = await client.multicall({
+      allowFailure: true,
+      contracts: batch.map((work) => ({
+        address: contract,
+        abi: erc721Abi,
+        functionName: "ownerOf",
+        args: [BigInt(work.tokenId!)],
+      })),
+    });
+
+    for (let j = 0; j < results.length; j++) {
+      const result = results[j];
+      if (result.status !== "success") continue;
+      if (result.result.toLowerCase() !== owner) continue;
       const work = batch[j];
       held.push(
         toHeldWork({
@@ -286,48 +326,6 @@ async function opensea1155FromEtherscan(opts: {
   return held;
 }
 
-async function etherscanErc721Inventory(opts: {
-  address: Address;
-  chain: ChainName;
-  contract: string;
-  apiKey: string;
-}): Promise<HeldWork[]> {
-  const chainId = opts.chain === "polygon" ? "137" : "1";
-  const result = await etherscanRequest(
-    {
-      chainid: chainId,
-      module: "account",
-      action: "addresstokennftinventory",
-      address: opts.address,
-      contractaddress: opts.contract,
-      page: "1",
-      offset: "1000",
-    },
-    opts.apiKey,
-  );
-  const rows = Array.isArray(result) ? (result as EtherscanRow[]) : [];
-  const held: HeldWork[] = [];
-
-  for (const row of rows) {
-    const tokenContract = (
-      row.TokenAddress ?? row.tokenAddress ?? opts.contract
-    ).toLowerCase();
-    const rawId = row.TokenId ?? row.tokenId;
-    if (!rawId) continue;
-    const tokenId = BigInt(rawId).toString();
-    if (!tokenAllowed(tokenContract, tokenId)) continue;
-    held.push(
-      toHeldWork({
-        contract: tokenContract,
-        tokenId,
-        chain: opts.chain,
-      }),
-    );
-  }
-
-  return held;
-}
-
 async function etherscanHoldings(opts: {
   address: Address;
   chain: ChainName;
@@ -371,11 +369,10 @@ async function etherscanHoldings(opts: {
       }
 
       held.push(
-        ...(await etherscanErc721Inventory({
+        ...(await erc721CatalogOwners({
           address: opts.address,
           chain: opts.chain,
           contract,
-          apiKey: opts.apiKey,
         })),
       );
     } catch {

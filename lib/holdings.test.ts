@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   BLACK_DAVE_TOKEN,
+  MINT_SONGS,
   OPENSEA_SHARED,
   RARIBLE_1155,
   RARIBLE_721,
@@ -29,10 +30,14 @@ test("Rarible 1155 uses catalog RPC balances", () => {
   );
 });
 
-test("Rarible 721 stays on NFT inventory", () => {
+test("Mint Songs and Rarible 721 use catalog ownerOf, not the PRO inventory endpoint", () => {
+  assert.equal(
+    etherscanHoldingsKind(MINT_SONGS, "ethereum"),
+    "erc721-catalog",
+  );
   assert.equal(
     etherscanHoldingsKind(RARIBLE_721, "ethereum"),
-    "erc721-inventory",
+    "erc721-catalog",
   );
 });
 
