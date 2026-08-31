@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   BLACK_DAVE_TOKEN,
+  CATALOG_RECORD,
+  CATALOG_ZORA,
   MANGA_QUOTES,
   MINT_SONGS,
   OPENSEA_SHARED,
@@ -30,6 +32,11 @@ test("Rarible 0x60f8 is ERC-721 even though the PRD called it 1155", () => {
 test("Mint Songs and Manga Quotes are ERC-721", () => {
   assert.equal(catalogTokenStandard(MINT_SONGS), "erc721");
   assert.equal(catalogTokenStandard(MANGA_QUOTES), "erc721");
+});
+
+test("Catalog Zora and RECORD contracts are ERC-721", () => {
+  assert.equal(catalogTokenStandard(CATALOG_ZORA), "erc721");
+  assert.equal(catalogTokenStandard(CATALOG_RECORD), "erc721");
 });
 
 test("zero ERC-1155 balance is not held (bigint 0n is not number 0)", () => {

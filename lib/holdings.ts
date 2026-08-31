@@ -1,14 +1,23 @@
-import { getAddress, isAddress, erc1155Abi, erc721Abi, fallback, http } from "viem";
+import {
+  getAddress,
+  isAddress,
+  erc1155Abi,
+  erc20Abi,
+  erc721Abi,
+  fallback,
+  http,
+} from "viem";
 import { normalize } from "viem/ens";
 import { createPublicClient } from "viem";
 import { mainnet, polygon } from "viem/chains";
 import {
   BLACK_DAVE_TOKEN,
+  FRACTIONAL_HOLDINGS,
   OPENSEA_SHARED,
   RARIBLE_721,
   TOKEN_ALLOWLIST,
 } from "./contracts";
-import { getCatalog, matchHeldWork } from "./catalog";
+import { getCatalog, getWorkById, matchHeldWork } from "./catalog";
 import { isBlackDaveOpenSeaToken } from "./opensea-tokens";
 import type { Address, ChainName, HeldWork, Holdings, Work } from "./types";
 
@@ -221,9 +230,34 @@ async function erc721CatalogOwners(opts: {
   return held;
 }
 
+async function fractionalCatalogHoldings(address: Address): Promise<HeldWork[]> {
+  const client = publicClientFor("ethereum");
+  const held: HeldWork[] = [];
+
+  for (const row of FRACTIONAL_HOLDINGS) {
+    const work = getWorkById(row.workId);
+    if (!work?.resolved) continue;
+
+    try {
+      const balance = await client.readContract({
+        address: row.token as `0x${string}`,
+        abi: erc20Abi,
+        functionName: "balanceOf",
+        args: [address as `0x${string}`],
+      });
+      if (balance <= 0n) continue;
+      held.push({ kind: "catalogued", work });
+    } catch {
+      continue;
+    }
+  }
+
+  return held;
+}
+
 async function catalogHoldings(address: Address): Promise<HeldWork[]> {
-  const results = await Promise.all(
-    resolvedContractGroups().map(async (group) => {
+  const results = await Promise.all([
+    ...resolvedContractGroups().map(async (group) => {
       try {
         if (catalogTokenStandard(group.contract) === "erc1155") {
           return await erc1155CatalogBalances({ address, ...group });
@@ -233,7 +267,8 @@ async function catalogHoldings(address: Address): Promise<HeldWork[]> {
         return [];
       }
     }),
-  );
+    fractionalCatalogHoldings(address),
+  ]);
   return results.flat();
 }
 

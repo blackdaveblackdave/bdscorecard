@@ -21,6 +21,24 @@ export const MANGA_QUOTES =
 export const BLACK_DAVE_TOKEN =
   "0xafd17cb86d7cd086fc720365e873469ebcb103da" as const;
 
+/** Legacy Catalog mints on Zora (pre-RECORD). */
+export const CATALOG_ZORA =
+  "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7" as const;
+
+/** Catalog shared ERC-721 (RECORD). */
+export const CATALOG_RECORD =
+  "0x0bc2a24ce568dad89691116d5b34deb6c203f342" as const;
+
+/** Fractional ownership token for Sharp (PartyBid / Fractional vault). */
+export const SHRP_TOKEN =
+  "0x4b7845f1f6e7046c3e1bf050a629ee8d59eb437f" as const;
+
+export const FRACTIONAL_HOLDINGS: ReadonlyArray<{
+  workId: string;
+  token: string;
+  chain: "ethereum";
+}> = [{ workId: "bd-sharp", token: SHRP_TOKEN, chain: "ethereum" }];
+
 export const TOKEN_ALLOWLIST: ReadonlyArray<{
   contract: string;
   tokenId: string;
@@ -37,6 +55,8 @@ export const ETHEREUM_CONTRACTS = [
   RARIBLE_1155,
   RARIBLE_721,
   BLACK_DAVE_TOKEN,
+  CATALOG_ZORA,
+  CATALOG_RECORD,
 ] as const;
 
 export const POLYGON_CONTRACTS = [MANGA_QUOTES] as const;
