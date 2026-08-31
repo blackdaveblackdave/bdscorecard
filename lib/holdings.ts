@@ -46,6 +46,10 @@ export function hasErc1155Balance(balance: bigint): boolean {
   return balance > 0n;
 }
 
+export function isErc721Owner(owner: string, tokenOwner: string | bigint): boolean {
+  return typeof tokenOwner === "string" && tokenOwner.toLowerCase() === owner;
+}
+
 export function parseAddress(input: string): Address | null {
   if (!isAddress(input)) return null;
   return getAddress(input) as Address;
@@ -249,8 +253,7 @@ async function erc721CatalogOwners(opts: {
 
     for (let j = 0; j < results.length; j++) {
       const result = results[j];
-      if (result.status !== "success") continue;
-      if (result.result.toLowerCase() !== owner) continue;
+      if (result.status !== "success" || !isErc721Owner(owner, result.result)) continue;
       const work = batch[j];
       held.push(
         toHeldWork({
