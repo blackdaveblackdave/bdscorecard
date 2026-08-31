@@ -258,7 +258,7 @@ def main() -> None:
             elif "token.blackdave.xyz" in url:
                 contract = BLACK_DAVE_TOKEN
                 chain = "ethereum"
-                token_id = "0"
+                token_id = "1"
             elif "polygon" in url and MANGA_QUOTES in url.lower():
                 contract = MANGA_QUOTES
                 chain = "polygon"

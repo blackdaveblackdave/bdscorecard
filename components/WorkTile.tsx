@@ -86,13 +86,14 @@ export function WorkMeta(props: { work: Work }) {
 
 function TileMotion(props: { children: ReactNode; className?: string }) {
   const reduce = useReducedMotion();
+  // Animate on mount, not whileInView. IntersectionObserver can miss
+  // SSR/hydration cases and leave tiles stuck at opacity 0 forever.
   return (
     <motion.div
       className={props.className}
-      initial={reduce ? false : { opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      initial={reduce ? false : { y: 12 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
     >
       {props.children}
     </motion.div>

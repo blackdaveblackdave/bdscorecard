@@ -2,43 +2,34 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   BLACK_DAVE_TOKEN,
+  MANGA_QUOTES,
   MINT_SONGS,
   OPENSEA_SHARED,
   RARIBLE_1155,
   RARIBLE_721,
 } from "./contracts";
-import { etherscanHoldingsKind, hasErc1155Balance, isErc721Owner } from "./holdings";
+import {
+  catalogTokenStandard,
+  hasErc1155Balance,
+  isErc721Owner,
+} from "./holdings";
 
-test("Black Dave Token is ERC-1155, not ERC-20", () => {
-  assert.equal(
-    etherscanHoldingsKind(BLACK_DAVE_TOKEN, "ethereum"),
-    "erc1155-catalog",
-  );
+test("OpenSea shared storefront and Black Dave Token are ERC-1155", () => {
+  assert.equal(catalogTokenStandard(OPENSEA_SHARED), "erc1155");
+  assert.equal(catalogTokenStandard(BLACK_DAVE_TOKEN), "erc1155");
 });
 
-test("OpenSea shared storefront uses transfer history on Ethereum", () => {
-  assert.equal(
-    etherscanHoldingsKind(OPENSEA_SHARED, "ethereum"),
-    "opensea-1155",
-  );
+test("Rarible 0xd07d is ERC-1155 even though the PRD called it 721", () => {
+  assert.equal(catalogTokenStandard(RARIBLE_721), "erc1155");
 });
 
-test("Rarible 1155 uses catalog RPC balances", () => {
-  assert.equal(
-    etherscanHoldingsKind(RARIBLE_1155, "ethereum"),
-    "erc1155-catalog",
-  );
+test("Rarible 0x60f8 is ERC-721 even though the PRD called it 1155", () => {
+  assert.equal(catalogTokenStandard(RARIBLE_1155), "erc721");
 });
 
-test("Mint Songs and Rarible 721 use catalog ownerOf, not the PRO inventory endpoint", () => {
-  assert.equal(
-    etherscanHoldingsKind(MINT_SONGS, "ethereum"),
-    "erc721-catalog",
-  );
-  assert.equal(
-    etherscanHoldingsKind(RARIBLE_721, "ethereum"),
-    "erc721-catalog",
-  );
+test("Mint Songs and Manga Quotes are ERC-721", () => {
+  assert.equal(catalogTokenStandard(MINT_SONGS), "erc721");
+  assert.equal(catalogTokenStandard(MANGA_QUOTES), "erc721");
 });
 
 test("zero ERC-1155 balance is not held (bigint 0n is not number 0)", () => {

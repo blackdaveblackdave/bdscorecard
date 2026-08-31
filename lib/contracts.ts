@@ -7,9 +7,11 @@ export const OPENSEA_SHARED =
 export const MINT_SONGS =
   "0x2b5426a5b98a3e366230eba9f95a24f09ae4a584" as const;
 
+/** Rarible ERC-721. PRD labeled this ERC-1155. */
 export const RARIBLE_1155 =
   "0x60f80121c31a0d46b5279700f9df786054aa5ee5" as const;
 
+/** Rarible ERC-1155. PRD labeled this ERC-721. */
 export const RARIBLE_721 =
   "0xd07dc4262bcdbf85190c01c996b4c06a461d2430" as const;
 

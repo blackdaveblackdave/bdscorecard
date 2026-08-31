@@ -102,7 +102,7 @@ def main() -> None:
         ):
             contract = BLACK_DAVE_TOKEN
             chain = "ethereum"
-            token_id = token_id or "0"
+            token_id = token_id or "1"
             resolved = True
 
         if contract == MANGA_QUOTES:

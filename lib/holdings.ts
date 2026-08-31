@@ -1,13 +1,11 @@
-import { getAddress, isAddress, erc1155Abi, erc721Abi } from "viem";
+import { getAddress, isAddress, erc1155Abi, erc721Abi, fallback, http } from "viem";
 import { normalize } from "viem/ens";
-import { createPublicClient, http } from "viem";
+import { createPublicClient } from "viem";
 import { mainnet, polygon } from "viem/chains";
 import {
   BLACK_DAVE_TOKEN,
-  ETHEREUM_CONTRACTS,
   OPENSEA_SHARED,
-  POLYGON_CONTRACTS,
-  RARIBLE_1155,
+  RARIBLE_721,
   TOKEN_ALLOWLIST,
 } from "./contracts";
 import { getCatalog, matchHeldWork } from "./catalog";
@@ -18,28 +16,19 @@ const allowlist = new Set(
   TOKEN_ALLOWLIST.map((row) => `${row.contract}:${row.tokenId}`),
 );
 
-const ERC1155_CONTRACTS = new Set<string>([
-  OPENSEA_SHARED,
-  RARIBLE_1155,
-  BLACK_DAVE_TOKEN,
-]);
+export type TokenStandard = "erc721" | "erc1155";
 
-export type EtherscanHoldingsKind =
-  | "opensea-1155"
-  | "erc1155-catalog"
-  | "erc721-catalog";
-
-export function etherscanHoldingsKind(
-  contract: string,
-  chain: ChainName,
-): EtherscanHoldingsKind {
-  if (contract === OPENSEA_SHARED && chain === "ethereum") {
-    return "opensea-1155";
+export function catalogTokenStandard(contract: string): TokenStandard {
+  // 0xd07d is Rarible's ERC-1155; 0x60f8 is Rarible's ERC-721.
+  // Constant names follow the PRD labels, which swapped those two.
+  if (
+    contract === OPENSEA_SHARED ||
+    contract === RARIBLE_721 ||
+    contract === BLACK_DAVE_TOKEN
+  ) {
+    return "erc1155";
   }
-  if (ERC1155_CONTRACTS.has(contract)) {
-    return "erc1155-catalog";
-  }
-  return "erc721-catalog";
+  return "erc721";
 }
 
 export function hasErc1155Balance(balance: bigint): boolean {
@@ -100,79 +89,30 @@ function toHeldWork(opts: {
   };
 }
 
-async function alchemyHoldings(opts: {
-  address: Address;
-  chain: ChainName;
-  contracts: readonly string[];
-  apiKey: string;
-}): Promise<HeldWork[]> {
-  const held: HeldWork[] = [];
-  let pageKey: string | undefined;
-  const base = `https://${alchemyNetwork(opts.chain)}.g.alchemy.com/nft/v3/${opts.apiKey}/getNFTsForOwner`;
-
-  do {
-    const url = new URL(base);
-    url.searchParams.set("owner", opts.address);
-    url.searchParams.set("withMetadata", "false");
-    url.searchParams.set("pageSize", "100");
-    for (const contract of opts.contracts) {
-      url.searchParams.append("contractAddresses[]", contract);
-    }
-    if (pageKey) url.searchParams.set("pageKey", pageKey);
-
-    const res = await fetch(url, { next: { revalidate: 60 } });
-    if (!res.ok) {
-      throw new Error(`Alchemy ${opts.chain} ${res.status}`);
-    }
-    const body = (await res.json()) as AlchemyPage;
-    for (const nft of body.ownedNfts ?? []) {
-      const contract = nft.contract?.address?.toLowerCase();
-      const tokenId = nft.tokenId ? BigInt(nft.tokenId).toString() : "";
-      if (!contract || !tokenId) continue;
-      if (!tokenAllowed(contract, tokenId)) continue;
-      held.push(toHeldWork({ contract, tokenId, chain: opts.chain }));
-    }
-    pageKey = body.pageKey;
-  } while (pageKey);
-
-  return held;
-}
-
-type Etherscan1155Tx = {
-  from?: string;
-  to?: string;
-  tokenID?: string;
-  tokenValue?: string;
-};
-
 function publicClientFor(chain: ChainName) {
+  const alchemy = process.env.ALCHEMY_API_KEY ?? "";
+  const transports = [];
+  if (alchemy) {
+    transports.push(
+      http(
+        chain === "polygon"
+          ? `https://polygon-mainnet.g.alchemy.com/v2/${alchemy}`
+          : `https://eth-mainnet.g.alchemy.com/v2/${alchemy}`,
+      ),
+    );
+  }
+  transports.push(
+    http(
+      chain === "polygon"
+        ? "https://polygon-bor-rpc.publicnode.com"
+        : "https://ethereum.publicnode.com",
+    ),
+  );
+  transports.push(http());
   return createPublicClient({
     chain: chain === "polygon" ? polygon : mainnet,
-    transport: http(),
+    transport: fallback(transports),
   });
-}
-
-async function etherscanRequest(
-  params: Record<string, string>,
-  apiKey: string,
-): Promise<unknown> {
-  const url = new URL("https://api.etherscan.io/v2/api");
-  for (const [key, value] of Object.entries(params)) {
-    url.searchParams.set(key, value);
-  }
-  url.searchParams.set("apikey", apiKey);
-
-  const res = await fetch(url, { next: { revalidate: 60 } });
-  if (!res.ok) {
-    throw new Error(`Etherscan HTTP ${res.status}`);
-  }
-  const body = (await res.json()) as { status?: string; message?: string; result?: unknown };
-  if (body.status !== "1") {
-    const detail =
-      typeof body.result === "string" ? body.result : body.message ?? "NOTOK";
-    throw new Error(`Etherscan ${detail}`);
-  }
-  return body.result;
 }
 
 function catalogTokensOn(contract: string, chain: ChainName) {
@@ -183,6 +123,19 @@ function catalogTokensOn(contract: string, chain: ChainName) {
       work.chain === chain &&
       work.tokenId,
   );
+}
+
+function resolvedContractGroups(): { contract: string; chain: ChainName }[] {
+  const seen = new Set<string>();
+  const groups: { contract: string; chain: ChainName }[] = [];
+  for (const work of getCatalog()) {
+    if (!work.resolved || !work.contract || !work.chain || !work.tokenId) continue;
+    const key = `${work.chain}:${work.contract}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    groups.push({ contract: work.contract, chain: work.chain });
+  }
+  return groups;
 }
 
 async function erc1155CatalogBalances(opts: {
@@ -268,12 +221,91 @@ async function erc721CatalogOwners(opts: {
   return held;
 }
 
-async function opensea1155FromEtherscan(opts: {
+async function catalogHoldings(address: Address): Promise<HeldWork[]> {
+  const results = await Promise.all(
+    resolvedContractGroups().map(async (group) => {
+      try {
+        if (catalogTokenStandard(group.contract) === "erc1155") {
+          return await erc1155CatalogBalances({ address, ...group });
+        }
+        return await erc721CatalogOwners({ address, ...group });
+      } catch {
+        return [];
+      }
+    }),
+  );
+  return results.flat();
+}
+
+type Etherscan1155Tx = {
+  from?: string;
+  to?: string;
+  tokenID?: string;
+};
+
+async function etherscanRequest(
+  params: Record<string, string>,
+  apiKey: string,
+): Promise<unknown> {
+  const url = new URL("https://api.etherscan.io/v2/api");
+  for (const [key, value] of Object.entries(params)) {
+    url.searchParams.set(key, value);
+  }
+  url.searchParams.set("apikey", apiKey);
+
+  const res = await fetch(url, { next: { revalidate: 60 } });
+  if (!res.ok) {
+    throw new Error(`Etherscan HTTP ${res.status}`);
+  }
+  const body = (await res.json()) as { status?: string; message?: string; result?: unknown };
+  if (body.status !== "1") {
+    const detail =
+      typeof body.result === "string" ? body.result : body.message ?? "NOTOK";
+    throw new Error(`Etherscan ${detail}`);
+  }
+  return body.result;
+}
+
+async function alchemyOpenSeaNfts(opts: {
+  address: Address;
+  apiKey: string;
+}): Promise<HeldWork[]> {
+  const held: HeldWork[] = [];
+  let pageKey: string | undefined;
+  const base = `https://${alchemyNetwork("ethereum")}.g.alchemy.com/nft/v3/${opts.apiKey}/getNFTsForOwner`;
+
+  do {
+    const url = new URL(base);
+    url.searchParams.set("owner", opts.address);
+    url.searchParams.set("withMetadata", "false");
+    url.searchParams.set("pageSize", "100");
+    url.searchParams.append("contractAddresses[]", OPENSEA_SHARED);
+    if (pageKey) url.searchParams.set("pageKey", pageKey);
+
+    const res = await fetch(url, { next: { revalidate: 60 } });
+    if (!res.ok) {
+      throw new Error(`Alchemy ethereum ${res.status}`);
+    }
+    const body = (await res.json()) as AlchemyPage;
+    for (const nft of body.ownedNfts ?? []) {
+      const contract = nft.contract?.address?.toLowerCase();
+      const tokenId = nft.tokenId ? BigInt(nft.tokenId).toString() : "";
+      if (!contract || !tokenId) continue;
+      if (!tokenAllowed(contract, tokenId)) continue;
+      held.push(toHeldWork({ contract, tokenId, chain: "ethereum" }));
+    }
+    pageKey = body.pageKey;
+  } while (pageKey);
+
+  return held;
+}
+
+async function etherscanOpenSeaNfts(opts: {
   address: Address;
   apiKey: string;
 }): Promise<HeldWork[]> {
   const owner = opts.address.toLowerCase();
-  const balances = new Map<string, number>();
+  const seen = new Set<string>();
   let page = 1;
 
   while (true) {
@@ -297,17 +329,8 @@ async function opensea1155FromEtherscan(opts: {
       const rawId = row.tokenID;
       if (!rawId) continue;
       const tokenId = BigInt(rawId).toString();
-      const amount = Number.parseInt(row.tokenValue ?? "1", 10);
-      if (!Number.isFinite(amount) || amount <= 0) continue;
-
-      const from = row.from?.toLowerCase();
-      const to = row.to?.toLowerCase();
-      if (to === owner) {
-        balances.set(tokenId, (balances.get(tokenId) ?? 0) + amount);
-      }
-      if (from === owner) {
-        balances.set(tokenId, (balances.get(tokenId) ?? 0) - amount);
-      }
+      if (row.to?.toLowerCase() === owner) seen.add(tokenId);
+      if (row.from?.toLowerCase() === owner) seen.delete(tokenId);
     }
 
     if (rows.length < 1000) break;
@@ -315,8 +338,7 @@ async function opensea1155FromEtherscan(opts: {
   }
 
   const held: HeldWork[] = [];
-  for (const [tokenId, balance] of balances) {
-    if (balance <= 0) continue;
+  for (const tokenId of seen) {
     if (!tokenAllowed(OPENSEA_SHARED, tokenId)) continue;
     held.push(
       toHeldWork({
@@ -329,61 +351,18 @@ async function opensea1155FromEtherscan(opts: {
   return held;
 }
 
-async function etherscanHoldings(opts: {
-  address: Address;
-  chain: ChainName;
-  contracts: readonly string[];
-  apiKey: string;
-}): Promise<HeldWork[]> {
-  const held: HeldWork[] = [];
-
-  for (const contract of opts.contracts) {
-    const kind = etherscanHoldingsKind(contract, opts.chain);
-    try {
-      if (kind === "opensea-1155") {
-        try {
-          held.push(
-            ...(await opensea1155FromEtherscan({
-              address: opts.address,
-              apiKey: opts.apiKey,
-            })),
-          );
-        } catch {
-          held.push(
-            ...(await erc1155CatalogBalances({
-              address: opts.address,
-              chain: opts.chain,
-              contract,
-            })),
-          );
-        }
-        continue;
-      }
-
-      if (kind === "erc1155-catalog") {
-        held.push(
-          ...(await erc1155CatalogBalances({
-            address: opts.address,
-            chain: opts.chain,
-            contract,
-          })),
-        );
-        continue;
-      }
-
-      held.push(
-        ...(await erc721CatalogOwners({
-          address: opts.address,
-          chain: opts.chain,
-          contract,
-        })),
-      );
-    } catch {
-      // Skip a contract when Etherscan or RPC fails so one revert cannot 500 the page.
-    }
+async function uncataloguedOpenSea(address: Address): Promise<HeldWork[]> {
+  const keys = indexerKeys();
+  try {
+    const found = keys.alchemy
+      ? await alchemyOpenSeaNfts({ address, apiKey: keys.alchemy })
+      : keys.etherscan
+        ? await etherscanOpenSeaNfts({ address, apiKey: keys.etherscan })
+        : [];
+    return found.filter((item) => item.kind === "uncatalogued");
+  } catch {
+    return [];
   }
-
-  return held;
 }
 
 function indexerKeys() {
@@ -444,38 +423,14 @@ export function heldWorksFromHoldings(holdings: Holdings): Work[] {
 }
 
 export async function getHoldings(address: Address): Promise<Holdings> {
-  const keys = indexerKeys();
-  const query = async (
-    chain: ChainName,
-    contracts: readonly string[],
-  ): Promise<HeldWork[]> => {
-    if (keys.alchemy) {
-      return alchemyHoldings({
-        address,
-        chain,
-        contracts,
-        apiKey: keys.alchemy,
-      });
-    }
-    if (keys.etherscan) {
-      return etherscanHoldings({
-        address,
-        chain,
-        contracts,
-        apiKey: keys.etherscan,
-      });
-    }
-    return [];
-  };
-
-  const [eth, polygon] = await Promise.all([
-    query("ethereum", ETHEREUM_CONTRACTS),
-    query("polygon", POLYGON_CONTRACTS),
+  const [catalogued, extra] = await Promise.all([
+    catalogHoldings(address),
+    uncataloguedOpenSea(address),
   ]);
 
   const seen = new Set<string>();
   const held: HeldWork[] = [];
-  for (const item of [...eth, ...polygon]) {
+  for (const item of [...catalogued, ...extra]) {
     const key =
       item.kind === "catalogued"
         ? item.work.id
@@ -486,9 +441,4 @@ export async function getHoldings(address: Address): Promise<Holdings> {
   }
 
   return { address, held };
-}
-
-export function indexerConfigured(): boolean {
-  const keys = indexerKeys();
-  return Boolean(keys.alchemy || keys.etherscan);
 }

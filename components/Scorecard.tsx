@@ -9,7 +9,6 @@ export function Scorecard(props: {
   result: ScoreResult;
   heldCount: number;
   catalogCount: number;
-  indexerConfigured: boolean;
   uncataloguedCount: number;
 }) {
   const reduce = useReducedMotion();
@@ -82,13 +81,8 @@ function identityName(displayName: string, address: Address): string | null {
 function holdingsCopy(opts: {
   heldCount: number;
   catalogCount: number;
-  indexerConfigured: boolean;
   uncataloguedCount: number;
 }): string {
-  if (!opts.indexerConfigured) {
-    return "Live chain reads need an Alchemy or Etherscan API key in .env.local.";
-  }
-
   const uncatalogued = uncataloguedSentence(opts.uncataloguedCount);
   const catalogued = opts.heldCount - opts.uncataloguedCount;
   const matched = catalogued < 0 ? 0 : catalogued;

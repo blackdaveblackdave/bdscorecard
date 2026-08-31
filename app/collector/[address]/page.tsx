@@ -6,7 +6,6 @@ import { getCatalog } from "@/lib/catalog";
 import {
   getHoldings,
   heldWorksFromHoldings,
-  indexerConfigured,
   resolveCollectorId,
 } from "@/lib/holdings";
 import { score } from "@/lib/score";
@@ -37,10 +36,7 @@ export default async function CollectorPage({
   if (!address) notFound();
 
   const catalog = getCatalog();
-  const configured = indexerConfigured();
-  const holdings = configured
-    ? await getHoldings(address)
-    : { address, held: [] };
+  const holdings = await getHoldings(address);
   const heldWorks = heldWorksFromHoldings(holdings);
   const result = score(heldWorks);
   const uncatalogued = heldWorks.filter((work) => work.title === "Uncatalogued Work");
@@ -53,7 +49,6 @@ export default async function CollectorPage({
         result={result}
         heldCount={heldWorks.length}
         catalogCount={catalog.length}
-        indexerConfigured={configured}
         uncataloguedCount={uncatalogued.length}
       />
       <HeldWorks works={heldWorks} />
