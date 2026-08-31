@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
 import type { Address, ScoreResult } from "@/lib/types";
 
 export function Scorecard(props: {
@@ -25,14 +24,7 @@ export function Scorecard(props: {
         animate={{ y: 0 }}
         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       >
-        <Link
-          href="/"
-          className="inline-block text-sm text-muted transition-colors hover:text-accent"
-        >
-          Works
-        </Link>
-
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-12 md:items-start md:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-start md:gap-10">
           <div className="md:col-span-8">
             <h1 className="text-5xl leading-[1.05] tracking-tighter text-foreground md:text-7xl">
               {props.result.tier}
@@ -94,7 +86,7 @@ function holdingsCopy(opts: {
   uncataloguedCount: number;
 }): string {
   if (!opts.indexerConfigured) {
-    return "Live chain reads need an Alchemy or Etherscan API key in .env.local. The catalog and the vault are below.";
+    return "Live chain reads need an Alchemy or Etherscan API key in .env.local.";
   }
 
   const uncatalogued = uncataloguedSentence(opts.uncataloguedCount);
@@ -102,7 +94,7 @@ function holdingsCopy(opts: {
   const matched = catalogued < 0 ? 0 : catalogued;
 
   if (matched === 0) {
-    return `Nothing in this wallet matches the resolved catalog.${uncatalogued} The works and the vault are below.`;
+    return `Nothing in this wallet matches the resolved catalog.${uncatalogued}`;
   }
 
   return `This wallet holds ${matched} of ${opts.catalogCount} works in the catalog.${uncatalogued}`;

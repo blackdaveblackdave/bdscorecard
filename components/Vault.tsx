@@ -84,7 +84,7 @@ export function Vault(props: { works: Work[] }) {
   return (
     <section
       id="vault"
-      className="scroll-mt-24 mx-auto w-full max-w-[1400px] border-t border-line px-4 py-16 md:px-8 md:py-24"
+      className="scroll-mt-24 mx-auto w-full max-w-[1400px] px-4 py-16 md:px-8 md:py-24"
     >
       <h2 className="text-3xl tracking-tighter text-foreground md:text-4xl">
         The Vault
@@ -95,7 +95,7 @@ export function Vault(props: { works: Work[] }) {
 
       {works.length === 0 ? (
         <p className="mt-12 max-w-[65ch] text-muted">
-          Nothing in the vault right now. Sold work lives in the catalog above.
+          Nothing in the vault right now. Sold work lives in Works.
         </p>
       ) : (
         <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">

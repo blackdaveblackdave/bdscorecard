@@ -1,8 +1,8 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CatalogIndex } from "@/components/CatalogIndex";
+import { HeldWorks } from "@/components/HeldWorks";
 import { Scorecard } from "@/components/Scorecard";
-import { Vault } from "@/components/Vault";
-import { getCatalog, getVaultWorks } from "@/lib/catalog";
+import { getCatalog } from "@/lib/catalog";
 import {
   getHoldings,
   heldWorksFromHoldings,
@@ -37,16 +37,12 @@ export default async function CollectorPage({
   if (!address) notFound();
 
   const catalog = getCatalog();
-  const vault = getVaultWorks();
   const configured = indexerConfigured();
   const holdings = configured
     ? await getHoldings(address)
     : { address, held: [] };
   const heldWorks = heldWorksFromHoldings(holdings);
   const result = score(heldWorks);
-  const heldIds = new Set(
-    heldWorks.filter((work) => work.title !== "Uncatalogued Work").map((work) => work.id),
-  );
   const uncatalogued = heldWorks.filter((work) => work.title === "Uncatalogued Work");
 
   return (
@@ -60,8 +56,17 @@ export default async function CollectorPage({
         indexerConfigured={configured}
         uncataloguedCount={uncatalogued.length}
       />
-      <CatalogIndex works={catalog} heldIds={[...heldIds]} mode="scorecard" />
-      <Vault works={vault} />
+      <HeldWorks works={heldWorks} />
+      {heldWorks.length === 0 ? (
+        <section className="mx-auto flex max-w-[1400px] flex-wrap gap-3 px-4 pb-16 md:px-8 md:pb-24">
+          <Link href="/works" className="btn btn-ghost whitespace-nowrap">
+            Works
+          </Link>
+          <Link href="/vault" className="btn btn-ghost whitespace-nowrap">
+            Vault
+          </Link>
+        </section>
+      ) : null}
     </>
   );
 }

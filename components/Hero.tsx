@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 
 export function Hero(props: { featuredArtwork: string; featuredTitle: string }) {
@@ -21,10 +22,13 @@ export function Hero(props: { featuredArtwork: string; featuredTitle: string }) 
         <p className="mt-4 max-w-[32ch] text-base leading-relaxed text-muted md:mt-5">
           Every NFT Black Dave released, scored against what you still hold.
         </p>
-        <div className="mt-6 md:mt-8">
-          <a href="#works" className="btn btn-ghost whitespace-nowrap">
+        <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
+          <Link href="/works" className="btn btn-ghost whitespace-nowrap">
             Works
-          </a>
+          </Link>
+          <Link href="/vault" className="btn btn-ghost whitespace-nowrap">
+            Vault
+          </Link>
         </div>
       </motion.div>
 

@@ -19,7 +19,7 @@ export default function CollectorError({
       </h1>
       <p className="mt-4 max-w-[65ch] leading-relaxed text-muted">
         Try again, or go back to{" "}
-        <Link href="/" className="text-foreground hover:text-accent">
+        <Link href="/works" className="text-foreground hover:text-accent">
           Works
         </Link>
         .

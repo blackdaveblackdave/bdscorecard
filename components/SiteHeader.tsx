@@ -6,12 +6,26 @@ import { usePathname } from "next/navigation";
 import { ConnectWallet } from "@/components/ConnectWallet";
 import { z } from "@/lib/z";
 
-export function SiteHeader() {
+function NavLink(props: { href: string; children: string }) {
   const pathname = usePathname();
-  const onArchive = pathname === "/" || pathname.startsWith("/collector/");
-  const worksHref = onArchive ? "#works" : "/#works";
-  const vaultHref = onArchive ? "#vault" : "/#vault";
+  const active = pathname === props.href;
 
+  return (
+    <Link
+      href={props.href}
+      aria-current={active ? "page" : undefined}
+      className={
+        active
+          ? "whitespace-nowrap text-sm text-foreground underline underline-offset-4"
+          : "whitespace-nowrap text-sm text-foreground underline-offset-4 hover:underline"
+      }
+    >
+      {props.children}
+    </Link>
+  );
+}
+
+export function SiteHeader() {
   return (
     <header
       className="sticky top-0 border-b border-line bg-background"
@@ -38,18 +52,8 @@ export function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-4 sm:gap-8">
-          <Link
-            href={worksHref}
-            className="whitespace-nowrap text-sm text-foreground underline-offset-4 hover:underline"
-          >
-            Works
-          </Link>
-          <Link
-            href={vaultHref}
-            className="whitespace-nowrap text-sm text-foreground underline-offset-4 hover:underline"
-          >
-            Vault
-          </Link>
+          <NavLink href="/works">Works</NavLink>
+          <NavLink href="/vault">Vault</NavLink>
           <ConnectWallet />
         </div>
       </nav>

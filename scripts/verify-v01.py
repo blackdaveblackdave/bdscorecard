@@ -52,8 +52,10 @@ def main() -> None:
         fail(f"GET / {home_status}")
     if "The complete works" not in home:
         fail("home missing headline")
-    if "The Vault" not in home:
-        fail("home missing vault")
+    if "The Vault" in home:
+        fail("home still has vault section")
+    if f"{n} works" in home:
+        fail("home still has catalog index")
     if home.count("Connect wallet") != 1:
         fail(f"connect count {home.count('Connect wallet')}")
     if ">Unsold<" in home:
@@ -62,17 +64,37 @@ def main() -> None:
         fail("emdash or endash on home")
     if "Application error" in home:
         fail("home error overlay")
-    if f"{n} works" not in home:
-        fail(f"home missing {n} works count")
     ok("GET /")
+
+    works_status, works = fetch(f"{BASE}/works")
+    if works_status != 200:
+        fail(f"GET /works {works_status}")
+    if f"{n} works" not in works:
+        fail(f"works missing {n} works count")
+    if "Want My Head" not in works:
+        fail("works missing Want My Head")
+    ok("GET /works")
+
+    vault_status, vault = fetch(f"{BASE}/vault")
+    if vault_status != 200:
+        fail(f"GET /vault {vault_status}")
+    if "The Vault" not in vault:
+        fail("vault missing heading")
+    if "Want My Head" not in vault:
+        fail("vault missing Want My Head")
+    if ">Unsold<" in vault:
+        fail("visible Unsold label on vault")
+    ok("GET /vault")
 
     col_status, col = fetch(DEAD)
     if col_status != 200:
         fail(f"GET collector {col_status}")
     if "Visitor" not in col:
         fail("collector missing Visitor")
-    if "The Vault" not in col:
-        fail("collector missing vault")
+    if "These works are still available to collect" in col:
+        fail("collector still has vault section")
+    if f"{n} works" in col:
+        fail("collector still has full catalog index")
     if "Nothing in this wallet" in col or "This wallet holds" in col:
         ok("GET collector holdings copy")
     elif ".env.local" in col or "API key" in col:
@@ -81,10 +103,7 @@ def main() -> None:
         fail("collector missing holdings copy or indexer note")
     if "—" in col or "–" in col:
         fail("emdash on collector")
-    dimmed = col.count("opacity-35")
-    if dimmed < n - 6:
-        fail(f"dimmed rows {dimmed} catalog {n}")
-    ok(f"GET collector dimmed={dimmed}")
+    ok("GET collector")
 
     bad_status, bad = fetch(BAD)
     if bad_status != 404:
