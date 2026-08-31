@@ -1,4 +1,4 @@
-import { getAddress, isAddress, erc1155Abi, erc20Abi } from "viem";
+import { getAddress, isAddress, erc1155Abi } from "viem";
 import { normalize } from "viem/ens";
 import { createPublicClient, http } from "viem";
 import { mainnet, polygon } from "viem/chains";
@@ -18,7 +18,33 @@ const allowlist = new Set(
   TOKEN_ALLOWLIST.map((row) => `${row.contract}:${row.tokenId}`),
 );
 
-const ERC1155_CONTRACTS = new Set<string>([OPENSEA_SHARED, RARIBLE_1155]);
+const ERC1155_CONTRACTS = new Set<string>([
+  OPENSEA_SHARED,
+  RARIBLE_1155,
+  BLACK_DAVE_TOKEN,
+]);
+
+export type EtherscanHoldingsKind =
+  | "opensea-1155"
+  | "erc1155-catalog"
+  | "erc721-inventory";
+
+export function etherscanHoldingsKind(
+  contract: string,
+  chain: ChainName,
+): EtherscanHoldingsKind {
+  if (contract === OPENSEA_SHARED && chain === "ethereum") {
+    return "opensea-1155";
+  }
+  if (ERC1155_CONTRACTS.has(contract)) {
+    return "erc1155-catalog";
+  }
+  return "erc721-inventory";
+}
+
+export function hasErc1155Balance(balance: bigint): boolean {
+  return balance > 0n;
+}
 
 export function parseAddress(input: string): Address | null {
   if (!isAddress(input)) return null;
@@ -184,7 +210,7 @@ async function erc1155CatalogBalances(opts: {
 
     for (let j = 0; j < results.length; j++) {
       const result = results[j];
-      if (result.status !== "success" || result.result === 0) continue;
+      if (result.status !== "success" || !hasErc1155Balance(result.result)) continue;
       const work = batch[j];
       held.push(
         toHeldWork({
@@ -197,21 +223,6 @@ async function erc1155CatalogBalances(opts: {
   }
 
   return held;
-}
-
-async function erc20Balance(opts: {
-  address: Address;
-  chain: ChainName;
-  contract: string;
-}): Promise<number> {
-  const client = publicClientFor(opts.chain);
-  const balance = await client.readContract({
-    address: opts.contract as `0x${string}`,
-    abi: erc20Abi,
-    functionName: "balanceOf",
-    args: [opts.address as `0x${string}`],
-  });
-  return Number(balance);
 }
 
 async function opensea1155FromEtherscan(opts: {
@@ -326,10 +337,29 @@ async function etherscanHoldings(opts: {
   const held: HeldWork[] = [];
 
   for (const contract of opts.contracts) {
-    if (contract === OPENSEA_SHARED && opts.chain === "ethereum") {
-      try {
-        held.push(...await opensea1155FromEtherscan({ address: opts.address, apiKey: opts.apiKey }));
-      } catch {
+    const kind = etherscanHoldingsKind(contract, opts.chain);
+    try {
+      if (kind === "opensea-1155") {
+        try {
+          held.push(
+            ...(await opensea1155FromEtherscan({
+              address: opts.address,
+              apiKey: opts.apiKey,
+            })),
+          );
+        } catch {
+          held.push(
+            ...(await erc1155CatalogBalances({
+              address: opts.address,
+              chain: opts.chain,
+              contract,
+            })),
+          );
+        }
+        continue;
+      }
+
+      if (kind === "erc1155-catalog") {
         held.push(
           ...(await erc1155CatalogBalances({
             address: opts.address,
@@ -337,40 +367,9 @@ async function etherscanHoldings(opts: {
             contract,
           })),
         );
+        continue;
       }
-      continue;
-    }
 
-    if (ERC1155_CONTRACTS.has(contract)) {
-      held.push(
-        ...(await erc1155CatalogBalances({
-          address: opts.address,
-          chain: opts.chain,
-          contract,
-        })),
-      );
-      continue;
-    }
-
-    if (contract === BLACK_DAVE_TOKEN) {
-      const balance = await erc20Balance({
-        address: opts.address,
-        chain: opts.chain,
-        contract,
-      });
-      if (balance > 0) {
-        held.push(
-          toHeldWork({
-            contract,
-            tokenId: "0",
-            chain: opts.chain,
-          }),
-        );
-      }
-      continue;
-    }
-
-    try {
       held.push(
         ...(await etherscanErc721Inventory({
           address: opts.address,
@@ -380,7 +379,7 @@ async function etherscanHoldings(opts: {
         })),
       );
     } catch {
-      // ERC-721 inventory is a PRO endpoint; skip contracts that error.
+      // Skip a contract when Etherscan or RPC fails so one revert cannot 500 the page.
     }
   }
 
