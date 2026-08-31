@@ -1,0 +1,13 @@
+{
+  "address": "0xed22bb0106c24c7f6b4d8aae33639e1467061f64",
+  "capturedAt": "2026-08-30T21:14:43.505958+00:00",
+  "indexer": "etherscan",
+  "summary": {
+    "cataloguedHeld": 0,
+    "uncataloguedHeld": 0,
+    "resolvedCatalogTotal": 64,
+    "unresolvedCatalogTotal": 30
+  },
+  "catalogued": [],
+  "uncatalogued": []
+}

@@ -9,7 +9,9 @@
     "lint": "eslint",
     "test": "tsx --test lib/*.test.ts",
     "catalog": "python3 scripts/sync-notion-catalog.py",
-    "verify": "python3 scripts/verify-v01.py"
+    "verify": "python3 scripts/verify-v01.py",
+    "snapshot": "python3 scripts/etherscan-snapshot.py",
+    "harvest": "python3 scripts/harvest-contracts.py"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

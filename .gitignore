@@ -42,3 +42,7 @@ yarn-error.log*
 # local autonomous-run trail
 decisions.tsv
 
+# python
+__pycache__/
+*.pyc
+

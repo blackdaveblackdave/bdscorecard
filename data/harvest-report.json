@@ -1,0 +1,3568 @@
+{
+  "generatedAt": "2026-08-30T21:14:22.894300+00:00",
+  "summary": {
+    "totalWorks": 94,
+    "resolved": 64,
+    "unresolved": 30,
+    "unresolvedByPlatform": {
+      "Unique One": 1,
+      "Cargo": 1,
+      "Foundation": 2,
+      "Catalog": 7,
+      "Sound.xyz": 9,
+      "Mint Songs Factory": 3,
+      "$BLKD": 1,
+      "Glass": 1,
+      "?": 1,
+      "Supercollector": 4
+    }
+  },
+  "unresolvedWorks": [
+    {
+      "id": "bd-manga-tears-021",
+      "catalogNumber": "BD-044",
+      "title": "Manga Tears 021",
+      "platform": "Unique One",
+      "collection": "Unique",
+      "externalUrl": "",
+      "mintDate": "2021-04-01",
+      "availability": "Sold Out",
+      "hint": "Unique marketplace; check creator ERC-721 mints.",
+      "urlHost": ""
+    },
+    {
+      "id": "bd-manga-tears-022",
+      "catalogNumber": "BD-047",
+      "title": "Manga Tears 022",
+      "platform": "Cargo",
+      "collection": "Unique",
+      "externalUrl": "",
+      "mintDate": "2021-06-27",
+      "availability": "Sold Out",
+      "hint": "Cargo.xyz; check creator mint history.",
+      "urlHost": ""
+    },
+    {
+      "id": "bd-manga-tears-023",
+      "catalogNumber": "BD-056",
+      "title": "Manga Tears 023",
+      "platform": "Foundation",
+      "collection": "Unique",
+      "externalUrl": "https://foundation.app/@blackdave/foundation/28958",
+      "mintDate": "2021-07-21",
+      "availability": "Sold Out",
+      "hint": "foundation.app token id in URL; Foundation API or creator mint txs.",
+      "urlHost": "foundation.app"
+    },
+    {
+      "id": "bd-a-silent-conversation",
+      "catalogNumber": "BD-064",
+      "title": "A Silent Conversation",
+      "platform": "Foundation",
+      "collection": "Collabs",
+      "externalUrl": "https://foundation.app/@LloydOhWright/foundation/89599",
+      "mintDate": "2021-09-22",
+      "availability": "Unsold",
+      "hint": "foundation.app token id in URL; Foundation API or creator mint txs.",
+      "urlHost": "foundation.app"
+    },
+    {
+      "id": "bd-sharp",
+      "catalogNumber": "BD-065",
+      "title": "Sharp",
+      "platform": "Catalog",
+      "collection": "Catalog",
+      "externalUrl": "https://beta.catalog.works/blackdave/sharp",
+      "mintDate": "2021-11-08",
+      "availability": "Sold Out",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-triple-beam",
+      "catalogNumber": "BD-066",
+      "title": "Triple Beam",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/triple-beam",
+      "mintDate": "2022-02-02",
+      "availability": "Sold Out",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-middle-men-feat-monday-rome-fortune",
+      "catalogNumber": "BD-067",
+      "title": "Middle Men (feat. Monday! & Rome Fortune)",
+      "platform": "Catalog",
+      "collection": "Catalog",
+      "externalUrl": "https://beta.catalog.works/blackdave/middlemen-feat-monday-rome-fortune-",
+      "mintDate": "2022-02-17",
+      "availability": "Sold Out",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-i-m-in-love-with-you",
+      "catalogNumber": "BD-068",
+      "title": "I\u2019m In Love With You",
+      "platform": "Mint Songs Factory",
+      "collection": "Unique",
+      "externalUrl": "https://factory.mintsongs.com/songs/5425",
+      "mintDate": "2022-03-07",
+      "availability": "Unsold",
+      "hint": "factory.mintsongs.com song id in URL; map via Mint Songs contract.",
+      "urlHost": "factory.mintsongs.com"
+    },
+    {
+      "id": "bd-small-streams-strong-rivers",
+      "catalogNumber": "BD-069",
+      "title": "Small Streams, Strong Rivers",
+      "platform": "Mint Songs Factory",
+      "collection": "Unique",
+      "externalUrl": "https://factory.mintsongs.com/songs/5426",
+      "mintDate": "2022-03-07",
+      "availability": "Sold Out",
+      "hint": "factory.mintsongs.com song id in URL; map via Mint Songs contract.",
+      "urlHost": "factory.mintsongs.com"
+    },
+    {
+      "id": "bd-wolf",
+      "catalogNumber": "BD-070",
+      "title": "Wolf",
+      "platform": "Mint Songs Factory",
+      "collection": "Unique",
+      "externalUrl": "https://factory.mintsongs.com/songs/5424",
+      "mintDate": "2022-03-07",
+      "availability": "Unsold",
+      "hint": "factory.mintsongs.com song id in URL; map via Mint Songs contract.",
+      "urlHost": "factory.mintsongs.com"
+    },
+    {
+      "id": "bd-band-of-the-hawk-w-monday",
+      "catalogNumber": "BD-071",
+      "title": "Band of the Hawk (w/ Monday!)",
+      "platform": "Catalog",
+      "collection": "Collabs",
+      "externalUrl": "https://beta.catalog.works/musebymonday/band-of-the-hawk",
+      "mintDate": "2022-04-13",
+      "availability": "Unsold",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-red-eye-w-monday",
+      "catalogNumber": "BD-072",
+      "title": "Red Eye (w/ Monday!)",
+      "platform": "Catalog",
+      "collection": "Collabs",
+      "externalUrl": "https://beta.catalog.works/musebymonday/red-eye",
+      "mintDate": "2022-04-13",
+      "availability": "Unsold",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-sajin-w-monday",
+      "catalogNumber": "BD-073",
+      "title": "SAJIN (w/ Monday!)",
+      "platform": "Catalog",
+      "collection": "Collabs",
+      "externalUrl": "https://beta.catalog.works/musebymonday/sajin",
+      "mintDate": "2022-04-13",
+      "availability": "Unsold",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-what-the-fuck",
+      "catalogNumber": "BD-075",
+      "title": "What The Fuck",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/what-the-fuck",
+      "mintDate": "2022-06-08",
+      "availability": "Sold Out",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-oh-yes",
+      "catalogNumber": "BD-076",
+      "title": "Oh Yes",
+      "platform": "$BLKD",
+      "collection": "Unique",
+      "externalUrl": "https://app.manifold.xyz/c/blackdaveohyes",
+      "mintDate": "2022-07-30",
+      "availability": "Sold Out",
+      "hint": "Custom BLKD drop; scan creator txs around mint date.",
+      "urlHost": "app.manifold.xyz"
+    },
+    {
+      "id": "bd-soundxyz-w-titandemonbane",
+      "catalogNumber": "BD-077",
+      "title": "SOUNDXYZ (w/ TitanDemonBane)",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/soundxyz-w-titandemonbane",
+      "mintDate": "2022-08-15",
+      "availability": "Sold Out",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-wavroom-feat-black-dave",
+      "catalogNumber": "BD-078",
+      "title": "wavROOM feat. Black Dave",
+      "platform": "Glass",
+      "collection": "Glass",
+      "externalUrl": "https://glass.xyz/v/2PpDFJmqlVJGkZKDNvsv48jN4xeu7ssF6Mo2VoTea2w=",
+      "mintDate": "2022-08-18",
+      "availability": "Unsold",
+      "hint": "glass.xyz video id; Glass mint contract on chain.",
+      "urlHost": "glass.xyz"
+    },
+    {
+      "id": "bd-bag",
+      "catalogNumber": "BD-079",
+      "title": "Bag",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/bag",
+      "mintDate": "2022-11-09",
+      "availability": "Sold Out",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-me-too",
+      "catalogNumber": "BD-080",
+      "title": "Me Too",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/me-too",
+      "mintDate": "2022-11-18",
+      "availability": "Sold Out",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-feel-good",
+      "catalogNumber": "BD-081",
+      "title": "Feel Good",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/noise/feel-good",
+      "mintDate": "2023-02-28",
+      "availability": "Sold Out",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-black-dave-black-comet-coda",
+      "catalogNumber": "BD-082",
+      "title": "Black Dave, Black Comet Coda",
+      "platform": "",
+      "collection": "Unique",
+      "externalUrl": "http://2years.blackdave.xyz",
+      "mintDate": "2023-03-26",
+      "availability": "Sold Out",
+      "hint": "Manual research or platform API.",
+      "urlHost": "2years.blackdave.xyz"
+    },
+    {
+      "id": "bd-i-love-this-shit",
+      "catalogNumber": "BD-083",
+      "title": "I Love This Shit",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/i-love-this-shit-feat-stonez-the-organic",
+      "mintDate": "2023-04-04",
+      "availability": "Always On",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-advice",
+      "catalogNumber": "BD-084",
+      "title": "Advice",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/advice",
+      "mintDate": "2023-05-27",
+      "availability": "Unsold",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-newtype-poetry",
+      "catalogNumber": "BD-085",
+      "title": "Newtype Poetry",
+      "platform": "Catalog",
+      "collection": "Catalog",
+      "externalUrl": "https://beta.catalog.works/blackdave/newtype-poetry",
+      "mintDate": "2023-05-28",
+      "availability": "Sold Out",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-lavender",
+      "catalogNumber": "BD-086",
+      "title": "Lavender",
+      "platform": "Sound.xyz",
+      "collection": "Sound",
+      "externalUrl": "https://www.sound.xyz/blackdave/lavender",
+      "mintDate": "2023-07-12",
+      "availability": "Unsold",
+      "hint": "Scan creator tokennfttx / platform subgraph; contract per release.",
+      "urlHost": "www.sound.xyz"
+    },
+    {
+      "id": "bd-back-on-my-bullshit",
+      "catalogNumber": "BD-087",
+      "title": "Back On My Bullshit",
+      "platform": "Catalog",
+      "collection": "Catalog",
+      "externalUrl": "https://beta.catalog.works/blackdave/back-on-my-bullshit",
+      "mintDate": "2023-07-15",
+      "availability": "Sold Out",
+      "hint": "catalog.works slug in URL; needs Catalog API or mint tx from creator.",
+      "urlHost": "beta.catalog.works"
+    },
+    {
+      "id": "bd-chronicles-ep-supercollector",
+      "catalogNumber": "BD-089",
+      "title": "Chronicles EP (Supercollector)",
+      "platform": "Supercollector",
+      "collection": "Supercollector",
+      "externalUrl": "https://release.supercollector.xyz/chronicles-black-dave",
+      "mintDate": "",
+      "availability": "Always On",
+      "hint": "release.supercollector.xyz slug; platform-specific contract.",
+      "urlHost": "release.supercollector.xyz"
+    },
+    {
+      "id": "bd-stay-gold-supercollector",
+      "catalogNumber": "BD-091",
+      "title": "Stay Gold (Supercollector)",
+      "platform": "Supercollector",
+      "collection": "Supercollector",
+      "externalUrl": "https://release.supercollector.xyz/stay-gold-black-dave",
+      "mintDate": "",
+      "availability": "Always On",
+      "hint": "release.supercollector.xyz slug; platform-specific contract.",
+      "urlHost": "release.supercollector.xyz"
+    },
+    {
+      "id": "bd-unrequited-ep-supercollector",
+      "catalogNumber": "BD-093",
+      "title": "Unrequited EP (Supercollector)",
+      "platform": "Supercollector",
+      "collection": "Supercollector",
+      "externalUrl": "https://release.supercollector.xyz/unrequited-black-dave",
+      "mintDate": "",
+      "availability": "Always On",
+      "hint": "release.supercollector.xyz slug; platform-specific contract.",
+      "urlHost": "release.supercollector.xyz"
+    },
+    {
+      "id": "bd-word-association-supercollector",
+      "catalogNumber": "BD-094",
+      "title": "Word Association (Supercollector)",
+      "platform": "Supercollector",
+      "collection": "Supercollector",
+      "externalUrl": "https://release.supercollector.xyz/word-association-black-dave",
+      "mintDate": "",
+      "availability": "Always On",
+      "hint": "release.supercollector.xyz slug; platform-specific contract.",
+      "urlHost": "release.supercollector.xyz"
+    }
+  ],
+  "creatorHarvest": {
+    "creator": "0xed22bb0106c24c7f6b4d8aae33639e1467061f64",
+    "capturedAt": "2026-08-30T21:14:22.892801+00:00",
+    "openseaSharedStorefront": {
+      "contract": "0x495f947276749ce646f68ac8c248420045cb7b5e",
+      "blackDaveTokenCount": 50,
+      "uncataloguedIndices": [],
+      "tokens": [
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399499323541815297",
+          "openSeaIndex": 0,
+          "inCatalog": true,
+          "sampleHash": "0x47d502302b44652fe345ae176d6cbadb427d65a31167a62a1542f682c42f9255"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399505920611581953",
+          "openSeaIndex": 6,
+          "inCatalog": true,
+          "sampleHash": "0x65b92c7cd9ab9f35c8b484f961cd79a9abb7d83c3619e120839af7a42a57b49a"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399504821099954177",
+          "openSeaIndex": 5,
+          "inCatalog": true,
+          "sampleHash": "0x6da1307bd4475752bc312a450bfa5b8819dd04f4f6c5629d9904ca211cb7020e"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399508119634837505",
+          "openSeaIndex": 8,
+          "inCatalog": true,
+          "sampleHash": "0x0261325f0afbc4538ef4e51b37f258d9d61af09f009244d0e8966b43c2d04d40"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399507020123209729",
+          "openSeaIndex": 7,
+          "inCatalog": true,
+          "sampleHash": "0xfe8e289c6c718b273bb16d363ade887cd3bcfb5abcb245c332862dbc3ecf2809"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399503721588326401",
+          "openSeaIndex": 4,
+          "inCatalog": true,
+          "sampleHash": "0xd15d4e62221ab48428277749a4f0bec30c6c81b136f9e34dd321371726d77003"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399509219146465281",
+          "openSeaIndex": 9,
+          "inCatalog": true,
+          "sampleHash": "0xfd5ae8623505962b07505168be8ca2db89fc4c33b128cd64c81ebf067f1a3c48"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399501522565070849",
+          "openSeaIndex": 2,
+          "inCatalog": true,
+          "sampleHash": "0x2fd1c7e957cd88f9e2b8277113d1d8c30709d37a6148a62a536fffabb895cd70"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399514716704604161",
+          "openSeaIndex": 14,
+          "inCatalog": true,
+          "sampleHash": "0xdbdc17a9ae31705347c8fc23425a68a91272b4e898c019f22ff05c4b417df1b8"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399523512797626369",
+          "openSeaIndex": 22,
+          "inCatalog": true,
+          "sampleHash": "0x2a2221dbac3f557abee2af31fdb4a2219fd2c181700a3fbbd8567397f3759138"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399518015239487489",
+          "openSeaIndex": 17,
+          "inCatalog": true,
+          "sampleHash": "0xe4a6c07db87d0728317ad4f48e6681852151d46cc9237664a31b8cb1ecb7f1a8"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399531209379020801",
+          "openSeaIndex": 29,
+          "inCatalog": true,
+          "sampleHash": "0x5d2e576e1d66c80427a13d663b8824fcbf6448dfc9148727d5b1e885ff02bfb1"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399538905960415233",
+          "openSeaIndex": 36,
+          "inCatalog": true,
+          "sampleHash": "0xf87833170f9f3925f31851b8fda3148b63cd45c8c4d86990c50e157c1f85deee"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399525711820881921",
+          "openSeaIndex": 24,
+          "inCatalog": true,
+          "sampleHash": "0x3137c3d8fa66350e872b3b733447e08c429fa20682c7e792678524ce6e6b508a"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399527910844137473",
+          "openSeaIndex": 26,
+          "inCatalog": true,
+          "sampleHash": "0xda065375d087468e7c3a06cd08fa4810e46d57c0e69a6c796be7f6b5272050ec"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399526811332509697",
+          "openSeaIndex": 25,
+          "inCatalog": true,
+          "sampleHash": "0x8e842c8402eb49d1eecae9053e9d381da9eb0b5edbae389e583d03d45f95f867"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399536706937159681",
+          "openSeaIndex": 34,
+          "inCatalog": true,
+          "sampleHash": "0xb530d69064cb6cc8566b78dc0083734c7dedea7ef6dca9b697d146bf2c86135f"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399520214262743041",
+          "openSeaIndex": 19,
+          "inCatalog": true,
+          "sampleHash": "0x4fe5ad985a790d93b9f5e4b7d3d959b14af9d729b5976a24cb04c3795d0b1adc"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399524612309254145",
+          "openSeaIndex": 23,
+          "inCatalog": true,
+          "sampleHash": "0x73bc93d552cc2a0042cefe78367b5876819d84dfad20a3b45b9eec8ef2e8b3c4"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399529010355765249",
+          "openSeaIndex": 27,
+          "inCatalog": true,
+          "sampleHash": "0x1ccfd1bb115bfda4c8ae843c05d7ebb3d418b9fbd47117cd12a92c635b210e06"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399537806448787457",
+          "openSeaIndex": 35,
+          "inCatalog": true,
+          "sampleHash": "0x800ab45dea65880add1969d930be540ac9f1125e049022cc1dc7a438d0dfebba"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399519114751115265",
+          "openSeaIndex": 18,
+          "inCatalog": true,
+          "sampleHash": "0xecc5220963c80538e281fc3c8062e35f52752b8e5bade6a4ee67427ddc329339"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399534507913904129",
+          "openSeaIndex": 32,
+          "inCatalog": true,
+          "sampleHash": "0x5b74952cddcb7849549676b7af55bef60b453c26368422f29f890c2aca983026"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399540005472043009",
+          "openSeaIndex": 37,
+          "inCatalog": true,
+          "sampleHash": "0x8ad04bb9f373c0325c728bf9cecb482e8149d31903243377c18ae1213ea84c76"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399545503030181889",
+          "openSeaIndex": 42,
+          "inCatalog": true,
+          "sampleHash": "0x257b4c0882349ecfcc262d07c91d21bd200759fb2813b93a0f78c77f724ace8c"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399530109867393025",
+          "openSeaIndex": 28,
+          "inCatalog": true,
+          "sampleHash": "0xf0389d775789cc56432e0dbfe091a8ef46841cf863597129661aebdcd9b4ed9c"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399532308890648577",
+          "openSeaIndex": 30,
+          "inCatalog": true,
+          "sampleHash": "0x009e10e81913d615d3e47acc19c46d58835adc13f2cfded543a2e90cb90f9532"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399546602541809689",
+          "openSeaIndex": 43,
+          "inCatalog": true,
+          "sampleHash": "0x70eeb37f491d0d92cabac77f95d2f3b22db8caaf0bfa3dc564494584f9e9bd50"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399521313774370817",
+          "openSeaIndex": 20,
+          "inCatalog": true,
+          "sampleHash": "0x39f56e97c4a2e8c7e939b658d9883b06f9d29c8b54a7c1088c72cd488b503191"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399535607425531905",
+          "openSeaIndex": 33,
+          "inCatalog": true,
+          "sampleHash": "0x87aa435b27c31e30c69da29ae82aaadff0c4b04b1958df50ec0277362ba9e81b"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399533408402276353",
+          "openSeaIndex": 31,
+          "inCatalog": true,
+          "sampleHash": "0x8ae3ccdd6486ccb330b67696d640023f259522f4af525a620aee097db76c2a41"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399544403518554113",
+          "openSeaIndex": 41,
+          "inCatalog": true,
+          "sampleHash": "0xa7149ab94770954aeed0709d4cb35c3b315fe54b36e683bacb96e2ed197107e7"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399558697169715201",
+          "openSeaIndex": 54,
+          "inCatalog": true,
+          "sampleHash": "0x8f071fbfdaeba0ac58687379e4da01fa8a3548bc80a27fa340278cb6e4f09c8f"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399561995704598553",
+          "openSeaIndex": 57,
+          "inCatalog": true,
+          "sampleHash": "0x40ef428d680e5197da46cf30ebb528371213c143c6a4b9f0e1addab5adf26d56"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399563095216226329",
+          "openSeaIndex": 58,
+          "inCatalog": true,
+          "sampleHash": "0x692c09a080bbb8ae81da98434978def9db1bf4823c81722487c636d5e15bd0fb"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399511418169720833",
+          "openSeaIndex": 11,
+          "inCatalog": true,
+          "sampleHash": "0xfaacf9df122dd5515a819563cad1e97ac7bdfa854e6154d2c2fd76b1d2f02907"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399548801565065241",
+          "openSeaIndex": 45,
+          "inCatalog": true,
+          "sampleHash": "0x218c1cff6fd7ff08f723186a19f56926300b0cdfa2a9d9339f7a590889e15047"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399554299123204097",
+          "openSeaIndex": 50,
+          "inCatalog": true,
+          "sampleHash": "0x73bc1f816848f35ca253947386da21bc65da84718c607f90bd2479b327cbfd89"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399549901076693017",
+          "openSeaIndex": 46,
+          "inCatalog": true,
+          "sampleHash": "0xae4d629ecad53aa7f388b73b0a0d67698ff17a539e4df4c326e946d18b77d11d"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399559796681342977",
+          "openSeaIndex": 55,
+          "inCatalog": true,
+          "sampleHash": "0xd4709ba3d70fa6a66b2244f5b1e866f436f85e53f1deaff16a99867a51580c80"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399560896192970753",
+          "openSeaIndex": 56,
+          "inCatalog": true,
+          "sampleHash": "0x9d32312fe40bf42bc5bf9f765ef95b38769bf6f7cf4f163cc6fdceffe1566d67"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399557597658087425",
+          "openSeaIndex": 53,
+          "inCatalog": true,
+          "sampleHash": "0xf83b40ca3fb66dc88c8a8e3ab544914a9054cfd1a99813bc44d5536fa7aeeb0f"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399564194727854081",
+          "openSeaIndex": 59,
+          "inCatalog": true,
+          "sampleHash": "0x3c465f9c2f0e6916990c7cb98848fbbeee283d60c124f68eee6aea6f44254d53"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399500423053443073",
+          "openSeaIndex": 1,
+          "inCatalog": true,
+          "sampleHash": "0x9c8515eee01f1d854a37a8cb7838b93a007ca2950da3cc74e24e313920a72853"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399556498146459649",
+          "openSeaIndex": 52,
+          "inCatalog": true,
+          "sampleHash": "0x5c55da9ebd5eea6745383b1752dbbfc0d8b9560bfa3d093b056d38c6ae8f663b"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399502622076698625",
+          "openSeaIndex": 3,
+          "inCatalog": true,
+          "sampleHash": "0xc26886446c6985baff68a6b2298401d4ae303d4dc164ad75782c6683bc552ca3"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399510318658093057",
+          "openSeaIndex": 10,
+          "inCatalog": true,
+          "sampleHash": "0xa56cd08ae3837b7aab57ace0ae8027c597b2b84554bfafee67e50283029c6c40"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399555398634831873",
+          "openSeaIndex": 51,
+          "inCatalog": true,
+          "sampleHash": "0x43224be687b3d3a6540e9a29fe5f82553631c459f362f7adc9765689d727dde1"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399512517681348609",
+          "openSeaIndex": 12,
+          "inCatalog": true,
+          "sampleHash": "0xa834b09de5d37529b88b3cd8b62560e9d3e3808d3c070f95dc6f30238c2e1b7f"
+        },
+        {
+          "tokenId": "107259508568675199262418313251991622091448984144640299147874399541104983670785",
+          "openSeaIndex": 38,
+          "inCatalog": true,
+          "sampleHash": "0xce0ab29c77f45981cf3ff0f3994f2bccf2dbac16c633b86ea7e71ebae801a8b7"
+        }
+      ]
+    },
+    "discoveredContracts": [
+      {
+        "contract": "0x038a4709c0ec8ce709aa4c5a5533361c42eb3b63",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "188"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0403fa561ec9fd1847992d859cc81c165500b890",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x044d0d1b2b5f22baae3172a1f7e591c771a4f36b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "60"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x049aba7510f45ba5b64ea9e658e342f904db358d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "107284121292745875463853717261448311451256267946470245092114267622540114017003"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x04a4825a6dc9c4283b289ef40ae215436989deea",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "266"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x054460490780a6eb15625d703db1754e0b78d846",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "34681",
+          "34682"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x05a07b9e08e64765f62878f2954c60e9afb6af72",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x075e14e4b7f7750ba83e705f930b8055c773dbf0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "170"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x08056544987f28d3134fe4ce48a8002ec1bfc277",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211462"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x08e856f59ae6405769ee1ac097274a822872b10b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "4260"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0ae15e8dcbd82a270e0dc33fa8db96d7e3d5c005",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "14"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0b6c10fdd0c0d1b95740f5f76a8f962f0e5e4d05",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "160"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0bc2a24ce568dad89691116d5b34deb6c203f342",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "1049",
+          "825",
+          "892"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0cfb5d82be2b949e8fa73a656df91821e2ad99fd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "281517926384702"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0eb82f969ff477adc95f7f17eb4099c6cbf14912",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "184",
+          "185"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0f864e29b01a72247b6795cc6054afeb53ef35ef",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "1737",
+          "1739",
+          "1740"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x0fd1307a373ad8bf4335a77083ad021524c74c22",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211465"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1022d8bd26bd8ab9bc0b7b681a638992f5aff73e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "326"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x10d32bf55f5cbe66b068f2109ecf7475f0631d53",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "5"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x10ff84354eb56fdf8d8f33255dddd5dba9c6bd26",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1237d87468dc6f31f5043cc28313de95db89229c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211476"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x12632d6e11c6bbc0c53f3e281ea675e5899a5df5",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "3507",
+          "4297"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x13df7973ea203868af66fcffd86fe8cb63edd378",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "13"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x155bcf565bdfe95ab31c99994849d2bf186406d6",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "4"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x16646223ba3ea808cfe4763759ab6deb68a46d92",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "79"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1892e93b1f9cb48cd9d9f895e904cf4524b161e6",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "466"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x18c56c654f481d75ff451018e71eae8ef34f22ce",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "24",
+          "25",
+          "26"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x18df6c571f6fe9283b87f910e41dc5c8b77b7da5",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "4095",
+          "7694",
+          "9855"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x19a48b30deb65664bb22d2ff2b9958e58104d28e",
+        "chain": "ethereum",
+        "tokenIdCount": 4,
+        "sampleTokenIds": [
+          "1286",
+          "142",
+          "150",
+          "82"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1a5264e5b317729d6e12b6b22a16fa1af21fcfcf",
+        "chain": "ethereum",
+        "tokenIdCount": 5,
+        "sampleTokenIds": [
+          "1628",
+          "2526",
+          "37",
+          "765",
+          "766"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1a5d314beed6e39fd152cf54d3671ad33fdccf9a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1aea1d4d4be315c956d85b02fd0770f22e6e9754",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "136",
+          "85"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1af001bbda7a314bdd4563453b7b21a016ad590a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "469"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1c3d6654b97b7aec2da15dab18bb17c951772275",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "20"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1e7f4bee9468acf7ed7ac550c61e3ffa80b6494c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "51"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x1ebfb87faf6d044b86748d37728cb31f8723213a",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1",
+          "2"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x21768a5ffad9f1f64739fb37561846bc8f2fc8fd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "188"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x21f7f7dcda977fa5b78cdde49f5996f5ab1176e3",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x233b9647a56143ecfc49aab882219912ddf73127",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "72"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x24bb48e27c98202909196e809cf071bd97a4ada0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211470"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x24bf1a88153d199a2777976d2ff6b0a735b16305",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "94"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x250fd27b0b6f2438414a98fc9bfa5641b3717f03",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "150"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x2520e6b2eb40279dedac180cb2378c6722f18b33",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "19"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x25560ee4c99d8fa3e21b049ebf56863b8dada0bf",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "104",
+          "107",
+          "108"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x2652e332a7bb620b83420ad781c5493bf9903b40",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1541",
+          "1542"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x296be897381b77add45a2a7605bd42d4c9bd9fb5",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "90"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x29a5a415760ec689007b9af75fe7e98e02618b87",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6340"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x2bd66630c8935f0d783441c5f08777ea241df0fb",
+        "chain": "ethereum",
+        "tokenIdCount": 6,
+        "sampleTokenIds": [
+          "23",
+          "24",
+          "262",
+          "263",
+          "264"
+        ],
+        "txCount": 6,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x2cc67ee778893374eeeaa7ce51d711ae57a71046",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3011078ffaf5c8669144f7d16388819217b20968",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x30db3150be4785935e0d320db4a1b837e921ce31",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x31ceae7a1beedcd15f5af6882f36018cf634969c",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "41",
+          "597"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x329e019979f91cc410b0dfb7235154d17cd500e8",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "11",
+          "366"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x34b4df75a17f8b3a6eff6bba477d39d701f5e92c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2921"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x354db5b6eb8bb66ebc1b66ba91a1bdd5a2704790",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x375a469860747a2addaf7cdfabc11d5b0d9d2c79",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x37a03d4af1d7046d1126987b20117a0fdcbf6535",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "680564733841876926926749214863536423047",
+          "839"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x38f967da24773700234493693d7f85959e70090f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "33"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3968a5679b86306923b7c9c4f45f0afd54683277",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "76"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3b3bc9b1dd9f3c8716fff083947b8769e2ff9781",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9748"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3b3ee1931dc30c1957379fac9aba94d1c48a5405",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "28958"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3bd03a12700da82b0c2fdcad277d4d2a221fc3b7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "17"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3bf2922f4520a8ba0c2efc3d2a1539678dad5e9d",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "1086",
+          "1087",
+          "19"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3bf6f7b7884596db98169d58ee3a2504aceb79d0",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "190",
+          "191"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3d78c23debc3777ffbd49c4973d098c0c9e35b98",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "10"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3e43944d977dea22511da6d33c0cab666a604515",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "506"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3f0785095a660fee131eebcd5aa243e529c21786",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1954"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x3ff8f7a7828107f412fbe3286948d311ff893f67",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "181",
+          "182"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x400e2073b4ac13d6f11c15697df7fc609db93809",
+        "chain": "ethereum",
+        "tokenIdCount": 5,
+        "sampleTokenIds": [
+          "1286",
+          "142",
+          "150",
+          "443",
+          "82"
+        ],
+        "txCount": 6,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x40fb4485a75ab95fd8add48d4b03aa64364c055b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "754"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4325b6e25266704287fdfc05454d56764f529b7a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x43a20faafa7b8cfc76f34e3d7dd1f0483cb5ce3c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "47"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4434add9f47a867848ff4abaf4c0796558e72ece",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "112",
+          "113"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x446671f87ff72109ed1496740c90a9ceed767d70",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1",
+          "13"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4498118b7e1ab8bc9352037cf71f66b3151f4351",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "226",
+          "227"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x452745e4f9e6d7ed926ed42cd8231b16260b1bc0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1238"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4548d5ca43b6c6a30d25ba783f9c485c8dbcc9df",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x45fee972d04ad6c1da4b15c3f474fa6c70fcba20",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "740"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x462bf6be88a34f93a2f54eeb14c5809a3e28af3f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "72"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x468d477ac88a7d4980ee3bdea2e242124bb36df2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x48b02029b802c9637a8b2deccc813ed9b218cd24",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "11"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4946e886c453777a26a920877ce30ac997fe8672",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4b213150f874e1baad1517f6718da1255908e44a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4b4bb315378782e4cf07562148860cc1e68c3711",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "25"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4c09ed313756040a9cf2d719c05a63c8b74aeebe",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4c537c0ec793632a4feaaffc200e35a67a983904",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "0"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4e7f2ba22dbb3cbafbb4d282abed9c8c3a4aae17",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "3"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x4fb2ec3ac3f742e282b9cb31a33fbb365a568f2d",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "8",
+          "9"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x516eebd8b290d41e24c2cc85b88ef97629869e30",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "14"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x519c91bee46357a7ea357e5b54c49ba6cfcfb751",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "603"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x51ce8d4b81a5aaeae28bcfd5273386c2ccf54de0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "63"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x538fe72869e8fa2bd34d72254d077e743701759c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "16"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x539beb25ca905af1e59d3eea5c1cbcf117868e32",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1471"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x541e60dca1b5a7adfdc2cc724a5fa70d1201b78f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x544c13e7f5d8805d0f1af977263e491d57b84079",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1990",
+          "1991"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x55743c104382c66199c7c531bea63a6bcda04b86",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1009"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x55ea0e5d587163ff3fcd5d049c90cf5ccbee7ab2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85",
+        "chain": "ethereum",
+        "tokenIdCount": 10,
+        "sampleTokenIds": [
+          "102743433814704590283945805201900732225145711244204198396962549049601621271886",
+          "107131126162783453456005827170188342552392332518302082479152842790092027206605",
+          "115027404650782940987217958189086231778420431308461848453080964023575709057806",
+          "21454506688977811125345631545040934523195973390502445277490680371624001582194",
+          "36205964765597357263477678686727136081347007278093647732500819908411933292120"
+        ],
+        "txCount": 13,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x58ae90bfac733bc8f7018841f04d47ac3d887324",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x59446214240634f0dd442ae7e0bc7287650b79a2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "17"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x5b47c4fa6f55ff609475d69fccf16523741f7174",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x5bcdc405cb237996d29fe3ec779209e65ff2d39c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "463"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x5e9b52c5652450a2c73e9dd489dece618d9d8926",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x5e9dc633830af18aa43ddb7b042646aadedcce81",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "1362",
+          "1363",
+          "4072"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x5f0f29439ac1b2adfdb850c3ac49f9031562239b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "52"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x5f8aefa35c3b5cad631bf36712d61f6d1e5f7b4d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "63"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x616e1d1b8968547bd8c7884ac0983e6321c6ff88",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "805",
+          "806"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x62f0770b75ef33d90fc11185e5e0256601f5cae7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "10"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6626f2ce01d9183d9ee252ea7b78a01ca6abcbb3",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "296302069699077958016"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6712545a0d1d8595d1045ea18f2f386ffca7ca90",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "184",
+          "185"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x673bc422691b176717583fe60c8e737234b160eb",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "25"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6740ce1bdbbfad351ec6232faa8c110ebeae36bf",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1793",
+          "1794"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x67b8afddb494c16b779e6f23e1de5dbf3437f857",
+        "chain": "ethereum",
+        "tokenIdCount": 14,
+        "sampleTokenIds": [
+          "2995",
+          "2996",
+          "2997",
+          "2998",
+          "4932"
+        ],
+        "txCount": 24,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6913233ada65330adf01f24f715dffcc60497cc8",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "928"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x69ce006f16fcc3ec4d9386039def01a879eeaffa",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "19"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x69ed404c919f8476cfc232bd355ad15a29a198bd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6b06b14bb342027083d4c346a4278c1d84c65127",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6390"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6b521adc1ca2fc6819dddb66b24e458fed0780c6",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "452"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6c94954d0b265f657a4a1b35dfaa8b73d1a3f199",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "3836",
+          "51",
+          "52"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6cfc9ca8da1d69719161ccc0ba4cfa95d336f11d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1086"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x6ea26ecde564df85d4c631e041ff7630296b08b8",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1295"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x723ec4ac69b1e8139206277b0da1c0784fdd15fb",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x73d6f8a959094e0424802bc8add670f9a790cd1b",
+        "chain": "ethereum",
+        "tokenIdCount": 5,
+        "sampleTokenIds": [
+          "286",
+          "287",
+          "288",
+          "289",
+          "290"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x73dfcb33a1de40fc0b36348e0fc4e612c6b46e73",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "22"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7492e30d60d96c58ed0f0dc2fe536098c620c4c0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "12398"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x77aa555c8a518b56a1ed57b7b4b85ee2ad479d06",
+        "chain": "ethereum",
+        "tokenIdCount": 4,
+        "sampleTokenIds": [
+          "2300",
+          "2301",
+          "401",
+          "402"
+        ],
+        "txCount": 6,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x79e5025959265ee19483c6843e5e8da696e0be3f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "17"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7ab2352b1d2e185560494d5e577f9d3c238b78c5",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "4848"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7b0046ddf5e11f7fd3519e1af37014bcde3348a2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7b8bf9538e4ea70c8f29738e4bc0bc9447c60390",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "49",
+          "61"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7b9c5c5140fe21087f0bfc4c063b742246a7c26b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "47"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7e8ba6e1366b82963e1f55e3ca623bfdf77c3ea7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1675975852894"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x7fd90681defe581a34ada0e019f6e0fd8d616a42",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "28"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x80adb36595239fe918c7d118c1f81e07d070801a",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1000740",
+          "6420"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x81c91cad9ff8e864303990cb23b7ea56851ae995",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "37"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x825b56fa6c14b9b2b9bbebcda38b8b392a2032a2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x82a383c3beb38f8e275fbe85481bb08154703ed9",
+        "chain": "ethereum",
+        "tokenIdCount": 6,
+        "sampleTokenIds": [
+          "486",
+          "487",
+          "488",
+          "489",
+          "490"
+        ],
+        "txCount": 6,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8408baccc231a6bba766ed15571403468b32bfa5",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "309"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8472e2381a8662968a6c85e78226c516fde91f01",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "11"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8584e7a1817c795f74ce985a1d13b962758fe3ca",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "2475",
+          "2476"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x862860fe36661590ab34d7620a82840afa1d8bb5",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "32"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x86f5f5a07a5570feaf6f57b01e7a58b93a6324e0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211465"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x877ab7aa50b8e42ad3c9fe562870e91489eea876",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2585"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x87a314df010535910a84bdd078e8a2cb459bacc9",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "190"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x87b73670985476b869d485c78f574520c29ce74d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "128"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x880ed873dde83f533564903c8aebb6e9fa9f8c81",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2221"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x895d39baf2ed39012571c1d34aef7f77b5a0cb88",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211469"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x89bbdcde023785ebabc09a5f2f5c899e8909aee3",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8ab58322fd7b8802b095012d84a5df10e33886b9",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8b7882a7c6c9ca8aa95a523be4f99224e8e16caa",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "21",
+          "680564733841876926926749214863536422958"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8ba266ce7516c10ef70370c79c7d81198019c583",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211459"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8c4d7a4c8940dc477a27dcb395d9152aa28ecb93",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1799",
+          "974"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8d7d79b4880f352d84d1f5409e1a8ad426f07430",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "603"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8df42bd46221a9b42ea89a2efd99a515ed491afc",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "5"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8e6682483254a8d96d10a4128028259fb4e0b2cf",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "11"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8f689c725a3d777405faa38b1ca9a10df8b405f7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x8fa4ce1837d327b40318795fa31f8f90710bfe28",
+        "chain": "ethereum",
+        "tokenIdCount": 4,
+        "sampleTokenIds": [
+          "203",
+          "204",
+          "205",
+          "206"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x9122484f1c45c11fef71f7692f99a397f032ca1e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "4"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x9637fff44e2346708088596fb464ef6a9db3c82c",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "22",
+          "23"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x96e396e66087b2b9dcad36fd473e1b049df18998",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "216"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x9a2ac04045598ea8352f29d2d259020ac106f5df",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "10"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0x9aa84ae4cfc08672b2216b4f3e01a6ccb041c8f1",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "39"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa05563ccef87ff9ca1e770270d9f1a26916d9c48",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "209"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa12f77d7b39a7b556ba4be6ec7328b0049288ac3",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "2023",
+          "2024"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa131cb1e7b20cdb539f10b72c4758ae17eb60de4",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "411"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa3c81f1f2598d5fb5447d95aa03f31bba7f1dd21",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "246"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa76cb9106781fa1eda36b6d369d398b383278283",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "317",
+          "567"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa9248a0935eb476cfe2f286df813a48d06ffd2e2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1685"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xa97d3eb991303cf3b9b759bd026bacb55256e9db",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "568"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xaa23ec2815869b86c9cc13bd3c212eef457a28b3",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xaaf1554f6d075870cabadaa746bebfa11bd3db64",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7694"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xab80184b3bba02e975b6494d570232fb6c6973f1",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1020847100762815390390123822295304634400"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "6063",
+          "8141"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xac59f7011aa60f68cf64294700ea58aa135e2fd7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "429"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xad08067c7d3d3dbc14a9df8d671ff2565fc5a1ae",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "442"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xad97a69cd068185d4a2d0af517506fa7d8e7cbbd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "667"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xaf468d8557d2bc4cf9be958545ba1701aef70c42",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "27"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xaf89c5e115ab3437fc965224d317d09faa66ee3e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2887"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xafbdb7d9f692820d2739d35f4356b307ff3d9d0a",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "242",
+          "243"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xaff7faaf376f2f33f69b4f5fd2955d38b04f264a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb117bea28fba1311ade068265b5779ca122bb919",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb2cb781aa0b35aec7acef3f9751b61505fd5715a",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "4",
+          "6"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb2d4415a5b0269463f5ab9bcddc3e388caf1be03",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "211",
+          "9108"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb31b7bac13041a90aa9907611f3736485e83a7e0",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "47"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb495a0746a4fef8c1a843e2d891e9eba3585edcd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb6ed22af100fd608ed687c97faef4b042cd7d4af",
+        "chain": "ethereum",
+        "tokenIdCount": 5,
+        "sampleTokenIds": [
+          "34",
+          "35",
+          "36",
+          "37",
+          "38"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb718cc5cc35867d13073450d41fd6a64ff5f38c2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb73b1f2fb77159d10d863195799cab219bf197eb",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "61",
+          "79"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb796485fe35c926328914cd4cd9447d095d41f7f",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "283",
+          "3428"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb7e17b0a6f56165b722b4ac8bba8f2c672c7b73b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7803"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb852c6b5892256c264cc2c888ea462189154d8d7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "5481"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xb948f35c1c35206a5fb23b77f9e52a01b793c909",
+        "chain": "ethereum",
+        "tokenIdCount": 10,
+        "sampleTokenIds": [
+          "3155",
+          "3708",
+          "388",
+          "389",
+          "390"
+        ],
+        "txCount": 10,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xba13180df8fc6d42dcf4368701affafcda415e7c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "22"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbaa194d6d41be3f89feedda541e3613a2187817e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbb3d13260b3f6893ace34a4284be70eccf4cc0f1",
+        "chain": "ethereum",
+        "tokenIdCount": 4,
+        "sampleTokenIds": [
+          "1238",
+          "283",
+          "284",
+          "625"
+        ],
+        "txCount": 8,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbe19793179c787f5d268e5e13c99cb735703c086",
+        "chain": "ethereum",
+        "tokenIdCount": 7,
+        "sampleTokenIds": [
+          "12607",
+          "12608",
+          "12609",
+          "12610",
+          "12611"
+        ],
+        "txCount": 7,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbe1a18882ea193869c32d461d44f349310edb570",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "40"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbe4ceb1045bf54c6e661c181311e19c4b0256468",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "3"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbe79678c4d36e24325dcb88ac17838015163c080",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "142"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbe9eac1ce0d844fc120ca1b3a921de483e8c4a05",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1086"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xbf476fad7e4ae2d679e9e739d3704a890f53c2a2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "309"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc0c647eefcdbbc4b03a507a6673265757376a518",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "45"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc294732239d55b16b8d744db07b27858b3afb29c",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "98",
+          "99"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc2ed241b07204f0b68d2e9a7f4b6ac95c4fc58b7",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "5"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc37880043cc617ccdab8f67ce48494050b733109",
+        "chain": "ethereum",
+        "tokenIdCount": 4,
+        "sampleTokenIds": [
+          "1286",
+          "142",
+          "150",
+          "82"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc450362d646f42327050ff3521fc2061b34a6a0d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc4d3a075917d01c239eb853381acb63abd4b5850",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "127"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc53dc593b69c67a209cf70d4172078c9125449bb",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "21598"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc555ce25e48f625275ef6d5d798e00e037b90be1",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "364",
+          "49",
+          "50"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc6904fb685b4dfbdb98a5b70e40863cd9aef33dc",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "2475",
+          "2476"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xc69644ed374e3df1660f5019597686ff728f8a0d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "5"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xca21d4228cdcc68d4e23807e5e370c07577dd152",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "114",
+          "329"
+        ],
+        "txCount": 3,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xca61ad7aae3afbc15c2ba618612ffa2c2265c821",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "191"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xcc083b51a44877706658a5c02898999e6f6a7670",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "40"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xccf50ef6a08c35ef27faa89ccd243e2254f8e052",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "217"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xcf3806fb823dd39d525ed935ba083610ed6324f6",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211464"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xcfe90565fd6b963ff18c61d9ef4a4947c1812cca",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "78"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd16946f469a8545bca645bae5c87e815a2ce5e57",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "14"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd16aa7432065c66f2c020569712c9aabe020cb4f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "35"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd21a23606d2746f086f6528cd6873bad3307b903",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "3428"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd28bc4a14c3a1ee509119091d11778266d92634f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211469"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd4290ab0a15dbe6e5283212e1a0e8d1e3eac4670",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "569"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd4f56fa9f745ba84c35d5396eb68b7d3e0e2cb04",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "44"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd7fc2a1b4ba0f0b7251239edd209395686a759f6",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "4064"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xd86a103ca84ccbb885980cc910cd6a07bb0b9172",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "46"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xdb288d28176862ad5c7451b50adad3e48fab0b1e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "568"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xdda9c21e2b2e9cf775daaef851a3a48cea5c68cd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "29"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xdf5b5ee15cc96ba7d0cb6bd9b2c0fc4417ab6445",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "4706"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe0a5201b88120acb02e420f027c4a1bc6c18fdd0",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "54988",
+          "54989"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe0ae5eb5ca4a45bfd506df41766d30ee6daa6ee3",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "366"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe13d366f709882557b5d5b1cba617e1bcde60752",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "42",
+          "6"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe28ddf7484ac0ed42af9c185c80a5f23eb31cc9e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe47cc4b356fe17906309752523c3014056af13d2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe4d5d6d6eda2fd5c3545ff4f0ec7d06075de9703",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "441"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe5b1e33be8d510a090b680306fc1b331816260c1",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1020847100762815390390123822295304634381"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe6d06402e017a579bbe159ab317ac5bd36eed78d",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1353805328368735839640709102466859198407963451236"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe83d316db3331b8ef35405a0d75744b8d554be6e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe8a8416f5aa3954450dc754f1c3b0eb6713b87d1",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "7"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe8c6caea044c377cc00417c480f3e65950afc8f2",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "65"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe935e764da0f1a2597f9c1bf13a64515bff9f7d7",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1115",
+          "1116"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe938e4b8ce51eeacc4c4454a08b59f70ee9c2293",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "161"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe97bb646d5c0df5be951521c8d3d2b1a91ed7db1",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "39"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xe9a1a323b4c8fd5ce6842edaa0cd8af943cbdf22",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "3444"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xec0a7a26456b8451aefc4b00393ce1beff5eb3e9",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1089"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xed0068108b4048dc5639037b87f659ecdb57ab30",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "34"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xed9e01b6d4412da140d71f68b0284f33b41edfe9",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xee5aed70c181fa54caf1a08fd877b2c1de8ef92a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "9"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xeead8408d019ffd47cacd25b5442110fc9c6530a",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "32"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xefa0f765e187371998a1204f652f498ab5fc31da",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "107"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf12d8bebbfb2b9cdc9894958cb6ae0531c6d8332",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "2"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf15f259a295ff22613865d9c3d63d1290be97492",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "0"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf1907f38f59871bcf4be54dfd74ae91b12681e0e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf1f792bf1aff602c7a74ab9a8a4cc0310e719c63",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "890"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf3908e7e37a19205aa37e2db6a5cf624b1d1d306",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "10",
+          "9"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf3fcd0f025c21f087dbeb754516d2ad8279140fc",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8123"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf4121a2880c225f90dc3b3466226908c9cb2b085",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6340"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf43674002f7e197ad0be05aa4e73fd61ea4ba636",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "6"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf4bf7c9b229f1b8728001349918196b344ace80f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "285"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf58d854fcf45d8dffa29ef26d34e78a7871c411b",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "71"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf6223e2558477c2f47fee3ac1183d53df06ce4fd",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "15"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf8c657dc951af25b62f3bc90df1538892115548c",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "38"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf91d406e1a096225e6408150d0f8fd876bfc7238",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xf934f776694bef6c7a400b37a126b0e94d87356f",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "324"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfb9e9e7150ccebfe42d58de1989c5283d0eaab2e",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "10124"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfbaa0e362212e909fe3ff011a7d65077c1971942",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "8128"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfc221ad0f3212c2967f7642cc320e67da13a2000",
+        "chain": "ethereum",
+        "tokenIdCount": 2,
+        "sampleTokenIds": [
+          "1581",
+          "1582"
+        ],
+        "txCount": 2,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfc778be06c9a58f8f3e5e99216efbb28f750bc98",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "105"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfd082f6e5fc7cf1b6393969c64bf4d7cff774e7a",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "1479",
+          "1481",
+          "3291"
+        ],
+        "txCount": 4,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfd3fd9b793bac60e7f0a9b9fb759db3e250383cb",
+        "chain": "ethereum",
+        "tokenIdCount": 3,
+        "sampleTokenIds": [
+          "3120",
+          "3121",
+          "3122"
+        ],
+        "txCount": 5,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfd5cb0ded4bcd65855329e37af5f34e23ce237b1",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "1"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfd830f101f83df78b37f7a39514fcf132f7d3668",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "340282366920938463463374607431768211469"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfed2f0002de8667eacea997f924ec1cb57ce7b29",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "23"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xfeddc1448eb4480714a9942ba28a27b16caf9ce4",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "110091192512310418890974521002028335230829369134932617539133868366763218067081"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xff72f37aa4eae3b7e1752e25db85b209f12c1a33",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "3560"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      },
+      {
+        "contract": "0xffc286f8e7a4673502e2dbc1698de52e76f0fd23",
+        "chain": "ethereum",
+        "tokenIdCount": 1,
+        "sampleTokenIds": [
+          "68"
+        ],
+        "txCount": 1,
+        "alreadyResolved": false
+      }
+    ]
+  },
+  "nextSteps": [
+    "Run python3 scripts/etherscan-snapshot.py <address> for wallet holdings.",
+    "Add Contract / Chain / Token ID columns in Notion for resolved rows.",
+    "Re-run python3 scripts/sync-notion-catalog.py after updating notion-export.json."
+  ]
+}
