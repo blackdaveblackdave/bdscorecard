@@ -1,0 +1,53 @@
+[
+  {
+    "id": "bd-ss23-supercollector",
+    "title": "SS23 (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": ["Music"],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2023-10-11",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-ss23-supercollector.jpg",
+    "externalUrl": "https://release.supercollector.xyz/ss23-black-dave",
+    "chain": "optimism",
+    "contract": "0xedd6b208c35281554caa71b44f7f3842295b07ab",
+    "tokenId": "1",
+    "resolved": true
+  },
+  {
+    "id": "bd-aspiring-gundam-pilot-supercollector",
+    "title": "Aspiring Gundam Pilot (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": ["Music"],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2024-08-22",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-aspiring-gundam-pilot-supercollector.jpg",
+    "externalUrl": "https://release.supercollector.xyz/aspiring-gundam-pilot-black-dave-mk2",
+    "chain": "optimism",
+    "contract": "0x761fc1fa3935c9f8166147e2fe428ef54943b853",
+    "tokenId": "1",
+    "resolved": true
+  },
+  {
+    "id": "bd-that-time-abandoned-mech-supercollector",
+    "title": "THAT TIME I FOUND AN ABANDONED MECH AND IT TURNED OUT TO BE A GUNDAM AND I BECAME THE GREATEST PILOT IN THE UNIVERSE (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": ["Music"],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2025-10-20",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-that-time-abandoned-mech-supercollector.jpg",
+    "externalUrl": "https://release.supercollector.xyz/that-time-i-found-an-abandoned-mech-and-it-turned-out-to-be-a-gundam-and-i-became-the-greatest-pilot-in-the-universe-black-dave-mk2",
+    "chain": "optimism",
+    "contract": "0x371aa2d25d138b99e1f30bc2a4852f9fa7882c2f",
+    "tokenId": "1",
+    "resolved": true
+  }
+]

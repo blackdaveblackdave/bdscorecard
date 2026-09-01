@@ -42,9 +42,12 @@ def main() -> None:
     catalog = json.loads(Path("data/catalog.json").read_text())
     n = len(catalog)
     export = json.loads(Path("data/notion-export.json").read_text())
+    extra_path = Path("data/extra-catalog.json")
+    extras = json.loads(extra_path.read_text()) if extra_path.is_file() else []
     expected = sum(1 for row in export["works"] if str(row.get("title") or "").strip())
+    expected += len(extras)
     if n != expected:
-        fail(f"catalog.json has {n} works, export titled {expected}")
+        fail(f"catalog.json has {n} works, expected {expected}")
     ok(f"catalog.json {n}")
 
     home_status, home = fetch(BASE)

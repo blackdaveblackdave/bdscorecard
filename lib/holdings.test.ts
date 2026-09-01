@@ -9,12 +9,15 @@ import {
   OPENSEA_SHARED,
   RARIBLE_1155,
   RARIBLE_721,
+  SUPERCOLLECTOR_ABANDONED_MECH,
+  SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT,
   SUPERCOLLECTOR_CHRONICLES,
+  SUPERCOLLECTOR_SS23,
   SUPERCOLLECTOR_STAY_GOLD,
   isContractScopedHoldings,
   isSupercollectorContract,
 } from "./contracts";
-import { matchHeldWork } from "./catalog";
+import { getCatalog, getWorkById, matchHeldWork } from "./catalog";
 import {
   catalogTokenStandard,
   hasErc1155Balance,
@@ -61,6 +64,43 @@ test("Supercollector releases are ERC-1155 and match any token on the contract",
   });
   assert.equal(trackThree?.id, "bd-chronicles-ep-supercollector");
   assert.equal(trackThree?.chain, "optimism");
+
+  const ss23 = matchHeldWork({
+    contract: SUPERCOLLECTOR_SS23,
+    tokenId: "5",
+  });
+  assert.equal(ss23?.id, "bd-ss23-supercollector");
+  assert.equal(ss23?.mintDate, "2023-10-11");
+  assert.equal(
+    matchHeldWork({
+      contract: SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT,
+      tokenId: "1",
+    })?.id,
+    "bd-aspiring-gundam-pilot-supercollector",
+  );
+  assert.equal(
+    matchHeldWork({
+      contract: SUPERCOLLECTOR_ABANDONED_MECH,
+      tokenId: "13",
+    })?.id,
+    "bd-that-time-abandoned-mech-supercollector",
+  );
+});
+
+test("MK2 Supercollector albums sit in chronological catalog order", () => {
+  const ss23 = getWorkById("bd-ss23-supercollector");
+  const aspiring = getWorkById("bd-aspiring-gundam-pilot-supercollector");
+  const mech = getWorkById("bd-that-time-abandoned-mech-supercollector");
+  const bullshit = getWorkById("bd-back-on-my-bullshit");
+  assert.equal(ss23?.catalogNumber, "BD-088");
+  assert.equal(aspiring?.catalogNumber, "BD-089");
+  assert.equal(mech?.catalogNumber, "BD-090");
+  assert.ok(bullshit && ss23 && aspiring && mech);
+  const numbers = [bullshit, ss23, aspiring, mech].map((work) =>
+    Number.parseInt(work.catalogNumber.replace(/\D/g, ""), 10),
+  );
+  assert.deepEqual(numbers, [...numbers].sort((a, b) => a - b));
+  assert.equal(getCatalog().filter((work) => work.collection === "Supercollector").length, 7);
 });
 
 test("Decent series token range expands track ids and rejects a wild span", () => {

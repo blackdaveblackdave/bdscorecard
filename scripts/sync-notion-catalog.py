@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 EXPORT = ROOT / "data" / "notion-export.json"
 CATALOG = ROOT / "data" / "catalog.json"
+EXTRA_CATALOG = ROOT / "data" / "extra-catalog.json"
 ART = ROOT / "public" / "art"
 
 OPENSEA_SHARED = "0x495f947276749ce646f68ac8c248420045cb7b5e"
@@ -46,6 +47,21 @@ SUPERCOLLECTOR_BY_SLUG = {
     "stay-gold-black-dave": SUPERCOLLECTOR_RELEASES["2cd86d1a-bf64-4c14-be75-d6774baef379"],
     "unrequited-black-dave": SUPERCOLLECTOR_RELEASES["eba1ac23-8917-47a0-90be-0ab2bac22827"],
     "word-association-black-dave": SUPERCOLLECTOR_RELEASES["044c2024-cacc-4352-b2ba-20bb5aa7ebad"],
+    "ss23-black-dave": {
+        "contract": "0xedd6b208c35281554caa71b44f7f3842295b07ab",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
+    "aspiring-gundam-pilot-black-dave-mk2": {
+        "contract": "0x761fc1fa3935c9f8166147e2fe428ef54943b853",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
+    "that-time-i-found-an-abandoned-mech-and-it-turned-out-to-be-a-gundam-and-i-became-the-greatest-pilot-in-the-universe-black-dave-mk2": {
+        "contract": "0x371aa2d25d138b99e1f30bc2a4852f9fa7882c2f",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
 }
 
 
@@ -205,6 +221,18 @@ def main() -> None:
             w["id"] = f"{base}-{seen[base]}"
         else:
             seen[base] = 1
+
+    if EXTRA_CATALOG.is_file():
+        extras = json.loads(EXTRA_CATALOG.read_text())
+        by_id = {w["id"] for w in works}
+        for extra in extras:
+            if extra.get("id") in by_id:
+                continue
+            row = dict(extra)
+            artwork = row.get("artwork") or ""
+            if artwork and not art_exists(artwork):
+                row["artwork"] = match_art_file(row.get("title") or "")
+            works.append(row)
 
     works.sort(key=lambda w: (w["mintDate"] or "9999-99-99", w["title"]))
     for i, w in enumerate(works, start=1):
