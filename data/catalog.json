@@ -1,5 +1,89 @@
 [
   {
+    "id": "bd-chronicles-ep-supercollector",
+    "title": "Chronicles EP (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": [
+      "Music"
+    ],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2016-08-15",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-chronicles-ep-supercollector.jpeg",
+    "externalUrl": "https://release.supercollector.xyz/chronicles-black-dave",
+    "chain": "optimism",
+    "contract": "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069",
+    "tokenId": "1",
+    "resolved": true,
+    "notionId": "5e0353b6-8da7-4126-b8a9-b28be0c4caf3",
+    "catalogNumber": "BD-001"
+  },
+  {
+    "id": "bd-unrequited-ep-supercollector",
+    "title": "Unrequited EP (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": [
+      "Music"
+    ],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2017-04-25",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-unrequited-ep-supercollector.jpg",
+    "externalUrl": "https://release.supercollector.xyz/unrequited-black-dave",
+    "chain": "optimism",
+    "contract": "0x7cb50113f54d12ca5146e57b193d7a6c53722060",
+    "tokenId": "1",
+    "resolved": true,
+    "notionId": "eba1ac23-8917-47a0-90be-0ab2bac22827",
+    "catalogNumber": "BD-002"
+  },
+  {
+    "id": "bd-stay-gold-supercollector",
+    "title": "Stay Gold (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": [
+      "Music"
+    ],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2017-10-20",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-stay-gold-supercollector.jpg",
+    "externalUrl": "https://release.supercollector.xyz/stay-gold-black-dave",
+    "chain": "optimism",
+    "contract": "0x97312325fda573f8ba5cb4160130631d0d823892",
+    "tokenId": "1",
+    "resolved": true,
+    "notionId": "2cd86d1a-bf64-4c14-be75-d6774baef379",
+    "catalogNumber": "BD-003"
+  },
+  {
+    "id": "bd-word-association-supercollector",
+    "title": "Word Association (Supercollector)",
+    "collection": "Supercollector",
+    "platform": "Supercollector",
+    "medium": [
+      "Music"
+    ],
+    "editions": null,
+    "priceEth": null,
+    "mintDate": "2017-11-26",
+    "availability": "Always On",
+    "artwork": "/art/bd-nft-word-association-supercollector.jpg",
+    "externalUrl": "https://release.supercollector.xyz/word-association-black-dave",
+    "chain": "optimism",
+    "contract": "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba",
+    "tokenId": "1",
+    "resolved": true,
+    "notionId": "044c2024-cacc-4352-b2ba-20bb5aa7ebad",
+    "catalogNumber": "BD-004"
+  },
+  {
     "id": "bd-dressed-up-eva-kids",
     "title": "Dressed Up EVA Kids",
     "collection": "Rarible",
@@ -18,7 +102,7 @@
     "tokenId": "101845",
     "resolved": true,
     "notionId": "8a067ea5-48b5-42e3-bf71-3770cb656227",
-    "catalogNumber": "BD-001"
+    "catalogNumber": "BD-005"
   },
   {
     "id": "bd-os-005",
@@ -39,7 +123,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399504821099954177",
     "resolved": true,
     "notionId": "3e072304-5020-4fc5-af03-c0272f245825",
-    "catalogNumber": "BD-002"
+    "catalogNumber": "BD-006"
   },
   {
     "id": "bd-os-000",
@@ -60,7 +144,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399499323541815297",
     "resolved": true,
     "notionId": "4ec35d75-aa9f-4687-bc57-b7db3a90707a",
-    "catalogNumber": "BD-003"
+    "catalogNumber": "BD-007"
   },
   {
     "id": "bd-os-009",
@@ -81,7 +165,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399509219146465281",
     "resolved": true,
     "notionId": "c2022cf8-ee97-4e6b-8f81-d9c6f171ff97",
-    "catalogNumber": "BD-004"
+    "catalogNumber": "BD-008"
   },
   {
     "id": "bd-os-008",
@@ -102,7 +186,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399508119634837505",
     "resolved": true,
     "notionId": "5d6852eb-864e-40f5-9c83-ef8121a1ece8",
-    "catalogNumber": "BD-005"
+    "catalogNumber": "BD-009"
   },
   {
     "id": "bd-os-003",
@@ -123,7 +207,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399502622076698625",
     "resolved": true,
     "notionId": "42f7c4c0-8e62-4117-93b8-a01a6eb54190",
-    "catalogNumber": "BD-006"
+    "catalogNumber": "BD-010"
   },
   {
     "id": "bd-os-004",
@@ -144,7 +228,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399503721588326401",
     "resolved": true,
     "notionId": "b3ee9e82-e90e-4a4d-baaa-36e9de3b744c",
-    "catalogNumber": "BD-007"
+    "catalogNumber": "BD-011"
   },
   {
     "id": "bd-os-010",
@@ -165,7 +249,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399510318658093057",
     "resolved": true,
     "notionId": "fe78299d-34db-45cc-a06b-f3d204eae713",
-    "catalogNumber": "BD-008"
+    "catalogNumber": "BD-012"
   },
   {
     "id": "bd-os-006",
@@ -186,7 +270,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399505920611581953",
     "resolved": true,
     "notionId": "13f2d560-3b75-4589-bd08-edd0caadcfae",
-    "catalogNumber": "BD-009"
+    "catalogNumber": "BD-013"
   },
   {
     "id": "bd-os-001",
@@ -207,7 +291,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399500423053443073",
     "resolved": true,
     "notionId": "5acce6cf-6cdc-4c3f-9d32-42779ce22e26",
-    "catalogNumber": "BD-010"
+    "catalogNumber": "BD-014"
   },
   {
     "id": "bd-os-002",
@@ -228,7 +312,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399501522565070849",
     "resolved": true,
     "notionId": "6c0e0e95-d879-46e9-8a88-f13776ab48cb",
-    "catalogNumber": "BD-011"
+    "catalogNumber": "BD-015"
   },
   {
     "id": "bd-os-007",
@@ -249,7 +333,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399507020123209729",
     "resolved": true,
     "notionId": "bee07283-aa3d-48f5-bae8-b67c6aac5440",
-    "catalogNumber": "BD-012"
+    "catalogNumber": "BD-016"
   },
   {
     "id": "bd-os-012",
@@ -270,7 +354,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399512517681348609",
     "resolved": true,
     "notionId": "baaa6d4b-bb54-4b60-b3e7-416c866e1b6e",
-    "catalogNumber": "BD-013"
+    "catalogNumber": "BD-017"
   },
   {
     "id": "bd-os-013",
@@ -291,7 +375,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399513617192976385",
     "resolved": true,
     "notionId": "c0d51715-fcf8-4c34-b091-c6400960c06f",
-    "catalogNumber": "BD-014"
+    "catalogNumber": "BD-018"
   },
   {
     "id": "bd-os-014",
@@ -312,7 +396,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399514716704604161",
     "resolved": true,
     "notionId": "251f9541-b1f3-4bda-905a-b770ad5ac8ec",
-    "catalogNumber": "BD-015"
+    "catalogNumber": "BD-019"
   },
   {
     "id": "bd-os-011",
@@ -333,7 +417,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399511418169720833",
     "resolved": true,
     "notionId": "1e72db13-7407-4384-90f8-0f752af3102e",
-    "catalogNumber": "BD-016"
+    "catalogNumber": "BD-020"
   },
   {
     "id": "bd-os-015",
@@ -354,7 +438,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399515816216231937",
     "resolved": true,
     "notionId": "b2a74c16-f10b-4088-8198-ff0d400f0b1c",
-    "catalogNumber": "BD-017"
+    "catalogNumber": "BD-021"
   },
   {
     "id": "bd-os-016",
@@ -375,7 +459,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399516915727859713",
     "resolved": true,
     "notionId": "141b9823-d8d0-416e-94d9-c38f095f4817",
-    "catalogNumber": "BD-018"
+    "catalogNumber": "BD-022"
   },
   {
     "id": "bd-os-038",
@@ -396,7 +480,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399541104983670785",
     "resolved": true,
     "notionId": "1e5fcec2-dded-4109-857a-c6ad3e166837",
-    "catalogNumber": "BD-019"
+    "catalogNumber": "BD-023"
   },
   {
     "id": "bd-os-040",
@@ -417,7 +501,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399543304006926337",
     "resolved": true,
     "notionId": "16b9f9c9-fe93-40ba-93fb-1fb969ddc4e9",
-    "catalogNumber": "BD-020"
+    "catalogNumber": "BD-024"
   },
   {
     "id": "bd-os-042",
@@ -438,7 +522,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399545503030181889",
     "resolved": true,
     "notionId": "9b8169d3-d8cf-4de7-93cd-38c42634e013",
-    "catalogNumber": "BD-021"
+    "catalogNumber": "BD-025"
   },
   {
     "id": "bd-os-039",
@@ -459,7 +543,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399542204495298561",
     "resolved": true,
     "notionId": "1da3e74f-2961-4b9e-af23-bdefb98f0734",
-    "catalogNumber": "BD-022"
+    "catalogNumber": "BD-026"
   },
   {
     "id": "bd-os-041",
@@ -480,7 +564,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399544403518554113",
     "resolved": true,
     "notionId": "f91e0c71-dba7-43d5-9c93-0075e4a9777e",
-    "catalogNumber": "BD-023"
+    "catalogNumber": "BD-027"
   },
   {
     "id": "bd-os-017",
@@ -501,7 +585,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399518015239487489",
     "resolved": true,
     "notionId": "f48b2bc9-cc20-41b5-9091-6124ce3d7162",
-    "catalogNumber": "BD-024"
+    "catalogNumber": "BD-028"
   },
   {
     "id": "bd-os-018",
@@ -522,7 +606,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399519114751115265",
     "resolved": true,
     "notionId": "d4956ec6-8201-4824-88d9-d18aba3f0d11",
-    "catalogNumber": "BD-025"
+    "catalogNumber": "BD-029"
   },
   {
     "id": "bd-os-019",
@@ -543,7 +627,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399520214262743041",
     "resolved": true,
     "notionId": "62cc6f5a-6285-4467-8dbf-fcfdcb4b3bf9",
-    "catalogNumber": "BD-026"
+    "catalogNumber": "BD-030"
   },
   {
     "id": "bd-os-020",
@@ -564,7 +648,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399521313774370817",
     "resolved": true,
     "notionId": "4dc28eef-9356-4f08-adc4-42d6d13a3aca",
-    "catalogNumber": "BD-027"
+    "catalogNumber": "BD-031"
   },
   {
     "id": "bd-os-022",
@@ -585,7 +669,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399523512797626369",
     "resolved": true,
     "notionId": "48f1c197-eec6-40af-9b1d-27175f932535",
-    "catalogNumber": "BD-028"
+    "catalogNumber": "BD-032"
   },
   {
     "id": "bd-os-023",
@@ -606,7 +690,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399524612309254145",
     "resolved": true,
     "notionId": "d080a6e4-490e-44a6-8352-c47a289a9a67",
-    "catalogNumber": "BD-029"
+    "catalogNumber": "BD-033"
   },
   {
     "id": "bd-os-024",
@@ -627,7 +711,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399525711820881921",
     "resolved": true,
     "notionId": "7f3a203d-6908-490a-83f8-8b9fef6cec93",
-    "catalogNumber": "BD-030"
+    "catalogNumber": "BD-034"
   },
   {
     "id": "bd-os-025",
@@ -648,7 +732,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399526811332509697",
     "resolved": true,
     "notionId": "05bf8534-4228-4e40-b35c-dbeb33a9b978",
-    "catalogNumber": "BD-031"
+    "catalogNumber": "BD-035"
   },
   {
     "id": "bd-os-026",
@@ -669,7 +753,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399527910844137473",
     "resolved": true,
     "notionId": "d56fba9f-b982-45ad-b499-f8da50af6382",
-    "catalogNumber": "BD-032"
+    "catalogNumber": "BD-036"
   },
   {
     "id": "bd-os-027",
@@ -690,7 +774,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399529010355765249",
     "resolved": true,
     "notionId": "fb11c6a5-26a0-48fb-826b-e1ce00a90675",
-    "catalogNumber": "BD-033"
+    "catalogNumber": "BD-037"
   },
   {
     "id": "bd-os-028",
@@ -711,7 +795,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399530109867393025",
     "resolved": true,
     "notionId": "b0d2b867-3164-4356-bfba-d20c2d2bcd44",
-    "catalogNumber": "BD-034"
+    "catalogNumber": "BD-038"
   },
   {
     "id": "bd-os-029",
@@ -732,7 +816,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399531209379020801",
     "resolved": true,
     "notionId": "0905446d-6041-4c33-9b45-10607129b1eb",
-    "catalogNumber": "BD-035"
+    "catalogNumber": "BD-039"
   },
   {
     "id": "bd-os-030",
@@ -753,7 +837,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399532308890648577",
     "resolved": true,
     "notionId": "e1a0b22f-5902-43f0-a874-60fa536f357b",
-    "catalogNumber": "BD-036"
+    "catalogNumber": "BD-040"
   },
   {
     "id": "bd-os-031",
@@ -774,7 +858,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399533408402276353",
     "resolved": true,
     "notionId": "9af4bf97-3137-465e-aff9-a31e0904a1c9",
-    "catalogNumber": "BD-037"
+    "catalogNumber": "BD-041"
   },
   {
     "id": "bd-os-032",
@@ -795,7 +879,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399534507913904129",
     "resolved": true,
     "notionId": "0b0af911-56ce-4100-95fb-74b451ceb24c",
-    "catalogNumber": "BD-038"
+    "catalogNumber": "BD-042"
   },
   {
     "id": "bd-os-033",
@@ -816,7 +900,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399535607425531905",
     "resolved": true,
     "notionId": "3ca185fc-f0e0-42e6-b67c-58d1259f53a0",
-    "catalogNumber": "BD-039"
+    "catalogNumber": "BD-043"
   },
   {
     "id": "bd-os-034",
@@ -837,7 +921,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399536706937159681",
     "resolved": true,
     "notionId": "e46d6385-c081-4b60-ab0a-0ba023906ed4",
-    "catalogNumber": "BD-040"
+    "catalogNumber": "BD-044"
   },
   {
     "id": "bd-os-035",
@@ -858,7 +942,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399537806448787457",
     "resolved": true,
     "notionId": "0136377b-95d7-4fa8-bac7-fa3b569835cf",
-    "catalogNumber": "BD-041"
+    "catalogNumber": "BD-045"
   },
   {
     "id": "bd-os-036",
@@ -879,7 +963,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399538905960415233",
     "resolved": true,
     "notionId": "ecd62451-d03c-4104-810d-6c150e19b419",
-    "catalogNumber": "BD-042"
+    "catalogNumber": "BD-046"
   },
   {
     "id": "bd-os-037",
@@ -900,7 +984,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399540005472043009",
     "resolved": true,
     "notionId": "2d4669ac-8220-41b3-a194-a92646f70dc5",
-    "catalogNumber": "BD-043"
+    "catalogNumber": "BD-047"
   },
   {
     "id": "bd-manga-tears-021",
@@ -921,7 +1005,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "66593c7b-fdb6-45b9-a1f1-681a7da6e4df",
-    "catalogNumber": "BD-044"
+    "catalogNumber": "BD-048"
   },
   {
     "id": "bd-os-043",
@@ -942,7 +1026,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399546602541809689",
     "resolved": true,
     "notionId": "26d600bd-2ba6-4937-a223-1982d276167d",
-    "catalogNumber": "BD-045"
+    "catalogNumber": "BD-049"
   },
   {
     "id": "bd-os-044",
@@ -963,7 +1047,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399547702053437441",
     "resolved": true,
     "notionId": "9b1f2fe1-5093-4c0a-8468-cb836efedbe8",
-    "catalogNumber": "BD-046"
+    "catalogNumber": "BD-050"
   },
   {
     "id": "bd-manga-tears-022",
@@ -984,7 +1068,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "259efa42-6c59-4b81-b84d-7791c5a0c001",
-    "catalogNumber": "BD-047"
+    "catalogNumber": "BD-051"
   },
   {
     "id": "bd-os-045",
@@ -1005,7 +1089,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399548801565065241",
     "resolved": true,
     "notionId": "9b8cdd6b-6bf5-4d7b-82ad-906eaa2a7e13",
-    "catalogNumber": "BD-048"
+    "catalogNumber": "BD-052"
   },
   {
     "id": "bd-os-057",
@@ -1026,7 +1110,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399561995704598553",
     "resolved": true,
     "notionId": "d7647b20-7de2-46d9-a468-030f842a181c",
-    "catalogNumber": "BD-049"
+    "catalogNumber": "BD-053"
   },
   {
     "id": "bd-os-059",
@@ -1047,7 +1131,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399564194727854081",
     "resolved": true,
     "notionId": "45aeecc1-5fc4-4471-8cf4-87c59f459bf5",
-    "catalogNumber": "BD-050"
+    "catalogNumber": "BD-054"
   },
   {
     "id": "bd-os-047",
@@ -1068,7 +1152,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399551000588320769",
     "resolved": true,
     "notionId": "d5e6819d-e096-44d3-b8e0-12ca67638897",
-    "catalogNumber": "BD-051"
+    "catalogNumber": "BD-055"
   },
   {
     "id": "bd-os-048",
@@ -1089,7 +1173,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399552100099948545",
     "resolved": true,
     "notionId": "be2c7456-3331-403a-94af-ff725caa0bd9",
-    "catalogNumber": "BD-052"
+    "catalogNumber": "BD-056"
   },
   {
     "id": "bd-os-049",
@@ -1110,7 +1194,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399553199611576321",
     "resolved": true,
     "notionId": "7902203b-669e-44fd-92f7-71abdb55b4bb",
-    "catalogNumber": "BD-053"
+    "catalogNumber": "BD-057"
   },
   {
     "id": "bd-os-046",
@@ -1131,7 +1215,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399549901076693017",
     "resolved": true,
     "notionId": "c87054d7-d0a4-458b-9881-eea06f695ee6",
-    "catalogNumber": "BD-054"
+    "catalogNumber": "BD-058"
   },
   {
     "id": "bd-os-058",
@@ -1152,7 +1236,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399563095216226329",
     "resolved": true,
     "notionId": "0aa9b368-dc0a-43d6-880b-4175c0663f80",
-    "catalogNumber": "BD-055"
+    "catalogNumber": "BD-059"
   },
   {
     "id": "bd-manga-tears-023",
@@ -1173,7 +1257,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "c05c86c6-53fc-49ef-a64b-eea2b0c82135",
-    "catalogNumber": "BD-056"
+    "catalogNumber": "BD-060"
   },
   {
     "id": "bd-os-050",
@@ -1194,7 +1278,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399554299123204097",
     "resolved": true,
     "notionId": "1939b34e-7ba0-402c-89a2-30d206f9663b",
-    "catalogNumber": "BD-057"
+    "catalogNumber": "BD-061"
   },
   {
     "id": "bd-os-051",
@@ -1215,7 +1299,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399555398634831873",
     "resolved": true,
     "notionId": "fc34720e-7aec-4d11-b4d4-204cab35b3bb",
-    "catalogNumber": "BD-058"
+    "catalogNumber": "BD-062"
   },
   {
     "id": "bd-os-052",
@@ -1236,7 +1320,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399556498146459649",
     "resolved": true,
     "notionId": "b3a4c41e-1903-48d9-8071-a683e99591e3",
-    "catalogNumber": "BD-059"
+    "catalogNumber": "BD-063"
   },
   {
     "id": "bd-os-053",
@@ -1257,7 +1341,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399557597658087425",
     "resolved": true,
     "notionId": "d2a7fc1a-6235-4f30-89db-d22fcf8ed561",
-    "catalogNumber": "BD-060"
+    "catalogNumber": "BD-064"
   },
   {
     "id": "bd-os-054",
@@ -1278,7 +1362,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399558697169715201",
     "resolved": true,
     "notionId": "18932e7d-06ea-43a9-bc97-c079eb5408da",
-    "catalogNumber": "BD-061"
+    "catalogNumber": "BD-065"
   },
   {
     "id": "bd-os-055",
@@ -1299,7 +1383,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399559796681342977",
     "resolved": true,
     "notionId": "fed2e363-b42f-4698-bb9c-2748eac8322c",
-    "catalogNumber": "BD-062"
+    "catalogNumber": "BD-066"
   },
   {
     "id": "bd-os-056",
@@ -1320,7 +1404,7 @@
     "tokenId": "107259508568675199262418313251991622091448984144640299147874399560896192970753",
     "resolved": true,
     "notionId": "c3b4ea23-d40f-4d3e-87e2-9d9b2611955f",
-    "catalogNumber": "BD-063"
+    "catalogNumber": "BD-067"
   },
   {
     "id": "bd-a-silent-conversation",
@@ -1341,7 +1425,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "a72296f6-31b6-4e74-b788-8bca448e191f",
-    "catalogNumber": "BD-064"
+    "catalogNumber": "BD-068"
   },
   {
     "id": "bd-sharp",
@@ -1357,12 +1441,12 @@
     "availability": "Sold Out",
     "artwork": "/art/bd-nft-sharp.jpg",
     "externalUrl": "https://beta.catalog.works/blackdave/sharp",
-    "chain": "ethereum",
-    "contract": "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7",
-    "tokenId": "6063",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "562b954e-6e46-4c45-a834-9dadf32cbb7a",
-    "catalogNumber": "BD-065"
+    "catalogNumber": "BD-069"
   },
   {
     "id": "bd-triple-beam",
@@ -1383,7 +1467,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "2e73be3b-15b3-4f29-9908-2bd553ab6842",
-    "catalogNumber": "BD-066"
+    "catalogNumber": "BD-070"
   },
   {
     "id": "bd-middle-men-feat-monday-rome-fortune",
@@ -1399,12 +1483,12 @@
     "availability": "Sold Out",
     "artwork": "/art/bd-nft-middle-men-feat-monday-rome-fortune.jpg",
     "externalUrl": "https://beta.catalog.works/blackdave/middlemen-feat-monday-rome-fortune-",
-    "chain": "ethereum",
-    "contract": "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7",
-    "tokenId": "8141",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "3e383c2e-4554-4315-af5c-4e431ecc29de",
-    "catalogNumber": "BD-067"
+    "catalogNumber": "BD-071"
   },
   {
     "id": "bd-i-m-in-love-with-you",
@@ -1425,7 +1509,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "09b514ea-2100-4f84-831f-3108d4c764c0",
-    "catalogNumber": "BD-068"
+    "catalogNumber": "BD-072"
   },
   {
     "id": "bd-small-streams-strong-rivers",
@@ -1446,7 +1530,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "05f9c3c2-0863-47a5-9f55-e0b395f732cd",
-    "catalogNumber": "BD-069"
+    "catalogNumber": "BD-073"
   },
   {
     "id": "bd-wolf",
@@ -1467,7 +1551,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "424241ba-244c-4133-9ba3-63d97c59beb4",
-    "catalogNumber": "BD-070"
+    "catalogNumber": "BD-074"
   },
   {
     "id": "bd-band-of-the-hawk-w-monday",
@@ -1483,12 +1567,12 @@
     "availability": "Unsold",
     "artwork": "/art/bd-nft-band-of-the-hawk-w-monday.jpg",
     "externalUrl": "https://beta.catalog.works/musebymonday/band-of-the-hawk",
-    "chain": "ethereum",
-    "contract": "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7",
-    "tokenId": "10002",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "9bd270bb-b86f-46ef-9b35-d153fec35d70",
-    "catalogNumber": "BD-071"
+    "catalogNumber": "BD-075"
   },
   {
     "id": "bd-red-eye-w-monday",
@@ -1504,12 +1588,12 @@
     "availability": "Unsold",
     "artwork": "/art/bd-nft-red-eye.jpg",
     "externalUrl": "https://beta.catalog.works/musebymonday/red-eye",
-    "chain": "ethereum",
-    "contract": "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7",
-    "tokenId": "10003",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "7452d38f-e27f-40b5-bee6-98b13bda1ab9",
-    "catalogNumber": "BD-072"
+    "catalogNumber": "BD-076"
   },
   {
     "id": "bd-sajin-w-monday",
@@ -1525,12 +1609,12 @@
     "availability": "Unsold",
     "artwork": "/art/bd-nft-sajin-w-monday.jpg",
     "externalUrl": "https://beta.catalog.works/musebymonday/sajin",
-    "chain": "ethereum",
-    "contract": "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7",
-    "tokenId": "10004",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "6157ef16-3a47-4c43-be79-6b09b115a325",
-    "catalogNumber": "BD-073"
+    "catalogNumber": "BD-077"
   },
   {
     "id": "bd-want-my-head",
@@ -1551,7 +1635,7 @@
     "tokenId": "36",
     "resolved": true,
     "notionId": "7d6febec-2798-4ce0-8366-fa789cd797cc",
-    "catalogNumber": "BD-074"
+    "catalogNumber": "BD-078"
   },
   {
     "id": "bd-what-the-fuck",
@@ -1572,7 +1656,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "fde45583-2066-4f76-bea1-428ad5632377",
-    "catalogNumber": "BD-075"
+    "catalogNumber": "BD-079"
   },
   {
     "id": "bd-oh-yes",
@@ -1593,7 +1677,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "cbab63aa-8a4c-46a1-9a11-8ee1c74705de",
-    "catalogNumber": "BD-076"
+    "catalogNumber": "BD-080"
   },
   {
     "id": "bd-soundxyz-w-titandemonbane",
@@ -1614,7 +1698,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "201081ae-e498-4732-917f-736a306dadab",
-    "catalogNumber": "BD-077"
+    "catalogNumber": "BD-081"
   },
   {
     "id": "bd-wavroom-feat-black-dave",
@@ -1635,7 +1719,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "8aa1ba6f-4ffe-4f4f-a9c1-c163b2fe86e6",
-    "catalogNumber": "BD-078"
+    "catalogNumber": "BD-082"
   },
   {
     "id": "bd-bag",
@@ -1656,7 +1740,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "4bc3bdd8-2739-496d-9129-edd5fc5e6156",
-    "catalogNumber": "BD-079"
+    "catalogNumber": "BD-083"
   },
   {
     "id": "bd-me-too",
@@ -1677,7 +1761,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "d7835a4c-91fd-40b8-a6ae-d1962e3b7442",
-    "catalogNumber": "BD-080"
+    "catalogNumber": "BD-084"
   },
   {
     "id": "bd-feel-good",
@@ -1698,7 +1782,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "5103a976-d2c5-4367-92b2-446cf557a305",
-    "catalogNumber": "BD-081"
+    "catalogNumber": "BD-085"
   },
   {
     "id": "bd-black-dave-black-comet-coda",
@@ -1719,7 +1803,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "2688c552-4b37-495b-abb6-720f4cd2afc2",
-    "catalogNumber": "BD-082"
+    "catalogNumber": "BD-086"
   },
   {
     "id": "bd-i-love-this-shit",
@@ -1740,7 +1824,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "ab72b45d-0171-4081-93d6-b2c8961daa7a",
-    "catalogNumber": "BD-083"
+    "catalogNumber": "BD-087"
   },
   {
     "id": "bd-advice",
@@ -1761,7 +1845,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "d288feaf-2a97-47a7-9f07-6d00c7d6277c",
-    "catalogNumber": "BD-084"
+    "catalogNumber": "BD-088"
   },
   {
     "id": "bd-newtype-poetry",
@@ -1777,12 +1861,12 @@
     "availability": "Sold Out",
     "artwork": "/art/bd-nft-newtype-poetry.png",
     "externalUrl": "https://beta.catalog.works/blackdave/newtype-poetry",
-    "chain": "ethereum",
-    "contract": "0x0bc2a24ce568dad89691116d5b34deb6c203f342",
-    "tokenId": "825",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "7793659e-d5e1-4fab-8ae5-dc075ed15375",
-    "catalogNumber": "BD-085"
+    "catalogNumber": "BD-089"
   },
   {
     "id": "bd-lavender",
@@ -1803,7 +1887,7 @@
     "tokenId": null,
     "resolved": false,
     "notionId": "bad00be9-9e4e-4322-8329-e51f9f72ecb0",
-    "catalogNumber": "BD-086"
+    "catalogNumber": "BD-090"
   },
   {
     "id": "bd-back-on-my-bullshit",
@@ -1819,12 +1903,12 @@
     "availability": "Sold Out",
     "artwork": "/art/bd-nft-back-on-my-bullshit.jpg",
     "externalUrl": "https://beta.catalog.works/blackdave/back-on-my-bullshit",
-    "chain": "ethereum",
-    "contract": "0x0bc2a24ce568dad89691116d5b34deb6c203f342",
-    "tokenId": "892",
-    "resolved": true,
+    "chain": null,
+    "contract": null,
+    "tokenId": null,
+    "resolved": false,
     "notionId": "bcd57422-eb7e-44de-a0e6-d23052c4e922",
-    "catalogNumber": "BD-087"
+    "catalogNumber": "BD-091"
   },
   {
     "id": "bd-ss23-supercollector",
@@ -1844,7 +1928,7 @@
     "contract": "0xedd6b208c35281554caa71b44f7f3842295b07ab",
     "tokenId": "1",
     "resolved": true,
-    "catalogNumber": "BD-088"
+    "catalogNumber": "BD-092"
   },
   {
     "id": "bd-aspiring-gundam-pilot-supercollector",
@@ -1864,7 +1948,7 @@
     "contract": "0x761fc1fa3935c9f8166147e2fe428ef54943b853",
     "tokenId": "1",
     "resolved": true,
-    "catalogNumber": "BD-089"
+    "catalogNumber": "BD-093"
   },
   {
     "id": "bd-that-time-abandoned-mech-supercollector",
@@ -1884,7 +1968,7 @@
     "contract": "0x371aa2d25d138b99e1f30bc2a4852f9fa7882c2f",
     "tokenId": "1",
     "resolved": true,
-    "catalogNumber": "BD-090"
+    "catalogNumber": "BD-094"
   },
   {
     "id": "bd-black-dave-token",
@@ -1905,28 +1989,7 @@
     "tokenId": "1",
     "resolved": true,
     "notionId": "25b1154c-f82c-4173-b1d5-9d9e1ce11c12",
-    "catalogNumber": "BD-091"
-  },
-  {
-    "id": "bd-chronicles-ep-supercollector",
-    "title": "Chronicles EP (Supercollector)",
-    "collection": "Supercollector",
-    "platform": "Supercollector",
-    "medium": [
-      "Music"
-    ],
-    "editions": null,
-    "priceEth": null,
-    "mintDate": "",
-    "availability": "Always On",
-    "artwork": "/art/bd-nft-chronicles-ep-supercollector.jpeg",
-    "externalUrl": "https://release.supercollector.xyz/chronicles-black-dave",
-    "chain": "optimism",
-    "contract": "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069",
-    "tokenId": "1",
-    "resolved": true,
-    "notionId": "5e0353b6-8da7-4126-b8a9-b28be0c4caf3",
-    "catalogNumber": "BD-092"
+    "catalogNumber": "BD-095"
   },
   {
     "id": "bd-manga-tears-special",
@@ -1947,28 +2010,7 @@
     "tokenId": "1013003",
     "resolved": true,
     "notionId": "325e6e9e-aaeb-436b-a95e-4a14eee04540",
-    "catalogNumber": "BD-093"
-  },
-  {
-    "id": "bd-stay-gold-supercollector",
-    "title": "Stay Gold (Supercollector)",
-    "collection": "Supercollector",
-    "platform": "Supercollector",
-    "medium": [
-      "Music"
-    ],
-    "editions": null,
-    "priceEth": null,
-    "mintDate": "",
-    "availability": "Always On",
-    "artwork": "/art/bd-nft-stay-gold-supercollector.jpg",
-    "externalUrl": "https://release.supercollector.xyz/stay-gold-black-dave",
-    "chain": "optimism",
-    "contract": "0x97312325fda573f8ba5cb4160130631d0d823892",
-    "tokenId": "1",
-    "resolved": true,
-    "notionId": "2cd86d1a-bf64-4c14-be75-d6774baef379",
-    "catalogNumber": "BD-094"
+    "catalogNumber": "BD-096"
   },
   {
     "id": "bd-the-careless-ones",
@@ -1989,48 +2031,6 @@
     "tokenId": "1",
     "resolved": true,
     "notionId": "f0d6bd07-b702-416f-aa22-dc19d2c9ffd4",
-    "catalogNumber": "BD-095"
-  },
-  {
-    "id": "bd-unrequited-ep-supercollector",
-    "title": "Unrequited EP (Supercollector)",
-    "collection": "Supercollector",
-    "platform": "Supercollector",
-    "medium": [
-      "Music"
-    ],
-    "editions": null,
-    "priceEth": null,
-    "mintDate": "",
-    "availability": "Always On",
-    "artwork": "/art/bd-nft-unrequited-ep-supercollector.jpg",
-    "externalUrl": "https://release.supercollector.xyz/unrequited-black-dave",
-    "chain": "optimism",
-    "contract": "0x7cb50113f54d12ca5146e57b193d7a6c53722060",
-    "tokenId": "1",
-    "resolved": true,
-    "notionId": "eba1ac23-8917-47a0-90be-0ab2bac22827",
-    "catalogNumber": "BD-096"
-  },
-  {
-    "id": "bd-word-association-supercollector",
-    "title": "Word Association (Supercollector)",
-    "collection": "Supercollector",
-    "platform": "Supercollector",
-    "medium": [
-      "Music"
-    ],
-    "editions": null,
-    "priceEth": null,
-    "mintDate": "",
-    "availability": "Always On",
-    "artwork": "/art/bd-nft-word-association-supercollector.jpg",
-    "externalUrl": "https://release.supercollector.xyz/word-association-black-dave",
-    "chain": "optimism",
-    "contract": "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba",
-    "tokenId": "1",
-    "resolved": true,
-    "notionId": "044c2024-cacc-4352-b2ba-20bb5aa7ebad",
     "catalogNumber": "BD-097"
   }
 ]

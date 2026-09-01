@@ -7,6 +7,12 @@ const ERA_BONUS: Record<number, number> = {
   2023: 10,
 };
 
+function eraBonusFor(year: number): number {
+  if (!Number.isFinite(year)) return 5;
+  if (year <= 2020) return 25;
+  return ERA_BONUS[year] ?? 5;
+}
+
 const BLACK_DAVE_TOKEN_COLLECTION = "Black Dave Token";
 
 function cataloguedWorks(held: Work[]): Work[] {
@@ -59,9 +65,11 @@ export function score(held: Work[]): ScoreResult {
   );
   const mediumBonus = 8 * media.size;
 
-  const years = works.map((work) => new Date(work.mintDate).getFullYear());
-  const earliest = Math.min(...years);
-  const eraBonus = ERA_BONUS[earliest] ?? 5;
+  const years = works
+    .map((work) => new Date(work.mintDate).getFullYear())
+    .filter((year) => Number.isFinite(year));
+  const earliest = years.length > 0 ? Math.min(...years) : Number.NaN;
+  const eraBonus = eraBonusFor(earliest);
 
   const total = breadth + depth + mediumBonus + eraBonus;
   return {

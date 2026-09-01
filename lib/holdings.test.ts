@@ -87,20 +87,31 @@ test("Supercollector releases are ERC-1155 and match any token on the contract",
   );
 });
 
-test("MK2 Supercollector albums sit in chronological catalog order", () => {
-  const ss23 = getWorkById("bd-ss23-supercollector");
-  const aspiring = getWorkById("bd-aspiring-gundam-pilot-supercollector");
-  const mech = getWorkById("bd-that-time-abandoned-mech-supercollector");
-  const bullshit = getWorkById("bd-back-on-my-bullshit");
-  assert.equal(ss23?.catalogNumber, "BD-088");
-  assert.equal(aspiring?.catalogNumber, "BD-089");
-  assert.equal(mech?.catalogNumber, "BD-090");
-  assert.ok(bullshit && ss23 && aspiring && mech);
-  const numbers = [bullshit, ss23, aspiring, mech].map((work) =>
-    Number.parseInt(work.catalogNumber.replace(/\D/g, ""), 10),
+test("Supercollector albums sit in release-date catalog order", () => {
+  const supercollector = getCatalog().filter(
+    (work) => work.collection === "Supercollector",
   );
-  assert.deepEqual(numbers, [...numbers].sort((a, b) => a - b));
-  assert.equal(getCatalog().filter((work) => work.collection === "Supercollector").length, 7);
+  assert.deepEqual(
+    supercollector.map((work) => [work.id, work.mintDate, work.catalogNumber]),
+    [
+      ["bd-chronicles-ep-supercollector", "2016-08-15", "BD-001"],
+      ["bd-unrequited-ep-supercollector", "2017-04-25", "BD-002"],
+      ["bd-stay-gold-supercollector", "2017-10-20", "BD-003"],
+      ["bd-word-association-supercollector", "2017-11-26", "BD-004"],
+      ["bd-ss23-supercollector", "2023-10-11", "BD-092"],
+      ["bd-aspiring-gundam-pilot-supercollector", "2024-08-22", "BD-093"],
+      [
+        "bd-that-time-abandoned-mech-supercollector",
+        "2025-10-20",
+        "BD-094",
+      ],
+    ],
+  );
+
+  const evaKids = getWorkById("bd-dressed-up-eva-kids");
+  const bullshit = getWorkById("bd-back-on-my-bullshit");
+  assert.equal(evaKids?.catalogNumber, "BD-005");
+  assert.equal(bullshit?.catalogNumber, "BD-091");
 });
 
 test("Decent series token range expands track ids and rejects a wild span", () => {

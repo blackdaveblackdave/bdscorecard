@@ -91,6 +91,43 @@ test("breadth beats stacking Black Dave Token", () => {
   assert.ok(across.score > stacked.score);
 });
 
+test("pre-2020 Supercollector dates keep the OG era bonus", () => {
+  const result = score([
+    work({
+      id: "chronicles",
+      title: "Chronicles EP (Supercollector)",
+      collection: "Supercollector",
+      medium: ["Music"],
+      mintDate: "2016-08-15",
+    }),
+    work({
+      id: "tears",
+      title: "Manga Tears 001",
+      collection: "BlackDave.io 001",
+      mintDate: "2021-03-26",
+    }),
+  ]);
+  assert.equal(result.eraBonus, 25);
+});
+
+test("undated works do not wipe a later era bonus", () => {
+  const result = score([
+    work({
+      id: "token",
+      title: "Black Dave Token",
+      collection: "Black Dave Token",
+      mintDate: "",
+    }),
+    work({
+      id: "tears",
+      title: "Manga Tears 001",
+      collection: "BlackDave.io 001",
+      mintDate: "2021-03-26",
+    }),
+  ]);
+  assert.equal(result.eraBonus, 20);
+});
+
 test("tier bands", () => {
   assert.equal(tierForScore(0), "Visitor");
   assert.equal(tierForScore(1), "Listed");

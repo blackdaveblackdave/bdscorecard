@@ -24,21 +24,25 @@ SUPERCOLLECTOR_RELEASES = {
         "contract": "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069",
         "chain": "optimism",
         "tokenId": "1",
+        "mintDate": "2016-08-15",
     },
     "2cd86d1a-bf64-4c14-be75-d6774baef379": {
         "contract": "0x97312325fda573f8ba5cb4160130631d0d823892",
         "chain": "optimism",
         "tokenId": "1",
+        "mintDate": "2017-10-20",
     },
     "eba1ac23-8917-47a0-90be-0ab2bac22827": {
         "contract": "0x7cb50113f54d12ca5146e57b193d7a6c53722060",
         "chain": "optimism",
         "tokenId": "1",
+        "mintDate": "2017-04-25",
     },
     "044c2024-cacc-4352-b2ba-20bb5aa7ebad": {
         "contract": "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba",
         "chain": "optimism",
         "tokenId": "1",
+        "mintDate": "2017-11-26",
     },
 }
 
@@ -143,6 +147,8 @@ def main() -> None:
         chain = row.get("chain")
         resolved = bool(row.get("resolved"))
 
+        mint_date = row.get("mintDate") or ""
+
         if title.lower() == "black dave token" or (row.get("externalUrl") or "").rstrip("/").endswith(
             "token.blackdave.xyz"
         ):
@@ -168,6 +174,7 @@ def main() -> None:
             chain = sc["chain"]
             token_id = token_id or sc["tokenId"]
             resolved = True
+            mint_date = sc.get("mintDate") or mint_date
 
         prev = match_old(row)
         artwork = ""
@@ -201,7 +208,7 @@ def main() -> None:
                 "medium": medium,
                 "editions": row.get("editions"),
                 "priceEth": row.get("priceEth"),
-                "mintDate": row.get("mintDate") or "",
+                "mintDate": mint_date,
                 "availability": availability,
                 "artwork": artwork,
                 "externalUrl": row.get("externalUrl") or "",
