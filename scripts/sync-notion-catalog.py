@@ -18,6 +18,36 @@ OPENSEA_SHARED = "0x495f947276749ce646f68ac8c248420045cb7b5e"
 BLACK_DAVE_TOKEN = "0xafd17cb86d7cd086fc720365e873469ebcb103da"
 MANGA_QUOTES = "0x6af27cc1098685f8e3937237a43a0eeea2ce90ba"
 
+SUPERCOLLECTOR_RELEASES = {
+    "5e0353b6-8da7-4126-b8a9-b28be0c4caf3": {
+        "contract": "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
+    "2cd86d1a-bf64-4c14-be75-d6774baef379": {
+        "contract": "0x97312325fda573f8ba5cb4160130631d0d823892",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
+    "eba1ac23-8917-47a0-90be-0ab2bac22827": {
+        "contract": "0x7cb50113f54d12ca5146e57b193d7a6c53722060",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
+    "044c2024-cacc-4352-b2ba-20bb5aa7ebad": {
+        "contract": "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba",
+        "chain": "optimism",
+        "tokenId": "1",
+    },
+}
+
+SUPERCOLLECTOR_BY_SLUG = {
+    "chronicles-black-dave": SUPERCOLLECTOR_RELEASES["5e0353b6-8da7-4126-b8a9-b28be0c4caf3"],
+    "stay-gold-black-dave": SUPERCOLLECTOR_RELEASES["2cd86d1a-bf64-4c14-be75-d6774baef379"],
+    "unrequited-black-dave": SUPERCOLLECTOR_RELEASES["eba1ac23-8917-47a0-90be-0ab2bac22827"],
+    "word-association-black-dave": SUPERCOLLECTOR_RELEASES["044c2024-cacc-4352-b2ba-20bb5aa7ebad"],
+}
+
 
 def norm(s: str) -> str:
     s = unicodedata.normalize("NFKD", s or "")
@@ -108,6 +138,19 @@ def main() -> None:
         if contract == MANGA_QUOTES:
             chain = "polygon"
             token_id = token_id or "1"
+            resolved = True
+
+        sc = SUPERCOLLECTOR_RELEASES.get(row.get("notionId") or "")
+        if sc is None:
+            url = (row.get("externalUrl") or "").rstrip("/")
+            for slug, meta in SUPERCOLLECTOR_BY_SLUG.items():
+                if url.endswith("/" + slug):
+                    sc = meta
+                    break
+        if sc:
+            contract = sc["contract"]
+            chain = sc["chain"]
+            token_id = token_id or sc["tokenId"]
             resolved = True
 
         prev = match_old(row)

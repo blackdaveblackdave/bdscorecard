@@ -1,5 +1,5 @@
 import catalog from "../data/catalog.json";
-import { BLACK_DAVE_TOKEN } from "./contracts";
+import { isContractScopedHoldings } from "./contracts";
 import type { Availability, ChainName, Work } from "./types";
 
 function parseAvailability(value: unknown): Availability {
@@ -15,7 +15,9 @@ function parseAvailability(value: unknown): Availability {
 }
 
 function parseChain(value: unknown): ChainName | null {
-  if (value === "ethereum" || value === "polygon") return value;
+  if (value === "ethereum" || value === "polygon" || value === "optimism") {
+    return value;
+  }
   return null;
 }
 
@@ -69,7 +71,7 @@ export function matchHeldWork(opts: {
   tokenId: string;
 }): Work | undefined {
   const contract = opts.contract.toLowerCase();
-  if (contract === BLACK_DAVE_TOKEN) {
+  if (isContractScopedHoldings(contract)) {
     return works.find((work) => work.contract === contract && work.resolved);
   }
   return works.find(

@@ -38,6 +38,18 @@ MANGA_QUOTES = "0x6af27cc1098685f8e3937237a43a0eeea2ce90ba"
 BLACK_DAVE_TOKEN = "0xafd17cb86d7cd086fc720365e873469ebcb103da"
 CREATOR = "ed22bb0106c24c7f6b4d8aae33639e1467061f64"
 
+SUPERCOLLECTOR_CHRONICLES = "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069"
+SUPERCOLLECTOR_STAY_GOLD = "0x97312325fda573f8ba5cb4160130631d0d823892"
+SUPERCOLLECTOR_UNREQUITED = "0x7cb50113f54d12ca5146e57b193d7a6c53722060"
+SUPERCOLLECTOR_WORD_ASSOCIATION = "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba"
+
+SUPERCOLLECTOR_BY_SLUG = {
+    "chronicles-black-dave": SUPERCOLLECTOR_CHRONICLES,
+    "stay-gold-black-dave": SUPERCOLLECTOR_STAY_GOLD,
+    "unrequited-black-dave": SUPERCOLLECTOR_UNREQUITED,
+    "word-association-black-dave": SUPERCOLLECTOR_WORD_ASSOCIATION,
+}
+
 RESOLVED_CONTRACTS = {
     OPENSEA_SHARED,
     MINT_SONGS,
@@ -45,6 +57,10 @@ RESOLVED_CONTRACTS = {
     RARIBLE_721,
     MANGA_QUOTES,
     BLACK_DAVE_TOKEN,
+    SUPERCOLLECTOR_CHRONICLES,
+    SUPERCOLLECTOR_STAY_GOLD,
+    SUPERCOLLECTOR_UNREQUITED,
+    SUPERCOLLECTOR_WORD_ASSOCIATION,
 }
 
 TOKEN_ALLOWLIST = {
@@ -61,6 +77,10 @@ CHAIN_BY_CONTRACT = {
     RARIBLE_721: "ethereum",
     MANGA_QUOTES: "polygon",
     BLACK_DAVE_TOKEN: "ethereum",
+    SUPERCOLLECTOR_CHRONICLES: "optimism",
+    SUPERCOLLECTOR_STAY_GOLD: "optimism",
+    SUPERCOLLECTOR_UNREQUITED: "optimism",
+    SUPERCOLLECTOR_WORD_ASSOCIATION: "optimism",
 }
 
 
@@ -259,6 +279,13 @@ def main() -> None:
                 contract = BLACK_DAVE_TOKEN
                 chain = "ethereum"
                 token_id = "1"
+            elif "supercollector" in url:
+                for slug, addr in SUPERCOLLECTOR_BY_SLUG.items():
+                    if slug in url:
+                        contract = addr
+                        chain = "optimism"
+                        token_id = "1"
+                        break
             elif "polygon" in url and MANGA_QUOTES in url.lower():
                 contract = MANGA_QUOTES
                 chain = "polygon"

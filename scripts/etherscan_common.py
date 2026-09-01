@@ -23,6 +23,17 @@ RARIBLE_721 = "0xd07dc4262bcdbf85190c01c996b4c06a461d2430"
 MANGA_QUOTES = "0x6af27cc1098685f8e3937237a43a0eeea2ce90ba"
 BLACK_DAVE_TOKEN = "0xafd17cb86d7cd086fc720365e873469ebcb103da"
 
+SUPERCOLLECTOR_CHRONICLES = "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069"
+SUPERCOLLECTOR_STAY_GOLD = "0x97312325fda573f8ba5cb4160130631d0d823892"
+SUPERCOLLECTOR_UNREQUITED = "0x7cb50113f54d12ca5146e57b193d7a6c53722060"
+SUPERCOLLECTOR_WORD_ASSOCIATION = "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba"
+SUPERCOLLECTOR_CONTRACTS = {
+    SUPERCOLLECTOR_CHRONICLES,
+    SUPERCOLLECTOR_STAY_GOLD,
+    SUPERCOLLECTOR_UNREQUITED,
+    SUPERCOLLECTOR_WORD_ASSOCIATION,
+}
+
 ETHEREUM_CONTRACTS = [
     OPENSEA_SHARED,
     MINT_SONGS,
@@ -31,6 +42,7 @@ ETHEREUM_CONTRACTS = [
     BLACK_DAVE_TOKEN,
 ]
 POLYGON_CONTRACTS = [MANGA_QUOTES]
+OPTIMISM_CONTRACTS = list(SUPERCOLLECTOR_CONTRACTS)
 
 TOKEN_ALLOWLIST = {
     (MINT_SONGS, "36"),
@@ -71,7 +83,7 @@ def token_allowed(contract: str, token_id: str) -> bool:
     contract = contract.lower()
     if contract == OPENSEA_SHARED:
         return is_black_dave_opensea_token(token_id)
-    if contract == BLACK_DAVE_TOKEN:
+    if contract == BLACK_DAVE_TOKEN or contract in SUPERCOLLECTOR_CONTRACTS:
         return True
     return (contract, token_id) in TOKEN_ALLOWLIST
 
@@ -139,7 +151,7 @@ def load_catalog() -> list[dict[str, Any]]:
 def match_catalog_work(catalog: list[dict[str, Any]], contract: str, token_id: str) -> dict[str, Any] | None:
     contract = contract.lower()
     token_id = str(int(token_id))
-    if contract == BLACK_DAVE_TOKEN:
+    if contract == BLACK_DAVE_TOKEN or contract in SUPERCOLLECTOR_CONTRACTS:
         for work in catalog:
             if work.get("contract") == contract and work.get("resolved"):
                 return work

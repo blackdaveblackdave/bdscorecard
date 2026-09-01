@@ -33,6 +33,38 @@ export const CATALOG_RECORD =
 export const SHRP_TOKEN =
   "0x4b7845f1f6e7046c3e1bf050a629ee8d59eb437f" as const;
 
+/** Supercollector / Decent DCNTSeries releases on Optimism. */
+export const SUPERCOLLECTOR_CHRONICLES =
+  "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069" as const;
+export const SUPERCOLLECTOR_STAY_GOLD =
+  "0x97312325fda573f8ba5cb4160130631d0d823892" as const;
+export const SUPERCOLLECTOR_UNREQUITED =
+  "0x7cb50113f54d12ca5146e57b193d7a6c53722060" as const;
+export const SUPERCOLLECTOR_WORD_ASSOCIATION =
+  "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba" as const;
+
+export const SUPERCOLLECTOR_CONTRACTS = [
+  SUPERCOLLECTOR_CHRONICLES,
+  SUPERCOLLECTOR_STAY_GOLD,
+  SUPERCOLLECTOR_UNREQUITED,
+  SUPERCOLLECTOR_WORD_ASSOCIATION,
+] as const;
+
+const SUPERCOLLECTOR_SET = new Set<string>(SUPERCOLLECTOR_CONTRACTS);
+const CONTRACT_SCOPED_HOLDINGS = new Set<string>([
+  BLACK_DAVE_TOKEN,
+  ...SUPERCOLLECTOR_CONTRACTS,
+]);
+
+export function isSupercollectorContract(contract: string): boolean {
+  return SUPERCOLLECTOR_SET.has(contract.toLowerCase());
+}
+
+/** Any token on these contracts counts as the catalog work. */
+export function isContractScopedHoldings(contract: string): boolean {
+  return CONTRACT_SCOPED_HOLDINGS.has(contract.toLowerCase());
+}
+
 export const FRACTIONAL_HOLDINGS: ReadonlyArray<{
   workId: string;
   token: string;
@@ -60,3 +92,5 @@ export const ETHEREUM_CONTRACTS = [
 ] as const;
 
 export const POLYGON_CONTRACTS = [MANGA_QUOTES] as const;
+
+export const OPTIMISM_CONTRACTS = SUPERCOLLECTOR_CONTRACTS;

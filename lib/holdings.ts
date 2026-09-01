@@ -6,16 +6,18 @@ import {
   erc721Abi,
   fallback,
   http,
+  type Chain,
 } from "viem";
 import { normalize } from "viem/ens";
 import { createPublicClient } from "viem";
-import { mainnet, polygon } from "viem/chains";
+import { mainnet, optimism, polygon } from "viem/chains";
 import {
   BLACK_DAVE_TOKEN,
   FRACTIONAL_HOLDINGS,
   OPENSEA_SHARED,
   RARIBLE_721,
   TOKEN_ALLOWLIST,
+  isSupercollectorContract,
 } from "./contracts";
 import { getCatalog, getWorkById, matchHeldWork } from "./catalog";
 import { isBlackDaveOpenSeaToken } from "./opensea-tokens";
@@ -30,10 +32,12 @@ export type TokenStandard = "erc721" | "erc1155";
 export function catalogTokenStandard(contract: string): TokenStandard {
   // 0xd07d is Rarible's ERC-1155; 0x60f8 is Rarible's ERC-721.
   // Constant names follow the PRD labels, which swapped those two.
+  const addr = contract.toLowerCase();
   if (
-    contract === OPENSEA_SHARED ||
-    contract === RARIBLE_721 ||
-    contract === BLACK_DAVE_TOKEN
+    addr === OPENSEA_SHARED ||
+    addr === RARIBLE_721 ||
+    addr === BLACK_DAVE_TOKEN ||
+    isSupercollectorContract(addr)
   ) {
     return "erc1155";
   }
@@ -64,7 +68,58 @@ type AlchemyPage = {
 };
 
 function alchemyNetwork(chain: ChainName): string {
-  return chain === "polygon" ? "polygon-mainnet" : "eth-mainnet";
+  if (chain === "polygon") return "polygon-mainnet";
+  if (chain === "optimism") return "opt-mainnet";
+  return "eth-mainnet";
+}
+
+const CHAIN_RPC: Record<
+  ChainName,
+  { viem: Chain; alchemy: (key: string) => string; public: string }
+> = {
+  ethereum: {
+    viem: mainnet,
+    alchemy: (key) => `https://eth-mainnet.g.alchemy.com/v2/${key}`,
+    public: "https://ethereum.publicnode.com",
+  },
+  polygon: {
+    viem: polygon,
+    alchemy: (key) => `https://polygon-mainnet.g.alchemy.com/v2/${key}`,
+    public: "https://polygon-bor-rpc.publicnode.com",
+  },
+  optimism: {
+    viem: optimism,
+    alchemy: (key) => `https://opt-mainnet.g.alchemy.com/v2/${key}`,
+    public: "https://optimism.publicnode.com",
+  },
+};
+
+const DCNT_SERIES_ABI = [
+  {
+    type: "function",
+    name: "tokenRange",
+    stateMutability: "view",
+    inputs: [],
+    outputs: [
+      { name: "startTokenId", type: "uint128" },
+      { name: "endTokenId", type: "uint128" },
+    ],
+  },
+] as const;
+
+export function tokenIdsFromRange(
+  start: bigint,
+  end: bigint,
+  maxCount = 32,
+): string[] | null {
+  if (end < start) return null;
+  const count = end - start + 1n;
+  if (count <= 0n || count > BigInt(maxCount)) return null;
+  const ids: string[] = [];
+  for (let id = start; id <= end; id++) {
+    ids.push(id.toString());
+  }
+  return ids;
 }
 
 function tokenAllowed(contract: string, tokenId: string): boolean {
@@ -100,26 +155,15 @@ function toHeldWork(opts: {
 
 function publicClientFor(chain: ChainName) {
   const alchemy = process.env.ALCHEMY_API_KEY ?? "";
+  const rpc = CHAIN_RPC[chain];
   const transports = [];
   if (alchemy) {
-    transports.push(
-      http(
-        chain === "polygon"
-          ? `https://polygon-mainnet.g.alchemy.com/v2/${alchemy}`
-          : `https://eth-mainnet.g.alchemy.com/v2/${alchemy}`,
-      ),
-    );
+    transports.push(http(rpc.alchemy(alchemy)));
   }
-  transports.push(
-    http(
-      chain === "polygon"
-        ? "https://polygon-bor-rpc.publicnode.com"
-        : "https://ethereum.publicnode.com",
-    ),
-  );
+  transports.push(http(rpc.public));
   transports.push(http());
   return createPublicClient({
-    chain: chain === "polygon" ? polygon : mainnet,
+    chain: rpc.viem,
     transport: fallback(transports),
   });
 }
@@ -147,6 +191,22 @@ function resolvedContractGroups(): { contract: string; chain: ChainName }[] {
   return groups;
 }
 
+async function seriesTokenIds(
+  client: ReturnType<typeof publicClientFor>,
+  contract: `0x${string}`,
+): Promise<string[] | null> {
+  try {
+    const range = await client.readContract({
+      address: contract,
+      abi: DCNT_SERIES_ABI,
+      functionName: "tokenRange",
+    });
+    return tokenIdsFromRange(range[0], range[1]);
+  } catch {
+    return null;
+  }
+}
+
 async function erc1155CatalogBalances(opts: {
   address: Address;
   chain: ChainName;
@@ -157,28 +217,33 @@ async function erc1155CatalogBalances(opts: {
 
   const client = publicClientFor(opts.chain);
   const contract = opts.contract as `0x${string}`;
+  let tokenIds = tokens.map((work) => work.tokenId!);
+  if (isSupercollectorContract(opts.contract)) {
+    const series = await seriesTokenIds(client, contract);
+    if (series) tokenIds = series;
+  }
+
   const held: HeldWork[] = [];
 
-  for (let i = 0; i < tokens.length; i += 50) {
-    const batch = tokens.slice(i, i + 50);
+  for (let i = 0; i < tokenIds.length; i += 50) {
+    const batch = tokenIds.slice(i, i + 50);
     const results = await client.multicall({
       allowFailure: true,
-      contracts: batch.map((work) => ({
+      contracts: batch.map((tokenId) => ({
         address: contract,
         abi: erc1155Abi,
         functionName: "balanceOf",
-        args: [opts.address as `0x${string}`, BigInt(work.tokenId!)],
+        args: [opts.address as `0x${string}`, BigInt(tokenId)],
       })),
     });
 
     for (let j = 0; j < results.length; j++) {
       const result = results[j];
       if (result.status !== "success" || !hasErc1155Balance(result.result)) continue;
-      const work = batch[j];
       held.push(
         toHeldWork({
           contract: opts.contract,
-          tokenId: work.tokenId!,
+          tokenId: batch[j],
           chain: opts.chain,
         }),
       );
