@@ -10,14 +10,22 @@ import {
 } from "viem";
 import { normalize } from "viem/ens";
 import { createPublicClient } from "viem";
-import { mainnet, optimism, polygon } from "viem/chains";
+import { base, mainnet, optimism, polygon } from "viem/chains";
 import {
   BLACK_DAVE_TOKEN,
   FRACTIONAL_HOLDINGS,
   OPENSEA_SHARED,
   RARIBLE_721,
   TOKEN_ALLOWLIST,
+  ITEM_BOX,
+  YARDS,
+  aliasedTokenIds,
+  isSoundArtistContract,
   isSupercollectorContract,
+  sequentialErc1155TokenIds,
+  sequentialErc721TokenIds,
+  soundEditionId,
+  soundTokenIdsForEdition,
 } from "./contracts";
 import { getCatalog, getWorkById, matchHeldWork } from "./catalog";
 import { isBlackDaveOpenSeaToken } from "./opensea-tokens";
@@ -37,6 +45,8 @@ export function catalogTokenStandard(contract: string): TokenStandard {
     addr === OPENSEA_SHARED ||
     addr === RARIBLE_721 ||
     addr === BLACK_DAVE_TOKEN ||
+    addr === YARDS ||
+    addr === ITEM_BOX ||
     isSupercollectorContract(addr)
   ) {
     return "erc1155";
@@ -70,6 +80,7 @@ type AlchemyPage = {
 function alchemyNetwork(chain: ChainName): string {
   if (chain === "polygon") return "polygon-mainnet";
   if (chain === "optimism") return "opt-mainnet";
+  if (chain === "base") return "base-mainnet";
   return "eth-mainnet";
 }
 
@@ -91,6 +102,11 @@ const CHAIN_RPC: Record<
     viem: optimism,
     alchemy: (key) => `https://opt-mainnet.g.alchemy.com/v2/${key}`,
     public: "https://optimism.publicnode.com",
+  },
+  base: {
+    viem: base,
+    alchemy: (key) => `https://base-mainnet.g.alchemy.com/v2/${key}`,
+    public: "https://mainnet.base.org",
   },
 };
 
@@ -218,7 +234,10 @@ async function erc1155CatalogBalances(opts: {
   const client = publicClientFor(opts.chain);
   const contract = opts.contract as `0x${string}`;
   let tokenIds = tokens.map((work) => work.tokenId!);
-  if (isSupercollectorContract(opts.contract)) {
+  const sequential = sequentialErc1155TokenIds(opts.contract);
+  if (sequential.length) {
+    tokenIds = sequential;
+  } else if (isSupercollectorContract(opts.contract)) {
     const series = await seriesTokenIds(client, contract);
     if (series) tokenIds = series;
   }
@@ -264,28 +283,43 @@ async function erc721CatalogOwners(opts: {
   const client = publicClientFor(opts.chain);
   const contract = opts.contract as `0x${string}`;
   const owner = opts.address.toLowerCase();
+  const sequential = sequentialErc721TokenIds(opts.contract);
+  const tokenIds = [
+    ...new Set(
+      sequential.length
+        ? sequential
+        : tokens.flatMap((work) => {
+            if (isSoundArtistContract(opts.contract) && work.tokenId) {
+              const edition = soundEditionId(work.tokenId);
+              if (edition != null) return soundTokenIdsForEdition(edition);
+            }
+            return work.tokenId ? aliasedTokenIds(opts.contract, work.tokenId) : [];
+          }),
+    ),
+  ];
+  if (tokenIds.length === 0) return [];
+
   const held: HeldWork[] = [];
 
-  for (let i = 0; i < tokens.length; i += 50) {
-    const batch = tokens.slice(i, i + 50);
+  for (let i = 0; i < tokenIds.length; i += 50) {
+    const batch = tokenIds.slice(i, i + 50);
     const results = await client.multicall({
       allowFailure: true,
-      contracts: batch.map((work) => ({
+      contracts: batch.map((tokenId) => ({
         address: contract,
         abi: erc721Abi,
         functionName: "ownerOf",
-        args: [BigInt(work.tokenId!)],
+        args: [BigInt(tokenId)],
       })),
     });
 
     for (let j = 0; j < results.length; j++) {
       const result = results[j];
       if (result.status !== "success" || !isErc721Owner(owner, result.result)) continue;
-      const work = batch[j];
       held.push(
         toHeldWork({
           contract: opts.contract,
-          tokenId: work.tokenId!,
+          tokenId: batch[j],
           chain: opts.chain,
         }),
       );

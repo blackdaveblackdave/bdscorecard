@@ -1,5 +1,10 @@
 import catalog from "../data/catalog.json";
-import { isContractScopedHoldings } from "./contracts";
+import {
+  aliasedTokenIds,
+  isContractScopedHoldings,
+  isSoundArtistContract,
+  soundEditionId,
+} from "./contracts";
 import type { Availability, ChainName, Work } from "./types";
 
 function parseAvailability(value: unknown): Availability {
@@ -15,7 +20,12 @@ function parseAvailability(value: unknown): Availability {
 }
 
 function parseChain(value: unknown): ChainName | null {
-  if (value === "ethereum" || value === "polygon" || value === "optimism") {
+  if (
+    value === "ethereum" ||
+    value === "polygon" ||
+    value === "optimism" ||
+    value === "base"
+  ) {
     return value;
   }
   return null;
@@ -74,9 +84,24 @@ export function matchHeldWork(opts: {
   if (isContractScopedHoldings(contract)) {
     return works.find((work) => work.contract === contract && work.resolved);
   }
+  if (isSoundArtistContract(contract)) {
+    const edition = soundEditionId(opts.tokenId);
+    if (edition == null) return undefined;
+    return works.find(
+      (work) =>
+        work.contract === contract &&
+        work.resolved &&
+        work.tokenId != null &&
+        soundEditionId(work.tokenId) === edition,
+    );
+  }
+  const ids = new Set(aliasedTokenIds(contract, opts.tokenId));
   return works.find(
     (work) =>
-      work.contract === contract && work.tokenId === opts.tokenId && work.resolved,
+      work.contract === contract &&
+      work.tokenId != null &&
+      ids.has(work.tokenId) &&
+      work.resolved,
   );
 }
 

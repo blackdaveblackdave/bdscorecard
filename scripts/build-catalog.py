@@ -45,6 +45,32 @@ SUPERCOLLECTOR_WORD_ASSOCIATION = "0x1709e519866edf5eb1ae94fb2ef935fcf4306bba"
 SUPERCOLLECTOR_SS23 = "0xedd6b208c35281554caa71b44f7f3842295b07ab"
 SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT = "0x761fc1fa3935c9f8166147e2fe428ef54943b853"
 SUPERCOLLECTOR_ABANDONED_MECH = "0x371aa2d25d138b99e1f30bc2a4852f9fa7882c2f"
+CATALOG_ZORA = "0xabefbc9fd2f806065b4f3c237d4b59d9a97bcac7"
+CATALOG_RECORD = "0x0bc2a24ce568dad89691116d5b34deb6c203f342"
+SOUND_ARTIST = "0xab80184b3bba02e975b6494d570232fb6c6973f1"
+CALM_DOWN = "0x1a5d314beed6e39fd152cf54d3671ad33fdccf9a"
+TWO_YEARS_CODA = "0x4c537c0ec793632a4feaaffc200e35a67a983904"
+FOUNDATION = "0x3b3ee1931dc30c1957379fac9aba94d1c48a5405"
+UNIQUE_ONE = "0x0f864e29b01a72247b6795cc6054afeb53ef35ef"
+OH_YES = "0x446671f87ff72109ed1496740c90a9ceed767d70"
+MINT_SONGS_FACTORY = "0xc29cbe04ae322469dc077741afa2fbccda748ae4"
+YARDS = "0xcabcfb8cfe1c94304bfa4ac56f778c7c7e080b55"
+ITEM_BOX = "0x1491ea485e78cdbe895293cbaeb2b707012197b9"
+WAVROOM = "0xadf5d2ae8a86ba35ba346444b368413e5e7a8fc3"
+THREE_PERCENT = "0xd410d5cbf64a2ee4c777a3ea85da58dbd634ab13"
+I_HAVE_IDEAS = "0xc0f82fca66ca1de005e7ce869c233ccde7c0bcde"
+ME_TOO = "0x9bdeab2090cab7f462d0c949acad9103bf21b0eb"
+ADVICE = "0x5fe9730db5c72f0130d26054bfff21f1ee9405a7"
+I_LOVE_THIS_SHIT = "0xa6505645a37d7d5f67cfde8501a7fead292a3cff"
+BAG = "0xd03902b4f1c11eb3f6746d09be98a028ba4df10f"
+LAVENDER = "0x2cd86e0aaa2d195ac4c0d18a3adabaf5c3144e3d"
+FEEL_GOOD = "0x5324972755cb8c04ea227c5b7c430ced424f7e39"
+
+
+def sound_token_id(edition: int, serial: int = 1) -> str:
+    if edition == 1:
+        return str(serial)
+    return str((edition << 128) + serial)
 
 SUPERCOLLECTOR_BY_SLUG = {
     "chronicles-black-dave": SUPERCOLLECTOR_CHRONICLES,
@@ -54,6 +80,28 @@ SUPERCOLLECTOR_BY_SLUG = {
     "ss23-black-dave": SUPERCOLLECTOR_SS23,
     "aspiring-gundam-pilot-black-dave-mk2": SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT,
     "that-time-i-found-an-abandoned-mech-and-it-turned-out-to-be-a-gundam-and-i-became-the-greatest-pilot-in-the-universe-black-dave-mk2": SUPERCOLLECTOR_ABANDONED_MECH,
+}
+
+CATALOG_BY_SLUG = {
+    "blackdave/sharp": (CATALOG_ZORA, "6063"),
+    "blackdave/middlemen-feat-monday-rome-fortune-": (CATALOG_ZORA, "8141"),
+    "musebymonday/band-of-the-hawk": (CATALOG_ZORA, "10002"),
+    "musebymonday/red-eye": (CATALOG_ZORA, "10003"),
+    "musebymonday/sajin": (CATALOG_ZORA, "10004"),
+    "blackdave/newtype-poetry": (CATALOG_RECORD, "825"),
+    "blackdave/back-on-my-bullshit": (CATALOG_RECORD, "892"),
+}
+
+SOUND_BY_SLUG = {
+    "blackdave/triple-beam": (SOUND_ARTIST, sound_token_id(1)),
+    "blackdave/what-the-fuck": (SOUND_ARTIST, sound_token_id(2)),
+    "blackdave/soundxyz-w-titandemonbane": (SOUND_ARTIST, sound_token_id(3)),
+    "blackdave/bag": (BAG, "1"),
+    "blackdave/me-too": (ME_TOO, "1"),
+    "blackdave/i-love-this-shit-feat-stonez-the-organic": (I_LOVE_THIS_SHIT, "1"),
+    "blackdave/advice": (ADVICE, "1"),
+    "blackdave/lavender": (LAVENDER, "1"),
+    "noise/feel-good": (FEEL_GOOD, "1"),
 }
 
 RESOLVED_CONTRACTS = {
@@ -70,6 +118,26 @@ RESOLVED_CONTRACTS = {
     SUPERCOLLECTOR_SS23,
     SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT,
     SUPERCOLLECTOR_ABANDONED_MECH,
+    CATALOG_ZORA,
+    CATALOG_RECORD,
+    SOUND_ARTIST,
+    CALM_DOWN,
+    TWO_YEARS_CODA,
+    FOUNDATION,
+    UNIQUE_ONE,
+    OH_YES,
+    MINT_SONGS_FACTORY,
+    YARDS,
+    ITEM_BOX,
+    WAVROOM,
+    THREE_PERCENT,
+    I_HAVE_IDEAS,
+    ME_TOO,
+    ADVICE,
+    I_LOVE_THIS_SHIT,
+    BAG,
+    LAVENDER,
+    FEEL_GOOD,
 }
 
 TOKEN_ALLOWLIST = {
@@ -77,6 +145,13 @@ TOKEN_ALLOWLIST = {
     (RARIBLE_1155, "1013003"),
     (RARIBLE_721, "101845"),
     (MANGA_QUOTES, "1"),
+    (FOUNDATION, "28958"),
+    (FOUNDATION, "89599"),
+    (UNIQUE_ONE, "1739"),
+    (UNIQUE_ONE, "1740"),
+    (MINT_SONGS_FACTORY, "47618"),
+    (MINT_SONGS_FACTORY, "47619"),
+    (MINT_SONGS_FACTORY, "47620"),
 }
 
 CHAIN_BY_CONTRACT = {
@@ -93,6 +168,26 @@ CHAIN_BY_CONTRACT = {
     SUPERCOLLECTOR_SS23: "optimism",
     SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT: "optimism",
     SUPERCOLLECTOR_ABANDONED_MECH: "optimism",
+    CATALOG_ZORA: "ethereum",
+    CATALOG_RECORD: "ethereum",
+    SOUND_ARTIST: "ethereum",
+    CALM_DOWN: "ethereum",
+    TWO_YEARS_CODA: "ethereum",
+    FOUNDATION: "ethereum",
+    UNIQUE_ONE: "ethereum",
+    OH_YES: "ethereum",
+    MINT_SONGS_FACTORY: "polygon",
+    YARDS: "base",
+    ITEM_BOX: "base",
+    WAVROOM: "ethereum",
+    THREE_PERCENT: "base",
+    I_HAVE_IDEAS: "optimism",
+    ME_TOO: "ethereum",
+    ADVICE: "ethereum",
+    I_LOVE_THIS_SHIT: "ethereum",
+    BAG: "ethereum",
+    LAVENDER: "ethereum",
+    FEEL_GOOD: "ethereum",
 }
 
 
@@ -243,8 +338,22 @@ def is_resolved(contract: str | None, token_id: str | None) -> bool:
     if contract == OPENSEA_SHARED and token_id:
         decoded = decode_opensea(token_id)
         return decoded["creator"] == f"0x{CREATOR}"
-    if contract in {MINT_SONGS, RARIBLE_1155, RARIBLE_721, MANGA_QUOTES}:
+    if contract in {
+        MINT_SONGS,
+        RARIBLE_1155,
+        RARIBLE_721,
+        MANGA_QUOTES,
+        FOUNDATION,
+        UNIQUE_ONE,
+        MINT_SONGS_FACTORY,
+    }:
         return token_id is not None and (contract, token_id) in TOKEN_ALLOWLIST
+    if contract == OH_YES:
+        try:
+            tid = int(token_id or "")
+        except ValueError:
+            return False
+        return 2 <= tid <= 13
     if contract == BLACK_DAVE_TOKEN:
         return True
     return True
@@ -298,9 +407,48 @@ def main() -> None:
                         chain = "optimism"
                         token_id = "1"
                         break
+            elif "catalog.works" in url:
+                for slug, (addr, tid) in CATALOG_BY_SLUG.items():
+                    if slug in url:
+                        contract = addr
+                        chain = "ethereum"
+                        token_id = tid
+                        break
+            elif "sound.xyz" in url:
+                for slug, (addr, tid) in SOUND_BY_SLUG.items():
+                    if slug in url:
+                        contract = addr
+                        chain = "ethereum"
+                        token_id = tid
+                        break
+            elif "2years.blackdave.xyz" in url:
+                contract = TWO_YEARS_CODA
+                chain = "ethereum"
+                token_id = "0"
+            elif "foundation.app" in url:
+                m = re.search(r"foundation\.app/[^/]+/foundation/(\d+)", url)
+                if m:
+                    contract = FOUNDATION
+                    chain = "ethereum"
+                    token_id = m.group(1)
+            elif "manifold.xyz/c/blackdaveohyes" in url:
+                contract = OH_YES
+                chain = "ethereum"
+                token_id = "2"
+            elif "factory.mintsongs.com/songs/" in url:
+                m = re.search(r"factory\.mintsongs\.com/songs/(\d+)", url)
+                factory_tokens = {"5424": "47618", "5425": "47619", "5426": "47620"}
+                if m and m.group(1) in factory_tokens:
+                    contract = MINT_SONGS_FACTORY
+                    chain = "polygon"
+                    token_id = factory_tokens[m.group(1)]
             elif "polygon" in url and MANGA_QUOTES in url.lower():
                 contract = MANGA_QUOTES
                 chain = "polygon"
+                token_id = "1"
+            elif "glass.xyz/v/2PpDFJmqlVJGkZKDNvsv48jN4xeu7ssF6Mo2VoTea2w=" in url:
+                contract = WAVROOM
+                chain = "ethereum"
                 token_id = "1"
 
         if contract:

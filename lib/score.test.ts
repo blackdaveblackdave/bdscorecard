@@ -91,14 +91,13 @@ test("breadth beats stacking Black Dave Token", () => {
   assert.ok(across.score > stacked.score);
 });
 
-test("pre-2020 Supercollector dates keep the OG era bonus", () => {
+test("2020-or-earlier dates keep the OG era bonus", () => {
   const result = score([
     work({
-      id: "chronicles",
-      title: "Chronicles EP (Supercollector)",
-      collection: "Supercollector",
-      medium: ["Music"],
-      mintDate: "2016-08-15",
+      id: "eva-kids",
+      title: "Dressed Up EVA Kids",
+      collection: "Rarible",
+      mintDate: "2020-12-19",
     }),
     work({
       id: "tears",

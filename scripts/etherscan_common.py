@@ -21,7 +21,19 @@ MINT_SONGS = "0x2b5426a5b98a3e366230eba9f95a24f09ae4a584"
 RARIBLE_1155 = "0x60f80121c31a0d46b5279700f9df786054aa5ee5"
 RARIBLE_721 = "0xd07dc4262bcdbf85190c01c996b4c06a461d2430"
 MANGA_QUOTES = "0x6af27cc1098685f8e3937237a43a0eeea2ce90ba"
+MINT_SONGS_FACTORY = "0xc29cbe04ae322469dc077741afa2fbccda748ae4"
 BLACK_DAVE_TOKEN = "0xafd17cb86d7cd086fc720365e873469ebcb103da"
+YARDS = "0xcabcfb8cfe1c94304bfa4ac56f778c7c7e080b55"
+ITEM_BOX = "0x1491ea485e78cdbe895293cbaeb2b707012197b9"
+WAVROOM = "0xadf5d2ae8a86ba35ba346444b368413e5e7a8fc3"
+THREE_PERCENT = "0xd410d5cbf64a2ee4c777a3ea85da58dbd634ab13"
+I_HAVE_IDEAS = "0xc0f82fca66ca1de005e7ce869c233ccde7c0bcde"
+ME_TOO = "0x9bdeab2090cab7f462d0c949acad9103bf21b0eb"
+ADVICE = "0x5fe9730db5c72f0130d26054bfff21f1ee9405a7"
+I_LOVE_THIS_SHIT = "0xa6505645a37d7d5f67cfde8501a7fead292a3cff"
+BAG = "0xd03902b4f1c11eb3f6746d09be98a028ba4df10f"
+LAVENDER = "0x2cd86e0aaa2d195ac4c0d18a3adabaf5c3144e3d"
+FEEL_GOOD = "0x5324972755cb8c04ea227c5b7c430ced424f7e39"
 
 SUPERCOLLECTOR_CHRONICLES = "0x59dc45dffa3bf9a94f7bcddd31cfaa2a78c6d069"
 SUPERCOLLECTOR_STAY_GOLD = "0x97312325fda573f8ba5cb4160130631d0d823892"
@@ -46,15 +58,26 @@ ETHEREUM_CONTRACTS = [
     RARIBLE_1155,
     RARIBLE_721,
     BLACK_DAVE_TOKEN,
+    WAVROOM,
+    ME_TOO,
+    ADVICE,
+    I_LOVE_THIS_SHIT,
+    BAG,
+    LAVENDER,
+    FEEL_GOOD,
 ]
-POLYGON_CONTRACTS = [MANGA_QUOTES]
-OPTIMISM_CONTRACTS = list(SUPERCOLLECTOR_CONTRACTS)
+POLYGON_CONTRACTS = [MANGA_QUOTES, MINT_SONGS_FACTORY]
+OPTIMISM_CONTRACTS = list(SUPERCOLLECTOR_CONTRACTS) + [I_HAVE_IDEAS]
+BASE_CONTRACTS = [YARDS, ITEM_BOX, THREE_PERCENT]
 
 TOKEN_ALLOWLIST = {
     (MINT_SONGS, "36"),
     (RARIBLE_1155, "1013003"),
     (RARIBLE_721, "101845"),
     (MANGA_QUOTES, "1"),
+    (MINT_SONGS_FACTORY, "47618"),
+    (MINT_SONGS_FACTORY, "47619"),
+    (MINT_SONGS_FACTORY, "47620"),
 }
 
 
@@ -89,7 +112,21 @@ def token_allowed(contract: str, token_id: str) -> bool:
     contract = contract.lower()
     if contract == OPENSEA_SHARED:
         return is_black_dave_opensea_token(token_id)
-    if contract == BLACK_DAVE_TOKEN or contract in SUPERCOLLECTOR_CONTRACTS:
+    if (
+        contract == BLACK_DAVE_TOKEN
+        or contract == YARDS
+        or contract == ITEM_BOX
+        or contract == WAVROOM
+        or contract == THREE_PERCENT
+        or contract == I_HAVE_IDEAS
+        or contract == ME_TOO
+        or contract == ADVICE
+        or contract == I_LOVE_THIS_SHIT
+        or contract == BAG
+        or contract == LAVENDER
+        or contract == FEEL_GOOD
+        or contract in SUPERCOLLECTOR_CONTRACTS
+    ):
         return True
     return (contract, token_id) in TOKEN_ALLOWLIST
 
@@ -157,7 +194,21 @@ def load_catalog() -> list[dict[str, Any]]:
 def match_catalog_work(catalog: list[dict[str, Any]], contract: str, token_id: str) -> dict[str, Any] | None:
     contract = contract.lower()
     token_id = str(int(token_id))
-    if contract == BLACK_DAVE_TOKEN or contract in SUPERCOLLECTOR_CONTRACTS:
+    if (
+        contract == BLACK_DAVE_TOKEN
+        or contract == YARDS
+        or contract == ITEM_BOX
+        or contract == WAVROOM
+        or contract == THREE_PERCENT
+        or contract == I_HAVE_IDEAS
+        or contract == ME_TOO
+        or contract == ADVICE
+        or contract == I_LOVE_THIS_SHIT
+        or contract == BAG
+        or contract == LAVENDER
+        or contract == FEEL_GOOD
+        or contract in SUPERCOLLECTOR_CONTRACTS
+    ):
         for work in catalog:
             if work.get("contract") == contract and work.get("resolved"):
                 return work

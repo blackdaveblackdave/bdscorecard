@@ -1,4 +1,4 @@
-export type ChainName = "ethereum" | "polygon" | "optimism";
+export type ChainName = "ethereum" | "polygon" | "optimism" | "base";
 
 export type Availability = "Sold Out" | "Unsold" | "Always On" | "";
 
