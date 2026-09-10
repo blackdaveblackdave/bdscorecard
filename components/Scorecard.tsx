@@ -1,7 +1,9 @@
 "use client";
 
+import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import { motion, useReducedMotion } from "motion/react";
-import type { Address, ScoreResult } from "@/lib/types";
+import type { Address, ScoreBreakdown, ScoreResult } from "@/lib/types";
+import { POINTS_PER_COLLECTION, POINTS_PER_MEDIUM } from "@/lib/score";
 
 export function Scorecard(props: {
   address: Address;
@@ -50,25 +52,110 @@ export function Scorecard(props: {
         </p>
 
         {showBreakdown ? (
-          <dl className="mt-12 max-w-[14rem] space-y-3">
-            <BreakdownLine label="Breadth" value={props.result.breadth} />
-            <BreakdownLine label="Depth" value={props.result.depth} />
-            <BreakdownLine label="Medium" value={props.result.mediumBonus} />
-            <BreakdownLine label="Era" value={props.result.eraBonus} />
-          </dl>
+          <div className="mt-12 max-w-[28rem] border-t border-line">
+            <BreakdownCategory
+              label="Breadth"
+              value={props.result.breadth}
+              detail={breadthDetail(props.result)}
+            />
+            <BreakdownCategory
+              label="Depth"
+              value={props.result.depth}
+              detail={depthDetail(props.result.breakdown)}
+            />
+            <BreakdownCategory
+              label="Medium"
+              value={props.result.mediumBonus}
+              detail={mediumDetail(props.result)}
+            />
+            <BreakdownCategory
+              label="Era"
+              value={props.result.eraBonus}
+              detail={eraDetail(props.result)}
+            />
+          </div>
         ) : null}
       </motion.div>
     </section>
   );
 }
 
-function BreakdownLine({ label, value }: { label: string; value: number }) {
+function BreakdownCategory(props: {
+  label: string;
+  value: number;
+  detail: { formula: string; lines: string[] };
+}) {
   return (
-    <div className="flex justify-between gap-8">
-      <dt className="text-muted">{label}</dt>
-      <dd className="tabular-nums text-foreground">{value}</dd>
-    </div>
+    <details className="group border-b border-line">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-3 outline-none marker:content-none [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
+        <span className="text-muted">{props.label}</span>
+        <span className="flex items-center gap-2 tabular-nums text-foreground">
+          {props.value}
+          <CaretDownIcon
+            size={14}
+            weight="regular"
+            aria-hidden
+            className="text-muted transition-transform duration-200 group-open:rotate-180"
+          />
+        </span>
+      </summary>
+      <div className="pb-4">
+        <p className="font-mono text-xs leading-relaxed text-muted">
+          {props.detail.formula}
+        </p>
+        {props.detail.lines.length > 0 ? (
+          <ul className="mt-2 space-y-1 text-sm leading-relaxed text-foreground">
+            {props.detail.lines.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </details>
   );
+}
+
+function breadthDetail(result: ScoreResult): { formula: string; lines: string[] } {
+  const n = result.breakdown.collections.length;
+  const noun = n === 1 ? "collection" : "collections";
+  return {
+    formula: `${POINTS_PER_COLLECTION} × ${n} ${noun}`,
+    lines: result.breakdown.collections,
+  };
+}
+
+function depthDetail(breakdown: ScoreBreakdown): { formula: string; lines: string[] } {
+  return {
+    formula: "⌊3 × log₂(1 + n)⌋ per collection",
+    lines: breakdown.depthByCollection.map((line) => {
+      const noun = line.count === 1 ? "work" : "works";
+      return `${line.collection} — ${line.count} ${noun} → ${line.points}`;
+    }),
+  };
+}
+
+function mediumDetail(result: ScoreResult): { formula: string; lines: string[] } {
+  const n = result.breakdown.media.length;
+  const noun = n === 1 ? "medium" : "media";
+  return {
+    formula: `${POINTS_PER_MEDIUM} × ${n} ${noun}`,
+    lines: result.breakdown.media,
+  };
+}
+
+function eraDetail(result: ScoreResult): { formula: string; lines: string[] } {
+  const year = result.breakdown.earliestYear;
+  if (year === null) {
+    return {
+      formula: "Earliest mint year → era bonus",
+      lines: [`No dated works → ${result.eraBonus}`],
+    };
+  }
+  const label = year <= 2020 ? `${year} (2020 or earlier)` : String(year);
+  return {
+    formula: "Earliest mint year → era bonus",
+    lines: [`${label} → ${result.eraBonus}`],
+  };
 }
 
 function identityName(displayName: string, address: Address): string | null {

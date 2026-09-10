@@ -1,4 +1,4 @@
-import type { ScoreResult, TierName, Work } from "./types";
+import type { ScoreBreakdown, ScoreResult, TierName, Work } from "./types";
 
 const ERA_BONUS: Record<number, number> = {
   2020: 25,
@@ -6,6 +6,9 @@ const ERA_BONUS: Record<number, number> = {
   2022: 15,
   2023: 10,
 };
+
+const POINTS_PER_COLLECTION = 10;
+const POINTS_PER_MEDIUM = 8;
 
 function eraBonusFor(year: number): number {
   if (!Number.isFinite(year)) return 5;
@@ -21,6 +24,15 @@ function cataloguedWorks(held: Work[]): Work[] {
 
 function depthContribution(count: number): number {
   return Math.floor(3 * Math.log2(1 + count));
+}
+
+function emptyBreakdown(): ScoreBreakdown {
+  return {
+    collections: [],
+    depthByCollection: [],
+    media: [],
+    earliestYear: null,
+  };
 }
 
 export function tierForScore(score: number): TierName {
@@ -43,11 +55,16 @@ export function score(held: Work[]): ScoreResult {
       eraBonus: 0,
       heldCount: held.length,
       collectionCount: 0,
+      breakdown: emptyBreakdown(),
     };
   }
 
-  const collections = new Set(works.map((work) => work.collection));
-  const media = new Set(works.flatMap((work) => work.medium));
+  const collections = [...new Set(works.map((work) => work.collection))].sort(
+    (a, b) => a.localeCompare(b),
+  );
+  const media = [...new Set(works.flatMap((work) => work.medium))].sort((a, b) =>
+    a.localeCompare(b),
+  );
 
   const byCollection = new Map<string, number>();
   for (const work of works) {
@@ -58,18 +75,24 @@ export function score(held: Work[]): ScoreResult {
     byCollection.set(work.collection, next);
   }
 
-  const breadth = 10 * collections.size;
-  const depth = [...byCollection.values()].reduce(
-    (sum, n) => sum + depthContribution(n),
-    0,
-  );
-  const mediumBonus = 8 * media.size;
+  const depthByCollection = [...byCollection.entries()]
+    .map(([collection, count]) => ({
+      collection,
+      count,
+      points: depthContribution(count),
+    }))
+    .sort((a, b) => a.collection.localeCompare(b.collection));
+
+  const breadth = POINTS_PER_COLLECTION * collections.length;
+  const depth = depthByCollection.reduce((sum, line) => sum + line.points, 0);
+  const mediumBonus = POINTS_PER_MEDIUM * media.length;
 
   const years = works
     .map((work) => new Date(work.mintDate).getFullYear())
     .filter((year) => Number.isFinite(year));
   const earliest = years.length > 0 ? Math.min(...years) : Number.NaN;
   const eraBonus = eraBonusFor(earliest);
+  const earliestYear = Number.isFinite(earliest) ? earliest : null;
 
   const total = breadth + depth + mediumBonus + eraBonus;
   return {
@@ -80,6 +103,14 @@ export function score(held: Work[]): ScoreResult {
     mediumBonus,
     eraBonus,
     heldCount: held.length,
-    collectionCount: collections.size,
+    collectionCount: collections.length,
+    breakdown: {
+      collections,
+      depthByCollection,
+      media,
+      earliestYear,
+    },
   };
 }
+
+export { POINTS_PER_COLLECTION, POINTS_PER_MEDIUM };
