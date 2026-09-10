@@ -39,6 +39,19 @@ export type TierName =
   | "Archivist"
   | "Custodian";
 
+export type DepthLine = {
+  collection: string;
+  count: number;
+  points: number;
+};
+
+export type ScoreBreakdown = {
+  collections: string[];
+  depthByCollection: DepthLine[];
+  media: string[];
+  earliestYear: number | null;
+};
+
 export type ScoreResult = {
   score: number;
   tier: TierName;
@@ -48,6 +61,7 @@ export type ScoreResult = {
   eraBonus: number;
   heldCount: number;
   collectionCount: number;
+  breakdown: ScoreBreakdown;
 };
 
 export type HoldingsState =

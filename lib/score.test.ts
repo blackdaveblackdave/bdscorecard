@@ -107,6 +107,44 @@ test("2020-or-earlier dates keep the OG era bonus", () => {
     }),
   ]);
   assert.equal(result.eraBonus, 25);
+  assert.equal(result.breakdown.earliestYear, 2020);
+});
+
+test("breakdown explains each scoring category", () => {
+  const result = score([
+    work({
+      id: "a",
+      title: "Manga Tears 001",
+      collection: "BlackDave.io 001",
+      medium: ["2D Artwork"],
+      mintDate: "2021-03-26",
+    }),
+    work({
+      id: "b",
+      title: "Manga Tears 002",
+      collection: "BlackDave.io 001",
+      medium: ["2D Artwork"],
+      mintDate: "2021-04-01",
+    }),
+    work({
+      id: "c",
+      title: "Triple Beam",
+      collection: "Sound",
+      medium: ["Audio"],
+      mintDate: "2022-02-02",
+    }),
+  ]);
+  assert.deepEqual(result.breakdown.collections, ["BlackDave.io 001", "Sound"]);
+  assert.equal(result.breadth, 20);
+  assert.deepEqual(result.breakdown.media, ["2D Artwork", "Audio"]);
+  assert.equal(result.mediumBonus, 16);
+  assert.equal(result.breakdown.earliestYear, 2021);
+  assert.equal(result.eraBonus, 20);
+  assert.deepEqual(result.breakdown.depthByCollection, [
+    { collection: "BlackDave.io 001", count: 2, points: 4 },
+    { collection: "Sound", count: 1, points: 3 },
+  ]);
+  assert.equal(result.depth, 7);
 });
 
 test("undated works do not wipe a later era bonus", () => {
