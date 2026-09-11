@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { dimUnheldInIndex, includeInHoldingsView } from "./catalog-view";
+import { dimUnheldInIndex, includeInHoldingsView, shuffleList } from "./catalog-view";
 
 test("holdings view keeps every work in All", () => {
   assert.equal(includeInHoldingsView(true, "all"), true);
@@ -44,4 +44,11 @@ test("public catalog never dims", () => {
     dimUnheldInIndex({ mode: "catalog", held: false, view: "all" }),
     false,
   );
+});
+
+test("shuffleList keeps the same items in a new order", () => {
+  const items = ["a", "b", "c"];
+  const shuffled = shuffleList(items, () => 0);
+  assert.deepEqual(shuffled, ["b", "c", "a"]);
+  assert.deepEqual(items, ["a", "b", "c"]);
 });

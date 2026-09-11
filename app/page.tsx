@@ -1,5 +1,9 @@
+import { connection } from "next/server";
 import { Hero } from "@/components/Hero";
+import { getFeaturedWorks } from "@/lib/catalog";
+import { shuffleList } from "@/lib/catalog-view";
 
-export default function Home() {
-  return <Hero featuredArtwork="/art/bd-os-001.jpg" featuredTitle="MasterCoin" />;
+export default async function Home() {
+  await connection();
+  return <Hero works={shuffleList(getFeaturedWorks())} />;
 }

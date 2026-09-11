@@ -76,6 +76,18 @@ export function getVaultWorks(): Work[] {
   );
 }
 
+export type FeaturedWork = Pick<Work, "id" | "title" | "artwork">;
+
+export function getFeaturedWorks(): FeaturedWork[] {
+  return works
+    .filter((work) => work.artwork !== "")
+    .map((work) => ({
+      id: work.id,
+      title: work.title,
+      artwork: work.artwork,
+    }));
+}
+
 export function matchHeldWork(opts: {
   contract: string;
   tokenId: string;

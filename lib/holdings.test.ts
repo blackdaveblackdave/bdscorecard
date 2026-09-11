@@ -45,7 +45,7 @@ import {
   TOKEN_ALLOWLIST,
   POLYGON_CONTRACTS,
 } from "./contracts";
-import { getCatalog, getWorkById, matchHeldWork } from "./catalog";
+import { getCatalog, getFeaturedWorks, getWorkById, matchHeldWork } from "./catalog";
 import {
   catalogTokenStandard,
   hasErc1155Balance,
@@ -310,6 +310,15 @@ test("Cargo Manga Tears 022 is the dedicated Polygon Super 721", () => {
 test("every catalog work is resolved", () => {
   assert.equal(
     getCatalog().filter((row) => !row.resolved).length,
+    0,
+  );
+});
+
+test("featured home works all have artwork", () => {
+  const featured = getFeaturedWorks();
+  assert.equal(featured.length > 50, true);
+  assert.equal(
+    featured.filter((work) => work.artwork === "").length,
     0,
   );
 });
