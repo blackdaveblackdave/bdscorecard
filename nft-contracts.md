@@ -3,7 +3,7 @@
 Personal record of catalogued Black Dave works that have a chain and contract address.
 Source: `data/catalog.json`. Addresses are lowercase. Shared contracts may appear more than once.
 
-101 works. Sorted by catalog number. Unresolved rows without an address are omitted.
+102 works. Sorted by catalog number. Unresolved rows without an address are omitted.
 
 | Catalog | Name | Chain | Address |
 | --- | --- | --- | --- |
@@ -53,6 +53,7 @@ Source: `data/catalog.json`. Addresses are lowercase. Shared contracts may appea
 | BD-044 | Manga Tears 021 | ethereum | `0x0f864e29b01a72247b6795cc6054afeb53ef35ef` |
 | BD-045 | Black Dave, Black Comet | ethereum | `0x495f947276749ce646f68ac8c248420045cb7b5e` |
 | BD-046 | DOGE Genesis Evangelion | ethereum | `0x495f947276749ce646f68ac8c248420045cb7b5e` |
+| BD-047 | Manga Tears 022 | polygon | `0x0e9e8d517878a1ff9425ee12762ab183e07aacc2` |
 | BD-048 | Appreciate It | ethereum | `0x495f947276749ce646f68ac8c248420045cb7b5e` |
 | BD-049 | Appreciate It (Special Edition) | ethereum | `0x495f947276749ce646f68ac8c248420045cb7b5e` |
 | BD-050 | Black Dave Verse Token | ethereum | `0x495f947276749ce646f68ac8c248420045cb7b5e` |

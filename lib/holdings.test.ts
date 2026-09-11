@@ -15,6 +15,7 @@ import {
   SOUND_ARTIST,
   TWO_YEARS_CODA,
   UNIQUE_ONE,
+  MANGA_TEARS_022,
   OH_YES,
   SUPERCOLLECTOR_ABANDONED_MECH,
   SUPERCOLLECTOR_ASPIRING_GUNDAM_PILOT,
@@ -41,6 +42,8 @@ import {
   soundEditionId,
   soundTokenId,
   soundTokenIdsForEdition,
+  TOKEN_ALLOWLIST,
+  POLYGON_CONTRACTS,
 } from "./contracts";
 import { getCatalog, getWorkById, matchHeldWork } from "./catalog";
 import {
@@ -279,6 +282,38 @@ test("Foundation Manga Tears 023 and Unique One Manga Tears 021 stay resolved", 
   assert.equal(matchHeldWork({ contract: UNIQUE_ONE, tokenId: "1737" }), undefined);
 });
 
+test("Cargo Manga Tears 022 is the dedicated Polygon Super 721", () => {
+  const work = getWorkById("bd-manga-tears-022");
+  assert.equal(work?.resolved, true);
+  assert.equal(work?.chain, "polygon");
+  assert.equal(work?.contract, MANGA_TEARS_022);
+  assert.equal(work?.tokenId, "1");
+  assert.equal(work?.platform, "Cargo");
+  assert.equal(work?.catalogNumber, "BD-047");
+  assert.equal(work?.editions, 1);
+  assert.equal(catalogTokenStandard(MANGA_TEARS_022), "erc721");
+  assert.equal(isContractScopedHoldings(MANGA_TEARS_022), false);
+  assert.equal(
+    TOKEN_ALLOWLIST.some(
+      (row) => row.contract === MANGA_TEARS_022 && row.tokenId === "1",
+    ),
+    true,
+  );
+  assert.equal(POLYGON_CONTRACTS.includes(MANGA_TEARS_022), true);
+  assert.equal(
+    matchHeldWork({ contract: MANGA_TEARS_022, tokenId: "1" })?.id,
+    "bd-manga-tears-022",
+  );
+  assert.equal(matchHeldWork({ contract: MANGA_TEARS_022, tokenId: "2" }), undefined);
+});
+
+test("every catalog work is resolved", () => {
+  assert.equal(
+    getCatalog().filter((row) => !row.resolved).length,
+    0,
+  );
+});
+
 test("Manifold Oh Yes is tokens 2-13 and ignores 1BLKPXL token 1", () => {
   const work = getWorkById("bd-oh-yes");
   assert.equal(work?.resolved, true);
@@ -501,7 +536,6 @@ test("dedicated Ethereum Sound editions match any serial on their own contracts"
     );
   }
 
-  assert.equal(getWorkById("bd-manga-tears-022")?.resolved, false);
   assert.equal(
     matchHeldWork({ contract: SOUND_ARTIST, tokenId: "1" })?.id,
     "bd-triple-beam",
