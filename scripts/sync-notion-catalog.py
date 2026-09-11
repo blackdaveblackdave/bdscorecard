@@ -232,6 +232,16 @@ UNIQUE_ONE_RELEASES = {
     },
 }
 
+MANGA_TEARS_022 = "0x0e9e8d517878a1ff9425ee12762ab183e07aacc2"
+CARGO_RELEASES = {
+    "259efa42-6c59-4b81-b84d-7791c5a0c001": {
+        "contract": MANGA_TEARS_022,
+        "chain": "polygon",
+        "tokenId": "1",
+        "externalUrl": f"https://opensea.io/assets/matic/{MANGA_TEARS_022}/1",
+    },
+}
+
 OH_YES = "0x446671f87ff72109ed1496740c90a9ceed767d70"
 OH_YES_RELEASES = {
     "cbab63aa-8a4c-46a1-9a11-8ee1c74705de": {
@@ -357,6 +367,7 @@ def main() -> None:
         token_id = row.get("tokenId")
         chain = row.get("chain")
         resolved = bool(row.get("resolved"))
+        external_url = row.get("externalUrl") or ""
 
         mint_date = row.get("mintDate") or ""
 
@@ -445,6 +456,14 @@ def main() -> None:
             token_id = token_id or uone["tokenId"]
             resolved = True
 
+        cargo = CARGO_RELEASES.get(row.get("notionId") or "")
+        if cargo:
+            contract = cargo["contract"]
+            chain = cargo["chain"]
+            token_id = cargo["tokenId"]
+            resolved = True
+            external_url = external_url or cargo.get("externalUrl") or ""
+
         oh = OH_YES_RELEASES.get(row.get("notionId") or "")
         if oh is None:
             url = (row.get("externalUrl") or "").rstrip("/")
@@ -522,7 +541,7 @@ def main() -> None:
                 "mintDate": mint_date,
                 "availability": availability,
                 "artwork": artwork,
-                "externalUrl": row.get("externalUrl") or "",
+                "externalUrl": external_url,
                 "chain": chain,
                 "contract": contract,
                 "tokenId": None if token_id is None else str(token_id),

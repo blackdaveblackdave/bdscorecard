@@ -53,6 +53,10 @@ export const FOUNDATION =
 export const UNIQUE_ONE =
   "0x0f864e29b01a72247b6795cc6054afeb53ef35ef" as const;
 
+/** Dedicated Cargo Super 721 on Polygon. Manga Tears 022, token 1. */
+export const MANGA_TEARS_022 =
+  "0x0e9e8d517878a1ff9425ee12762ab183e07aacc2" as const;
+
 /** Manifold Creator ERC-721 (BLKD). Oh Yes is tokens 2–13; token 1 is 1BLKPXL. */
 export const OH_YES =
   "0x446671f87ff72109ed1496740c90a9ceed767d70" as const;
@@ -295,6 +299,7 @@ export const TOKEN_ALLOWLIST: ReadonlyArray<{
   { contract: FOUNDATION, tokenId: "89599" },
   { contract: UNIQUE_ONE, tokenId: "1739" },
   { contract: UNIQUE_ONE, tokenId: "1740" },
+  { contract: MANGA_TEARS_022, tokenId: "1" },
   { contract: MINT_SONGS_FACTORY, tokenId: "47618" },
   { contract: MINT_SONGS_FACTORY, tokenId: "47619" },
   { contract: MINT_SONGS_FACTORY, tokenId: "47620" },
@@ -323,7 +328,11 @@ export const ETHEREUM_CONTRACTS = [
   FEEL_GOOD,
 ] as const;
 
-export const POLYGON_CONTRACTS = [MANGA_QUOTES, MINT_SONGS_FACTORY] as const;
+export const POLYGON_CONTRACTS = [
+  MANGA_QUOTES,
+  MINT_SONGS_FACTORY,
+  MANGA_TEARS_022,
+] as const;
 
 export const OPTIMISM_CONTRACTS = [
   ...SUPERCOLLECTOR_CONTRACTS,

@@ -52,6 +52,7 @@ CALM_DOWN = "0x1a5d314beed6e39fd152cf54d3671ad33fdccf9a"
 TWO_YEARS_CODA = "0x4c537c0ec793632a4feaaffc200e35a67a983904"
 FOUNDATION = "0x3b3ee1931dc30c1957379fac9aba94d1c48a5405"
 UNIQUE_ONE = "0x0f864e29b01a72247b6795cc6054afeb53ef35ef"
+MANGA_TEARS_022 = "0x0e9e8d517878a1ff9425ee12762ab183e07aacc2"
 OH_YES = "0x446671f87ff72109ed1496740c90a9ceed767d70"
 MINT_SONGS_FACTORY = "0xc29cbe04ae322469dc077741afa2fbccda748ae4"
 YARDS = "0xcabcfb8cfe1c94304bfa4ac56f778c7c7e080b55"
@@ -125,6 +126,7 @@ RESOLVED_CONTRACTS = {
     TWO_YEARS_CODA,
     FOUNDATION,
     UNIQUE_ONE,
+    MANGA_TEARS_022,
     OH_YES,
     MINT_SONGS_FACTORY,
     YARDS,
@@ -149,6 +151,7 @@ TOKEN_ALLOWLIST = {
     (FOUNDATION, "89599"),
     (UNIQUE_ONE, "1739"),
     (UNIQUE_ONE, "1740"),
+    (MANGA_TEARS_022, "1"),
     (MINT_SONGS_FACTORY, "47618"),
     (MINT_SONGS_FACTORY, "47619"),
     (MINT_SONGS_FACTORY, "47620"),
@@ -175,6 +178,7 @@ CHAIN_BY_CONTRACT = {
     TWO_YEARS_CODA: "ethereum",
     FOUNDATION: "ethereum",
     UNIQUE_ONE: "ethereum",
+    MANGA_TEARS_022: "polygon",
     OH_YES: "ethereum",
     MINT_SONGS_FACTORY: "polygon",
     YARDS: "base",
@@ -345,6 +349,7 @@ def is_resolved(contract: str | None, token_id: str | None) -> bool:
         MANGA_QUOTES,
         FOUNDATION,
         UNIQUE_ONE,
+        MANGA_TEARS_022,
         MINT_SONGS_FACTORY,
     }:
         return token_id is not None and (contract, token_id) in TOKEN_ALLOWLIST
