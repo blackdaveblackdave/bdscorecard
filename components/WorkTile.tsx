@@ -145,6 +145,9 @@ export function WorkTile(props: { work: Work; dimmed?: boolean }) {
             <h3 className="text-base tracking-tight text-foreground group-hover:underline group-hover:underline-offset-2 md:text-lg">
               {work.title}
             </h3>
+            {dimmed ? (
+              <span className="sr-only">Not in this wallet</span>
+            ) : null}
             <WorkMeta work={work} />
           </div>
         </div>

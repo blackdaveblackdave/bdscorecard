@@ -10,15 +10,15 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:3002"
-DEAD = f"{BASE}/collector/0x000000000000000000000000000000000000dEaD"
+BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:3000"
+EMPTY = f"{BASE}/collector/0x0000000000000000000000000000000000000001"
 BAD = f"{BASE}/collector/not-an-address"
 
 
 def fetch(url: str) -> tuple[int, str]:
     req = urllib.request.Request(url, headers={"User-Agent": "bdscorecard-verify"})
     try:
-        with urllib.request.urlopen(req, timeout=30) as res:
+        with urllib.request.urlopen(req, timeout=90) as res:
             return res.status, res.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as err:
         return err.code, err.read().decode("utf-8", "replace")
@@ -89,15 +89,27 @@ def main() -> None:
         fail("visible Unsold label on vault")
     ok("GET /vault")
 
-    col_status, col = fetch(DEAD)
+    col_status, col = fetch(EMPTY)
     if col_status != 200:
         fail(f"GET collector {col_status}")
     if "Visitor" not in col:
         fail("collector missing Visitor")
     if "These works are still available to collect" in col:
         fail("collector still has vault section")
-    if f"{n} works" in col:
-        fail("collector still has full catalog index")
+    if "Works you hold sit at full weight" not in col:
+        fail("collector missing missed-works catalog copy")
+    if f"{n} works" not in col:
+        fail("collector missing full catalog count")
+    if "Want My Head" not in col:
+        fail("collector missing catalog work")
+    if "opacity-35" not in col:
+        fail("collector missing dimmed unheld works")
+    if col.count("opacity-35") < n:
+        fail(f"collector dimmed {col.count('opacity-35')} works, expected {n}")
+    if "catalog-filter-holdings-label" not in col:
+        fail("collector missing in-wallet filter")
+    if "What this wallet holds from the catalog" in col:
+        fail("collector still has held-only list")
     if "Nothing in this wallet" in col or "This wallet holds" in col:
         ok("GET collector holdings copy")
     elif ".env.local" in col or "API key" in col:

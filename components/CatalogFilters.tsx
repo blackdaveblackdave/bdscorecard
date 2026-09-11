@@ -2,6 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { WorkTile } from "@/components/WorkTile";
+import {
+  dimUnheldInIndex,
+  includeInHoldingsView,
+  type CatalogMode,
+  type HoldingsView,
+} from "@/lib/catalog-view";
 import type { Work } from "@/lib/types";
 
 export function availabilityLabel(value: string): string {
@@ -35,11 +41,20 @@ export function CatalogFilters(props: {
   onCollectionChange: (value: string) => void;
   onMediumChange: (value: string) => void;
   onAvailabilityChange: (value: string) => void;
+  holdingsView?: HoldingsView;
+  onHoldingsViewChange?: (value: HoldingsView) => void;
 }) {
   const orderedAvailabilities = sortAvailabilities(props.availabilities);
+  const showHoldings = props.onHoldingsViewChange != null;
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div
+      className={
+        showHoldings
+          ? "grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
+          : "grid grid-cols-1 gap-4 md:grid-cols-3"
+      }
+    >
       <div>
         <label
           htmlFor="catalog-filter-collection"
@@ -107,14 +122,76 @@ export function CatalogFilters(props: {
           ))}
         </select>
       </div>
+      {showHoldings ? (
+        <div>
+          <p
+            id="catalog-filter-holdings-label"
+            className="block text-sm text-foreground"
+          >
+            In wallet
+          </p>
+          <div
+            role="group"
+            aria-labelledby="catalog-filter-holdings-label"
+            className="mt-2 flex items-center gap-4 border border-line px-3"
+          >
+            {(
+              [
+                ["all", "All"],
+                ["held", "Held"],
+                ["missed", "Missed"],
+              ] as const
+            ).map(([view, label]) => {
+              const selected = (props.holdingsView ?? "all") === view;
+              return (
+                <button
+                  key={view}
+                  type="button"
+                  aria-pressed={selected}
+                  className={
+                    selected
+                      ? "h-11 text-sm text-foreground underline underline-offset-4"
+                      : "h-11 text-sm text-muted underline-offset-4 hover:text-foreground hover:underline"
+                  }
+                  onClick={() => props.onHoldingsViewChange?.(view)}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
+}
+
+function emptyFilterCopy(opts: {
+  holdingsView: HoldingsView;
+  otherFilters: boolean;
+}): { title: string; body: string } {
+  if (!opts.otherFilters && opts.holdingsView === "held") {
+    return {
+      title: "Nothing held",
+      body: "This wallet does not hold any catalogued works.",
+    };
+  }
+  if (!opts.otherFilters && opts.holdingsView === "missed") {
+    return {
+      title: "Nothing missed",
+      body: "This wallet holds every work in the catalog.",
+    };
+  }
+  return {
+    title: "No matching works",
+    body: "Nothing in the catalog matches these filters. Clear the collection, medium, availability, or wallet filters to see every entry.",
+  };
 }
 
 export function CatalogIndexClient(props: {
   works: Work[];
   heldIds: string[];
-  mode: "catalog" | "scorecard";
+  mode: CatalogMode;
   collections: string[];
   mediaTypes: string[];
   availabilities: string[];
@@ -123,24 +200,47 @@ export function CatalogIndexClient(props: {
   const [collection, setCollection] = useState("");
   const [medium, setMedium] = useState("");
   const [availability, setAvailability] = useState("");
+  const [holdingsView, setHoldingsView] = useState<HoldingsView>("all");
 
   const held = useMemo(() => new Set(heldIds), [heldIds]);
+  const scorecard = mode === "scorecard";
 
   const filtered = useMemo(() => {
     return works.filter((work) => {
       if (collection && work.collection !== collection) return false;
       if (medium && !work.medium.includes(medium)) return false;
       if (availability && work.availability !== availability) return false;
+      if (
+        scorecard &&
+        !includeInHoldingsView(held.has(work.id), holdingsView)
+      ) {
+        return false;
+      }
       return true;
     });
-  }, [works, collection, medium, availability]);
+  }, [
+    works,
+    collection,
+    medium,
+    availability,
+    scorecard,
+    held,
+    holdingsView,
+  ]);
 
-  const filtersOn = collection !== "" || medium !== "" || availability !== "";
+  const otherFilters =
+    collection !== "" || medium !== "" || availability !== "";
+  const filtersOn = otherFilters || (scorecard && holdingsView !== "all");
+  const empty = emptyFilterCopy({
+    holdingsView,
+    otherFilters,
+  });
 
   function clearFilters() {
     setCollection("");
     setMedium("");
     setAvailability("");
+    setHoldingsView("all");
   }
 
   return (
@@ -155,6 +255,8 @@ export function CatalogIndexClient(props: {
         onCollectionChange={setCollection}
         onMediumChange={setMedium}
         onAvailabilityChange={setAvailability}
+        holdingsView={scorecard ? holdingsView : undefined}
+        onHoldingsViewChange={scorecard ? setHoldingsView : undefined}
       />
 
       <div className="mt-6 flex flex-wrap items-baseline justify-between gap-3">
@@ -177,11 +279,10 @@ export function CatalogIndexClient(props: {
       {filtered.length === 0 ? (
         <div className="mt-12 max-w-[65ch] border border-line p-8">
           <h3 className="text-xl tracking-tight text-foreground">
-            No matching works
+            {empty.title}
           </h3>
           <p className="mt-3 text-base leading-relaxed text-muted">
-            Nothing in the catalog matches these filters. Clear the collection,
-            medium, or availability filters to see every entry.
+            {empty.body}
           </p>
           <button type="button" onClick={clearFilters} className="btn btn-gold mt-6">
             Clear filters
@@ -193,7 +294,11 @@ export function CatalogIndexClient(props: {
             <li key={work.id}>
               <WorkTile
                 work={work}
-                dimmed={mode === "scorecard" && !held.has(work.id)}
+                dimmed={dimUnheldInIndex({
+                  mode,
+                  held: held.has(work.id),
+                  view: holdingsView,
+                })}
               />
             </li>
           ))}

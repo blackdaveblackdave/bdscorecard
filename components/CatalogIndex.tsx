@@ -1,5 +1,5 @@
 import { CatalogIndexClient } from "@/components/CatalogFilters";
-import { availabilities, collections, mediaTypes } from "@/lib/catalog";
+import type { CatalogMode } from "@/lib/catalog-view";
 import type { Work } from "@/lib/types";
 
 function heldIdList(heldIds?: Set<string> | string[]): string[] {
@@ -7,10 +7,14 @@ function heldIdList(heldIds?: Set<string> | string[]): string[] {
   return Array.isArray(heldIds) ? heldIds : [...heldIds];
 }
 
+function uniqueSorted(values: string[]): string[] {
+  return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+}
+
 export function CatalogIndex(props: {
   works: Work[];
   heldIds?: Set<string> | string[];
-  mode?: "catalog" | "scorecard";
+  mode?: CatalogMode;
 }) {
   const mode = props.mode ?? "catalog";
   const ids = heldIdList(props.heldIds);
@@ -25,16 +29,16 @@ export function CatalogIndex(props: {
       </h2>
       <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-muted">
         {mode === "scorecard"
-          ? "Works you hold sit at full weight. Everything else stays in the list, quieter."
+          ? "Works you hold sit at full weight. Everything else stays in the list, quieter. Filter to Missed to see only the gaps."
           : "Every published work, numbered as it entered the record. Filter by collection, medium, or whether a piece is still open."}
       </p>
       <CatalogIndexClient
         works={props.works}
         heldIds={ids}
         mode={mode}
-        collections={collections()}
-        mediaTypes={mediaTypes()}
-        availabilities={availabilities()}
+        collections={uniqueSorted(props.works.map((work) => work.collection))}
+        mediaTypes={uniqueSorted(props.works.flatMap((work) => work.medium))}
+        availabilities={uniqueSorted(props.works.map((work) => work.availability))}
       />
     </section>
   );

@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { HeldWorks } from "@/components/HeldWorks";
+import { CatalogIndex } from "@/components/CatalogIndex";
 import { Scorecard } from "@/components/Scorecard";
 import { getCatalog } from "@/lib/catalog";
 import {
@@ -40,6 +39,8 @@ export default async function CollectorPage({
   const heldWorks = heldWorksFromHoldings(holdings);
   const result = score(heldWorks);
   const uncatalogued = heldWorks.filter((work) => work.title === "Uncatalogued Work");
+  const indexWorks =
+    uncatalogued.length > 0 ? [...catalog, ...uncatalogued] : catalog;
 
   return (
     <>
@@ -51,17 +52,11 @@ export default async function CollectorPage({
         catalogCount={catalog.length}
         uncataloguedCount={uncatalogued.length}
       />
-      <HeldWorks works={heldWorks} />
-      {heldWorks.length === 0 ? (
-        <section className="mx-auto flex max-w-[1400px] flex-wrap gap-3 px-4 pb-16 md:px-8 md:pb-24">
-          <Link href="/works" className="btn btn-ghost whitespace-nowrap">
-            Works
-          </Link>
-          <Link href="/vault" className="btn btn-ghost whitespace-nowrap">
-            Vault
-          </Link>
-        </section>
-      ) : null}
+      <CatalogIndex
+        works={indexWorks}
+        heldIds={heldWorks.map((work) => work.id)}
+        mode="scorecard"
+      />
     </>
   );
 }
