@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { CatalogIndex } from "@/components/CatalogIndex";
 import { Scorecard } from "@/components/Scorecard";
-import { getCatalog } from "@/lib/catalog";
+import { Vault } from "@/components/Vault";
+import { getCatalog, getVaultWorks } from "@/lib/catalog";
 import {
   getHoldings,
   heldWorksFromHoldings,
@@ -56,7 +57,9 @@ export default async function CollectorPage({
         works={indexWorks}
         heldIds={heldWorks.map((work) => work.id)}
         mode="scorecard"
+        foldable
       />
+      <Vault works={getVaultWorks()} foldable />
     </>
   );
 }

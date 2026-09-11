@@ -45,7 +45,13 @@ import {
   TOKEN_ALLOWLIST,
   POLYGON_CONTRACTS,
 } from "./contracts";
-import { getCatalog, getFeaturedWorks, getWorkById, matchHeldWork } from "./catalog";
+import {
+  getCatalog,
+  getFeaturedWorks,
+  getVaultWorks,
+  getWorkById,
+  matchHeldWork,
+} from "./catalog";
 import {
   catalogTokenStandard,
   hasErc1155Balance,
@@ -311,6 +317,22 @@ test("every catalog work is resolved", () => {
   assert.equal(
     getCatalog().filter((row) => !row.resolved).length,
     0,
+  );
+});
+
+test("vault works are only unsold or always on", () => {
+  const vault = getVaultWorks();
+  assert.equal(vault.length > 0, true);
+  assert.equal(
+    vault.every(
+      (work) =>
+        work.availability === "Unsold" || work.availability === "Always On",
+    ),
+    true,
+  );
+  assert.equal(
+    vault.some((work) => work.availability === "Sold Out"),
+    false,
   );
 });
 

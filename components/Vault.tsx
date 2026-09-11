@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
+import { FoldSection } from "@/components/FoldSection";
 import { WorkArt, WorkMeta } from "@/components/WorkTile";
 import type { Work } from "@/lib/types";
 
@@ -78,24 +79,19 @@ function VaultTile(props: { work: Work; featured?: boolean }) {
   );
 }
 
-export function Vault(props: { works: Work[] }) {
-  const { works } = props;
+export function Vault(props: { works: Work[]; foldable?: boolean }) {
+  const { works, foldable } = props;
 
   return (
-    <section
+    <FoldSection
       id="vault"
-      className="scroll-mt-24 mx-auto w-full max-w-[1400px] px-4 py-16 md:px-8 md:py-24"
+      title="Still available"
+      foldable={foldable}
+      lede="The vault. Open editions and works that have not sold out. Each one links to a live mint or listing."
     >
-      <h2 className="text-3xl tracking-tighter text-foreground md:text-4xl">
-        The Vault
-      </h2>
-      <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-muted">
-        These works are still available to collect.
-      </p>
-
       {works.length === 0 ? (
         <p className="mt-12 max-w-[65ch] text-muted">
-          Nothing in the vault right now. Sold work lives in Works.
+          Nothing is still available. Sold work lives in Works.
         </p>
       ) : (
         <ul className="mt-12 grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2">
@@ -109,6 +105,6 @@ export function Vault(props: { works: Work[] }) {
           ))}
         </ul>
       )}
-    </section>
+    </FoldSection>
   );
 }

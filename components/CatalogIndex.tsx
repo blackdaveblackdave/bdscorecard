@@ -1,4 +1,5 @@
 import { CatalogIndexClient } from "@/components/CatalogFilters";
+import { FoldSection } from "@/components/FoldSection";
 import type { CatalogMode } from "@/lib/catalog-view";
 import type { Work } from "@/lib/types";
 
@@ -15,31 +16,32 @@ export function CatalogIndex(props: {
   works: Work[];
   heldIds?: Set<string> | string[];
   mode?: CatalogMode;
+  foldable?: boolean;
 }) {
   const mode = props.mode ?? "catalog";
   const ids = heldIdList(props.heldIds);
 
   return (
-    <section
+    <FoldSection
       id="works"
-      className="scroll-mt-24 mx-auto w-full max-w-[1400px] px-4 py-16 md:px-8 md:py-24"
+      title="Works"
+      foldable={props.foldable}
+      lede={
+        mode === "scorecard"
+          ? "Works you hold sit at full weight. Everything else stays in the list, quieter. Filter to Missed to see only the gaps. Still-available work is listed below."
+          : "Every published work, numbered as it entered the record. Filter by collection, medium, or whether a piece is still open."
+      }
     >
-      <h2 className="text-3xl tracking-tighter text-foreground md:text-4xl">
-        Works
-      </h2>
-      <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-muted">
-        {mode === "scorecard"
-          ? "Works you hold sit at full weight. Everything else stays in the list, quieter. Filter to Missed to see only the gaps."
-          : "Every published work, numbered as it entered the record. Filter by collection, medium, or whether a piece is still open."}
-      </p>
       <CatalogIndexClient
         works={props.works}
         heldIds={ids}
         mode={mode}
         collections={uniqueSorted(props.works.map((work) => work.collection))}
         mediaTypes={uniqueSorted(props.works.flatMap((work) => work.medium))}
-        availabilities={uniqueSorted(props.works.map((work) => work.availability))}
+        availabilities={uniqueSorted(
+          props.works.map((work) => work.availability),
+        )}
       />
-    </section>
+    </FoldSection>
   );
 }

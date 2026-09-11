@@ -55,7 +55,7 @@ def main() -> None:
         fail(f"GET / {home_status}")
     if "The complete works" not in home:
         fail("home missing headline")
-    if "The Vault" in home:
+    if "Still available" in home:
         fail("home still has vault section")
     if f"{n} works" in home:
         fail("home still has catalog index")
@@ -81,8 +81,10 @@ def main() -> None:
     vault_status, vault = fetch(f"{BASE}/vault")
     if vault_status != 200:
         fail(f"GET /vault {vault_status}")
-    if "The Vault" not in vault:
+    if "Still available" not in vault:
         fail("vault missing heading")
+    if "have not sold out" not in vault:
+        fail("vault missing still-available copy")
     if "Want My Head" not in vault:
         fail("vault missing Want My Head")
     if ">Unsold<" in vault:
@@ -94,10 +96,14 @@ def main() -> None:
         fail(f"GET collector {col_status}")
     if "Visitor" not in col:
         fail("collector missing Visitor")
-    if "These works are still available to collect" in col:
-        fail("collector still has vault section")
+    if "Still available" not in col:
+        fail("collector missing vault heading")
+    if "have not sold out" not in col:
+        fail("collector missing vault copy")
     if "Works you hold sit at full weight" not in col:
         fail("collector missing missed-works catalog copy")
+    if "Still-available work is listed below" not in col:
+        fail("collector missing vault pointer in catalog copy")
     if f"{n} works" not in col:
         fail("collector missing full catalog count")
     if "Want My Head" not in col:

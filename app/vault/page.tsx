@@ -3,7 +3,7 @@ import { getVaultWorks } from "@/lib/catalog";
 
 export const metadata = {
   title: "Vault",
-  description: "Black Dave works that are still available to collect.",
+  description: "Open editions and Black Dave works that have not sold out.",
 };
 
 export default function VaultPage() {
