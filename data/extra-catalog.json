@@ -43,7 +43,7 @@
     "priceEth": 0.01,
     "mintDate": "2022-09-04",
     "availability": "Sold Out",
-    "artwork": "",
+    "artwork": "/art/bd-calm-down.jpg",
     "externalUrl": "https://zora.co/collect/eth:0x1a5d314beed6e39fd152cf54d3671ad33fdccf9a",
     "chain": "ethereum",
     "contract": "0x1a5d314beed6e39fd152cf54d3671ad33fdccf9a",

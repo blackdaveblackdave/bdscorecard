@@ -336,6 +336,13 @@ test("vault works are only unsold or always on", () => {
   );
 });
 
+test("every catalog work has artwork", () => {
+  assert.equal(
+    getCatalog().filter((work) => work.artwork === "").length,
+    0,
+  );
+});
+
 test("featured home works all have artwork", () => {
   const featured = getFeaturedWorks();
   assert.equal(featured.length > 50, true);
