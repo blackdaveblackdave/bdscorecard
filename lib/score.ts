@@ -18,7 +18,7 @@ function eraBonusFor(year: number): number {
 
 const BLACK_DAVE_TOKEN_COLLECTION = "Black Dave Token";
 
-function cataloguedWorks(held: Work[]): Work[] {
+export function cataloguedWorks(held: Work[]): Work[] {
   return held.filter((work) => work.resolved && work.title !== "Uncatalogued Work");
 }
 

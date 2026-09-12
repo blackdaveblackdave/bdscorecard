@@ -96,6 +96,8 @@ def main() -> None:
         fail(f"GET collector {col_status}")
     if "Visitor" not in col:
         fail("collector missing Visitor")
+    if "Achievements" in col:
+        fail("empty collector should not list achievements")
     if "Still available" not in col:
         fail("collector missing vault heading")
     if "have not sold out" not in col:

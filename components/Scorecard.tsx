@@ -2,6 +2,7 @@
 
 import { CaretDownIcon } from "@phosphor-icons/react/dist/ssr/CaretDown";
 import { motion, useReducedMotion } from "motion/react";
+import type { Achievement } from "@/lib/achievements";
 import type { Address, ScoreBreakdown, ScoreResult } from "@/lib/types";
 import { POINTS_PER_COLLECTION, POINTS_PER_MEDIUM } from "@/lib/score";
 
@@ -9,6 +10,7 @@ export function Scorecard(props: {
   address: Address;
   displayName: string;
   result: ScoreResult;
+  achievements: Achievement[];
   heldCount: number;
   catalogCount: number;
   uncataloguedCount: number;
@@ -73,6 +75,22 @@ export function Scorecard(props: {
               value={props.result.eraBonus}
               detail={eraDetail(props.result)}
             />
+          </div>
+        ) : null}
+
+        {props.achievements.length > 0 ? (
+          <div className="mt-12 max-w-[28rem] border-t border-line">
+            <h2 className="py-3 text-muted">Achievements</h2>
+            <ul>
+              {props.achievements.map((row) => (
+                <li
+                  key={row.id}
+                  className="border-t border-line py-3 text-foreground"
+                >
+                  {row.title}
+                </li>
+              ))}
+            </ul>
           </div>
         ) : null}
       </motion.div>

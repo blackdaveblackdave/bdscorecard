@@ -8,6 +8,7 @@ import {
   heldWorksFromHoldings,
   resolveCollectorId,
 } from "@/lib/holdings";
+import { unlockedAchievements } from "@/lib/achievements";
 import { score } from "@/lib/score";
 
 export async function generateMetadata({
@@ -49,6 +50,7 @@ export default async function CollectorPage({
         address={address}
         displayName={decoded}
         result={result}
+        achievements={unlockedAchievements(heldWorks)}
         heldCount={heldWorks.length}
         catalogCount={catalog.length}
         uncataloguedCount={uncatalogued.length}
