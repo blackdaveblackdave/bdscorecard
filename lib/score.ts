@@ -37,10 +37,10 @@ function emptyBreakdown(): ScoreBreakdown {
 
 export function tierForScore(score: number): TierName {
   if (score <= 0) return "Visitor";
-  if (score <= 29) return "Listed";
-  if (score <= 69) return "Collector";
-  if (score <= 129) return "Archivist";
-  return "Custodian";
+  if (score <= 49) return "Participation";
+  if (score <= 99) return "Bronze";
+  if (score <= 179) return "Silver";
+  return "Gold";
 }
 
 export function score(held: Work[]): ScoreResult {

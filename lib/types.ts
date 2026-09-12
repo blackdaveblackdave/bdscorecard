@@ -34,10 +34,10 @@ export type Holdings = {
 
 export type TierName =
   | "Visitor"
-  | "Listed"
-  | "Collector"
-  | "Archivist"
-  | "Custodian";
+  | "Participation"
+  | "Bronze"
+  | "Silver"
+  | "Gold";
 
 export type DepthLine = {
   collection: string;

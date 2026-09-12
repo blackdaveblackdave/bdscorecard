@@ -167,8 +167,11 @@ test("undated works do not wipe a later era bonus", () => {
 
 test("tier bands", () => {
   assert.equal(tierForScore(0), "Visitor");
-  assert.equal(tierForScore(1), "Listed");
-  assert.equal(tierForScore(30), "Collector");
-  assert.equal(tierForScore(70), "Archivist");
-  assert.equal(tierForScore(130), "Custodian");
+  assert.equal(tierForScore(1), "Participation");
+  assert.equal(tierForScore(49), "Participation");
+  assert.equal(tierForScore(50), "Bronze");
+  assert.equal(tierForScore(99), "Bronze");
+  assert.equal(tierForScore(100), "Silver");
+  assert.equal(tierForScore(179), "Silver");
+  assert.equal(tierForScore(180), "Gold");
 });
